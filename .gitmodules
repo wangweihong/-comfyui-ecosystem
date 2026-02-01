@@ -1,0 +1,6 @@
+[submodule "build/base/@ComfyUI-Docker"]
+	path = build/base/@ComfyUI-Docker
+	url = https://github.com/YanWenKun/ComfyUI-Docker
+[submodule "custom_nodes/_sandbox/@ComfUI-Trellis2"]
+	path = custom_nodes/_sandbox/@ComfUI-Trellis2
+	url = https://github.com/visualbruno/ComfyUI-Trellis2

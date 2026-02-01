@@ -1,0 +1,7 @@
+comfyui:
+  repo: https://github.com/comfyanonymous/ComfyUI.git
+  version: latest          # commit / tag / branch / latest / null
+
+manager:
+  repo: https://github.com/ltdrdata/ComfyUI-Manager.git
+  version: null            # null = 使用镜像内自带版本

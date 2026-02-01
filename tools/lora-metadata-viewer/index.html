@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LoRA Metadata Viewer</title>
+  <meta charset="UTF-8">
+  <link id="favicon" rel="icon" type="image/x-icon" href="data:image/webp;base64,UklGRhQEAABXRUJQVlA4WAoAAAAQAAAAFwAAFwAAQUxQSOcAAAABkGtr27FHd+zKdm3b9iHYRp3KtpNKpdOlsm3bNmbmewY/3jmDiJgA/G9pCw8XE22hRBzr124e7q/Pu2OaR5sd+EmHv5HAv0okeEgk/SQhv/x4OByRsFyTAQDJdmL4CIjEfrK4FUXkG7H8lsXwDyavZqIyD0zoMhDPbKgP64wuUMnoGbYcmyeID3FMDgH3TRZcGyAWyuJeGYDiM9H3Tz7c8SERJePfXKLB7K5/HkZznKqJKIOHwiQXKaL2SURzJmIw5ohaeUDJEUDYI9G4DoDsmz0jXjxFw5deimQAiPqaQHAxZW158AcAVlA4IAYDAACQEgCdASoYABgAAAAAJZACxHzQwNsAo5P2zXLluoHWV+gB0hnkyXLn8AP1J7AbqD6W/rzoAPpf8o/EP9wP8zpFfxZ/Zn/d7YB+GfqQfFP5X+Of5GbAx/K/xc4gD2AP4B/RP4B+rv+A9wL9V8AD+k/kB9AH8I/h38z/F/+4f9jlCf0lPrKuUSoT2/Sv58f9qt/mKkt2czTroN74uN4AAP5//b80yteOE7EOjoXcALVj/i9Vrd+9KhFotEMz7GtSd/Z/hynF8qbzzm4xXbzBf+6uP1iMormIqovu4sIB0GgsAkmF7gDrR0IRnTHkIAIhlepcjzQuqkqsUC3/UKf7ZmQKsi1NPQ4L8npBsOl5z5XmWEzZFzDGrD7Ie9//fq5XqKuXjDsh/Sxb/gbgy/XKZRnhuxl3G4dnflf/T8wlvtLeP3Tf/03TPKwPXHffvEpqmh//iMYp9Jq63glDYjZ5IA0xq/z4mGiSFHlh3gWUnuVoBzyJTV+To738nKbxQ77nT6dWYzeATn5w9D8wa//XQFf+Gs11w4MMC3/iag/8Nfzrsjwv/sP92EF/v/9cnui6pf6i23xn1lF2cd/v6x3bmUhCmbYm4BguDlXOmZFUnvdMaN0PYPuMZja8/5CteZ1oLrbEc8VS3Tl4FULGa+pfgtQ8gA2hdctrnQheR370RzIf/MHlAgKL3XvUdI8m8PLeXXDQYS+ebpjH95qlBh3XM2LMoaEBR5xh+Sw5UKlr5laqCeb8sAafvXE8YL8yTEigjkaU5N/jHGVlkkSHOllZu6JSbTdyyKlp+c3UqDkyaMt+BNzmK3I/uKsPkJHBLv5UBaon7JGxMYDTsbTm/1/L8A9bZy/f//NHwv/0hamZddrxz3N3DX2tKaTzBS9procNdLg3wzHulnK5yv/5Vmy3iAVgrX3BFInXPa+cgni7lACSPEal5Lg9PzqeiG9RIO0/M+OI6SBpEh/pJNGwUgTwX+vCRri7Gmav4+Y0gZncYMc/kDMcZh8tcqXpiG2e/quSbcFE7FYQAAA=">
+  <style>
+    :root { --link:#4dabf7; --error:#dc3545; --databg:#f1f0e4; --datatxt:#c1c5c1; --string:#64ad15; --key:#8563c1; --number:#ff9e64; --boolean:#61aeee; --null:#e06c75;}
+    :root { --primary:#e2dfd8; --bg:#F4F4F4; --text:#3e3a3e; --ntext:var(--text); --inputtext:var(--text); --inputbg:#dddbd6; --inputborder:#777; --hover:color-mix(in srgb, var(--primary) 80%, white); }
+    :root { --font: Arial, sans-serif; }
+    .light-theme { --hover:color-mix(in srgb, var(--primary) 80%, white); } 
+    .dark-theme { --bg:#121212; --text:#c1c5c1; --ntext:#3e3a3e; --inputtext:var(--text); --inputbg:#2C2E33; --hover:color-mix(in srgb, var(--primary) 80%, white); --databg:#1A1B26; --string:#9ece6a; --key:#bb9af7; }
+    .default-light-theme { --primary:#e2dfd8; }
+    .default-dark-theme { --primary:#373A40; --ntext:var(--text); }
+    .console-theme { --primary:#22c92a; --font: monospace;  --bg:#000; --text:var(--primary); --ntext:#000; --inputtext:var(--text); --inputbg: var(--bg); --inputborder: var(--primary); --hover:var(--primary); --databg:#000; --string:#9ece6a; --key:#bb9af7; }
+    .doro-theme { --primary:#fcb8d1; --font: cursive;  --bg:#fff; --text:#983cc3; --ntext:#983cc3; --inputtext:var(--text); --inputbg: #fff0f0; --inputborder: var(--primary); --hover:var(--primary); --databg:#000; }
+    .amber-theme { --primary:#ffc400; } 
+    .blue-theme { --primary:#4369fe; }
+    .lightblue-theme { --primary:#50c7ff; }
+    .cyan-theme { --primary:#00cccc; }
+    .green-theme { --primary:#22c92a; }
+    .lightgreen-theme { --primary:#97c922; }
+    .magenta-theme { --primary:#ff307f; }
+    .orange-theme { --primary:#ff8800; }
+    .purple-theme { --primary:#983cc3; }
+    .red-theme { --primary:#c90000; }
+    .pink-theme { --primary:#ffa3cb; }
+    .teal-theme { --primary:#00ac95; }
+    .yellow-theme { --primary:#ffee00; }  
+    body { font-family: var(--font); background-color:var(--bg); color: var(--text); margin:0; }
+    .body-content { margin:10px; }
+    #dropArea { width: 100%; border: 2px dashed var(--primary); text-align: center; padding: 30px 0; margin-bottom: 20px; background-color: var(--inputbg); border-radius: 20px; }
+    #dropArea.hover { background-color: var(--hover); color: var(--ntext);  }
+    .collapsible { cursor: pointer; user-select: none; margin-bottom: 5px; }
+    .collapsible:hover { background-color: var(--hover); color: var(--ntext); border-radius: 10px; }
+    .collapsible::before { content: "▼ "; display: inline-block; width: 1em; }
+    .collapsible.active::before { content: "▲ "; }
+    .content { display: none; padding: 5px; position: relative; }
+    .copy-btn { position: absolute; right: 0.5em; background-color: transparent; border: none; color: grey; }
+    .copy-btn:hover { background-color: grey; color: white; border-radius: 5px; }
+    .note { font-size: 0.7em; font-style: italic; }
+    .header, #settings-btn { margin:20px; font-size: 2em; font-weight: bold; }
+    .footer { margin:10px; text-align: center; font-size: 0.9em; }
+    #notificationPanel, #editorNotificationPanel, .error { text-align: center; color:var(--error); font-weight: bold; }
+    #settings-btn { position: absolute; top: 0; right: 0; }
+    #settings-btn.collapsible::before, #settings-btn.collapsible.active::before { content: none; }
+    #settings-panel-display span { margin-right: 16px;  }
+    a { color: var(--link); font-weight: bold; text-decoration: none; }
+    select, input, textarea, button { border-color: var(--inputborder); }
+    input, textarea, select { font-family: monospace; color: var(--text); background-color: var(--inputbg); border-radius: 10px;  }
+    input { padding:5px; }
+    textarea { width: 100%; }
+    select { font-size: 1.3em; padding: 5px;}
+    hr { border: none; border-bottom: 1px solid var(--primary); }
+    input[type=checkbox] { margin: 10px;}
+    pre { margin: 0; }
+    .json-data { overflow: overlay; background:var(--databg); color:var(--datatxt); padding: 10px; border-radius: 10px; }
+    .editor-header { text-align: center; margin: 10px; }
+    .editor-header button, .settings-button, .custom-file-upload { font-size: 1.1em; color: var(--text); background-color: var(--inputbg); border: 1px solid var(--primary); border-radius: 10px; padding:8px; }
+    .editor-header button:hover, .settings-button:hover, .custom-file-upload:hover { background-color: var(--hover); color:var(--ntext); }
+    .abort { font-size: 0.8em; display: none; }
+    .custom-file-upload > input { display: none; }
+    .svg-icon { width: 1em; height: 1em;}
+    .svg-icon-lg { width: 3em; height: 3em;}
+    .svg-icon path, .svg-icon polygon, .svg-icon rect { fill: var(--text); }
+    .svg-icon circle { stroke: var(--text); stroke-width: 1; }
+    #dropArea.hover .svg-icon path { fill: var(--ntext); }
+    .flex-container { display: flex; }
+    .string { color:var(--string); }
+    .key { color:var(--key); }
+    .summary-table td .string { color: var(--text); }
+    .summary-table td { border-bottom: 1px solid var(--primary); width: 100%; padding:4px; }
+    .summary-table tr td:first-child { font-weight: bold; width: auto; white-space: nowrap; padding-right: 20px; }
+    .summary-table select { font-size: 1em;}
+    .summary-table input[type=text] { width: 100%; width: -moz-available; width: -webkit-fill-available; }
+    .summary-table input[type=number] { max-width: 60px;}
+    .panel-option { font-size: 0.8em; }
+    .number { color:var(--number); }
+    .boolean { color:var(--boolean); }
+    .null { color:var(--null); }
+    .editable-list, .editable-list input, .editable-list textarea { vertical-align: top; width: 100%; width: -moz-available; width: -webkit-fill-available;}
+    .editable-list td { padding: 5px;  }
+    .editable-list th { text-align: left; }
+    .pillbox { display: inline-block; border: 1px solid #ccc; border-radius: 20px; padding: 4px 6px; margin: 5px; }
+    .pillbox span { background-color: var(--primary); border-radius: 10px; padding: 2px 4px; margin: 2px; }
+    .section-header { font-size: 1.2em; font-weight: bold;}
+    .notes { font-style: italic; font-size: 0.8em; }
+    .summary-grid { display: flex; flex-wrap: wrap; font-size: 20px; color: var(--datatxt);} 
+    .summary-grid > div { border: 1px solid var(--inputbg); background-color: var(--databg); align-self: flex-start; border-radius: 12px; margin: 5px; padding:5px; } 
+    .summary-grid > div > div:first-child { color: var(--string); font-size: 16px;} 
+    .tabcontent { display: none; border:1px solid var(--primary); border-radius: 0 20px 20px 20px; padding: 10px; margin-bottom: 10px; }
+    .tablinks { font-size: 1em; color: var(--text); background-color: var(--inputbg); cursor: pointer; padding: 10px 20px; margin: 0; border: 1px solid var(--primary); border-radius: 12px 12px 0 0; }
+    .tablinks:hover, .tablinks.active { background-color: var(--hover); color: var(--ntext); }
+    .tooltip { position:absolute; background-color: black; color: white; padding: 5px; border-radius: 3px; z-index: 1000; }
+    .copyable-item { cursor: pointer; background-color: var(--inputbg); font-weight: normal; border-radius: 8px; padding: 3px; }
+    .copyable-item:hover { background-color: var(--hover); color: var(--ntext); }
+    #loading { display: none; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 1.5rem; color: #ffffff; background: rgba(0, 0, 0, 0.7); padding: 20px; border-radius: 10px; z-index: 1000; min-width: 300px; text-align: center; }
+    #loading .spinner { margin: 10px auto; border: 4px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top: 4px solid #ffffff; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .progress-container { width: 100%; height: 30px; background-color: #f3f3f3; border: 1px solid #ccc; border-radius: 5px; position: relative; margin: 20px 0; text-align: center; }
+    .progress-bar { height: 100%; width: 0;  background-color: #4caf50; border-radius: 5px; position: absolute; top: 0; left: 0;  transition: width 0.2s ease-in-out; }
+    .progress-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; color: black; z-index: 2; }
+    .preview-image img, .preview-image video { width: 100%; max-width: 500px; }
+    #toast-container { position: fixed; top: 1rem; right: 1rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 9999; }
+    .toast { background-color: #333; padding: 1rem 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); position: relative; min-width: 200px; max-width: 300px; font-family: sans-serif; color: #fff; animation: fadeIn 0.3s ease; }
+    .toast span { margin-right: 20px; }
+    .toast.success { background-color: #2ecc71; }
+    .toast.error { background-color: #e74c3c; }
+    .toast.warning { background-color: #f39c12; }
+    .toast.info { background-color: #3498db; }
+    .toast .close-btn { position: absolute; top: 0.5rem; right: 0.7rem; background: none; border: none; color: #fff; font-size: 1rem; cursor: pointer; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    doro-doro { position: absolute; margin: -12px 0 0 6px; }
+  </style>
+</head>
+<body class="dark-theme">
+  <div class="header">
+    LoRA Metadata Viewer
+    <doro-doro></doro-doro>
+  </div>
+  <hr/>
+  <span id="settings-btn" class="collapsible boom" data-target="settings-panel">⚙</span>
+  <div id="toast-container"></div>
+  <div class="body-content">
+    <div id="settings-panel" class="content">
+      <div class="tab-container">
+          <button class="tablinks" data-target-tab="tab0">General</button>
+          <button class="tablinks" data-target-tab="tab1">Display</button>
+          <button class="tablinks" data-target-tab="tab2">Summary</button>
+          <button class="tablinks" data-target-tab="tab3">Metadata Editor</button>
+          <button class="tablinks" data-target-tab="tab4">Custom Fields</button>
+          <button class="tablinks" data-target-tab="tab5">Online Lookup</button>
+      
+          <div id="tab0" class="tabcontent">
+            <div><input type="checkbox" id="enableUpdateCheck" class="settings-field" checked><label for="enableUpdateCheck">Check for updates</label></div>
+            <div><span class="notes">Settings are stored in your browser through the Local Storage API and will persist across sessions. Use this section to either reset, load, or save your current configuration.</span></div>           
+            <button id="clearSettingsBtn" class="settings-button">Restore Default Settings</button>
+            <button id="exportSettingsBtn" class="settings-button">Export Settings</button>
+            <button id="importSettingsBtn" class="settings-button">Import Settings</button>
+            <label class="custom-file-upload"><input type="file" id="importSettingsFile">Choose Import File</label>
+            <span id="importSettingsFileName">No file chosen</span>
+          </div>
+          <div id="tab1" class="tabcontent">
+            <div class="section-header boom">Display Settings</div>
+            <hr>
+            <div id="settings-panel-display">
+              <span>
+                <label for="themeSelect">Theme: </label>
+                <select id="themeSelect" class="settings-field">
+                  <option value="default" selected>Default</option>
+                  <option value="light-theme">Light</option>
+                  <option value="dark-theme">Dark</option>
+                  <option value="console-theme">Hackerman</option>
+                  <option value="doro-theme">:3</option>
+                </select>
+              </span>
+              <span>
+                <label for="themeColorSelect">Color: </label>
+                <select id="themeColorSelect" class="settings-field">
+                  <option value="default" selected>Default</option>
+                  <option value="amber-theme">Amber</option>
+                  <option value="blue-theme">Blue</option>
+                  <option value="lightblue-theme">Blue (Light)</option>
+                  <option value="cyan-theme">Cyan</option>
+                  <option value="green-theme">Green</option>
+                  <option value="lightgreen-theme">Green (Light)</option>
+                  <option value="magenta-theme">Magenta</option>
+                  <option value="orange-theme">Orange</option>
+                  <option value="red-theme">Red</option>
+                  <option value="pink-theme">Pink</option>
+                  <option value="purple-theme">Purple</option>
+                  <option value="teal-theme">Teal</option>
+                  <option value="yellow-theme">Yellow</option>
+                  <option value="custom-theme">Custom</option>
+                </select>
+                <input id="themeColorPicker" type="color" class="settings-field" value="#888888">
+              </span>
+              <span>
+                <label for="themeBgColorSelect">Background Color: </label>
+                <select id="themeBgColorSelect" class="settings-field">
+                  <option value="" selected>Default</option>
+                  <option value="black">Black</option>
+                  <option value="white">White</option>
+                  <option value="custom-theme">Custom</option>
+                </select>
+                <input id="themeBgColorPicker" type="color" class="settings-field" value="#888888">
+              </span>
+              <span>
+                <label for="themeInputColorSelect">Textbox Color: </label>
+                <select id="themeInputColorSelect" class="settings-field">
+                  <option value="" selected>Default</option>
+                  <option value="black">Black</option>
+                  <option value="white">White</option>
+                  <option value="custom-theme">Custom</option>
+                </select>
+                <input id="themeInputColorPicker" type="color" class="settings-field" value="#888888">
+              </span>
+              <span>
+                <label for="themeFont">Font: </label>
+                <select id="themeFont" class="settings-field">
+                  <option value="">Default</option>
+                  <option value="Arial, sans-serif">Arial</option>
+                  <option value="cursive">Cursive</option>
+                  <option value="monospace">Monospace</option>
+                </select>
+              </span>
+              <span>
+                <label for="themeFontColorSelect">Font Color: </label>
+                <select id="themeFontColorSelect" class="settings-field">
+                  <option value="" selected>Default</option>
+                  <option value="black">Black</option>
+                  <option value="white">White</option>
+                  <option value="#ffc400">Amber</option>
+                  <option value="#4369fe">Blue</option>
+                  <option value="#50c7ff">Blue (Light)</option>
+                  <option value="#00cccc">Cyan</option>
+                  <option value="#22c92a">Green</option>
+                  <option value="#97c922">Green (Light)</option>
+                  <option value="#ff307f">Magenta</option>
+                  <option value="#ff8800">Orange</option>
+                  <option value="#c90000">Red</option>
+                  <option value="#ffa3cb">Pink</option>
+                  <option value="#983cc3">Purple</option>
+                  <option value="#00ac95">Teal</option>
+                  <option value="#ffee00">Yellow</option>
+                  <option value="custom-theme">Custom</option>
+                </select>
+                <input id="themeFontColorPicker" type="color" class="settings-field" value="#888888">
+              </span>
+            </div>
+            <hr>
+            <div><input type="checkbox" id="enableSummary" class="settings-field" data-display="summaryPanel" checked><label for="enableSummary">Display Summary</label></div>
+            <div><input type="checkbox" id="enableOnlineLookup" class="settings-field" data-display="onlineLookupPanel" checked><label for="enableOnlineLookup">Display Online Lookup Info</label></div>
+            <div><input type="checkbox" id="enableSuggestedPrompt" class="settings-field" data-display="suggestedPromptPanel" checked><label for="enableSuggestedPrompt">Display Suggested Prompt</label></div>
+            <div><input type="checkbox" id="enableTagFrequency" class="settings-field" data-display="tagFrequencyPanel" checked><label for="enableTagFrequency">Display Tag Frequency</label></div>
+            <div><input type="checkbox" id="enableMetadata" class="settings-field" data-display="metadataPanel" checked><label for="enableMetadata">Display Metadata</label></div>
+            <div><input type="checkbox" id="enableMetadataEditor" class="settings-field" data-display="metadataEditorPanel" checked><label for="enableMetadataEditor">Display Metadata Editor</label></div>
+          </div>
+          <div id="tab2" class="tabcontent">
+            <div><input type="checkbox" id="showUndefinedSummaryValues" class="settings-field" checked><label class="section-header" for="showUndefinedSummaryValues">Show undefined summary values</label></div>
+            <hr>
+            <div><span class="section-header">Summary Fields</span><br><span class="notes">Specify the name of the fields to be displayed in the summary section, separated by commas. To include fields from the CivitAI metadata, add "civitai." prefix (ie. "civitai.trainedWords"). To include custom fields, add "custom." prefix (ie. "custom.training_time").</span></div>
+            <textarea id="summaryFields" class="settings-field" rows="8" cols="100" spellcheck="false"></textarea>
+            <hr>
+            <div><span class="section-header">Custom Summary Template</span><br><span class="notes">This section defines the template to be used in the custom summary layout in HTML format. The fields to be displayed must be defined within {{}}. ( ie: {{ss_output_name}} ). To include file metadata fields, simply specify the field name. To include fields from the CivitAI metadata, add "civitai." prefix (ie. "civitai.trainedWords"). To include custom fields, add "custom." prefix (ie. "custom.training_time").</span></div>
+            <textarea id="customTemplate" spellcheck="false" class="settings-field" rows="60" cols="100">
+              <style>
+                .tile { display: flex; flex-direction: column; margin: 10px; overflow-wrap: anywhere; } 
+                .tile > div > div:first-child { border-bottom: 1px solid var(--text); font-size: 0.8em; width: fit-content; } 
+                .tile > div { padding: 5px; }
+                .tile > div:first-child { border-bottom: 1px solid var(--text); font-size: 1em; width: 100%; padding: 0; margin-bottom: 10px; } 
+                .break { flex-basis: 100%; height: 0;}
+                .prompt { font-size: 0.7em; }
+              </style>
+              <div class="custom-grid" style="display: flex; font-size: 20px;">
+                <div class="tile" style="max-width: 320px; min-width: 320px;">
+                  <div>Model</div>
+                  <div>{{custom.link}}</div>
+                  <div style="font-size: 0.8em;">{{custom.title?}}</div>
+                  <div class="null">{{custom.preview}}</div>
+                  <div style="max-height: 42px;">
+                    <div>Creator</div>
+                    <div>{{custom.creator}}</div>
+                  </div>
+                  <div>
+                    <div>AutoV2</div>
+                    <div>{{custom.autov2}}</div>
+                  </div>
+                  <div>
+                    <div>AutoV3</div>
+                    <div>{{custom.autov3}}</div>
+                  </div>
+                  <div>
+                    <div>Base Model</div>
+                    <div>{{custom.base_model_url}}</div>
+                  </div>
+                  <div>
+                    <div>VAE</div>
+                    <div>{{custom.vae_url}}</div>
+                  </div>
+                </div>
+                <div class="custom-grid" style="display: flex; flex-wrap: wrap;">
+                  <div class="tile">
+                    <div>General</div>
+                    <div>
+                      <div>Prediction Type</div>
+                      <div>{{modelspec.prediction_type}}</div>
+                    </div>
+                    <div>
+                      <div>Batch</div>
+                      <div>{{custom.batch_size}}</div>
+                    </div>
+                    <div>
+                      <div>Gradient Acc. Steps</div>
+                      <div>{{custom.gradient_accumulation}}</div>
+                    </div>
+                    <div>
+                      <div>Resolution</div>
+                      <div>{{custom.resolution}}</div>
+                    </div>
+                    <div>
+                      <div>Clip Skip</div>
+                      <div>{{ss_clip_skip}}</div>
+                    </div>
+                    <div>
+                      <div>Epoch</div>
+                      <div>{{ss_epoch}} of {{ss_num_epochs}}</div>
+                    </div>
+                    <div>
+                      <div>Steps</div>
+                      <div>{{ss_steps}} of {{ss_max_train_steps}}</div>
+                    </div>
+                  </div>
+                  <div class="tile">
+                    <div>Network</div>
+                    <div>
+                      <div>Module</div>
+                      <div>{{ss_network_module}}</div>
+                    </div>
+                    <div>
+                      <div>Algorithm</div>
+                      <div>{{custom.algo_dora}}</div>
+                    </div>
+                    <div>
+                      <div>Dim / Alpha</div>
+                      <div class="number">{{ss_network_dim}} / {{ss_network_alpha}}</div>
+                    </div>
+                    <div>
+                      <div>Conv Dim / Alpha</div>
+                      <div class="number">{{custom.conv_dim}} / {{custom.conv_alpha}}</div>
+                    </div>
+                    <div>
+                      <div>Network Dropout</div>
+                      <div>{{ss_network_dropout}}</div>
+                    </div>
+                    <div>
+                      <div>IP Noise Gamma</div>
+                      <div>{{ss_ip_noise_gamma}}</div>
+                    </div>
+                  </div>
+                  <div class="tile">
+                    <div>Optimizer</div>
+                    <div>
+                      <div>Type</div>
+                      <div>{{custom.optimizer}}</div>
+                    </div>
+                    <div>
+                      <div>Scheduler</div>
+                      <div>{{ss_lr_scheduler}}</div>
+                    </div>
+                    <div>
+                      <div>Learning Rates</div>
+                      <div>LR: {{ss_learning_rate}}</div>
+                      <div>TE: {{ss_text_encoder_lr}}</div>
+                      <div>UNET: {{ss_unet_lr}}</div>
+                    </div>
+                    <div>
+                      <div>Optional Args</div>
+                      <div style="font-size: 12px;">{{custom.optimizer_args}}</div>
+                    </div>
+                    <div>
+                      <div>SNR</div>
+                      <div>{{ss_min_snr_gamma}}</div>
+                    </div>
+                    <div>
+                      <div>Warmup Steps</div>
+                      <div>{{ss_lr_warmup_steps}}</div>
+                    </div>
+                  </div>
+                  <div class="tile">
+                    <div>Noise Offset</div>
+                    <div>
+                      <div>Noise Offset</div>
+                      <div>{{ss_noise_offset}}</div>
+                    </div>
+                    <div>
+                      <div>Pyramid Noise Iterations</div>
+                      <div>{{ss_multires_noise_iterations}}</div>
+                    </div>
+                    <div>
+                      <div>Discount</div>
+                      <div>{{ss_multires_noise_discount}}</div>
+                    </div>
+                  </div>
+                  <div class="tile">
+                    <div>Training Info</div>
+                    <div>
+                      <div>Train Date</div>
+                      <div>{{custom.training_date}}</div>
+                    </div>
+                    <div>
+                      <div>Train Time</div>
+                      <div>{{custom.training_time}}</div>
+                    </div>
+                    <div>
+                      <div>Total Images</div>
+                      <div>{{custom.training_images}}</div>
+                    </div>
+                    <div>
+                      <div>Dataset</div>
+                      <div style="font-size: 12px;">{{ss_dataset_dirs}}</div>
+                    </div>
+                  </div>
+                  <div class="break"></div>
+                  <div class="tile">
+                    <div>Suggested Prompt</div>
+                    <div id="dashboardSuggestedPrompt" class="prompt">{{custom.suggested_prompt?}}</div>
+                  </div>
+                  <div class="break"></div>
+                  <div class="tile">
+                    <div>Trigger Words ({{custom.lookup_source?}})</div>
+                    <div id="triggerWordsPrompt" class="prompt">{{custom.trigger_words?}}</div>
+                  </div>
+                  <div class="break"></div>
+                  <div class="tile">
+                    <div>Training Comment</div>
+                    <div>{{ss_training_comment}}</div>
+                  </div>
+                </div>
+              </div>
+              
+            </textarea>
+          </div>
+          <div id="tab3" class="tabcontent">
+            <div><span class="section-header">Metadata Editor Fields</span><br><span class="notes">Specify the name of the fields to be displayed in the simple view of the metadata editor section, separated by commas.</span></div>
+            <textarea id="editorFields" class="settings-field" rows="8" cols="100" spellcheck="false"></textarea>
+          </div>
+          <div id="tab4" class="tabcontent">
+            <div><span class="section-header">Custom Fields</span><br><span class="notes">This section defines the list of custom fields that may be displayed in the summary section. Calculations are defined as javascript expressions. Data from the following are available for calculations: Safetensors File metadata (fileMetadata), CivitAI resource info (civitaiMetadata), and previously defined custom fields (customMetadata). Keep in mind that custom fields are created in the same order they are defined in the list, meaning you may use a custom field in a calculation only if it was defined in a previous row.</span></div>
+            <table class="editable-list">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Calculation</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody id="editableList" data-list-template="listItemTemplate"></tbody>
+              <template id="listItemTemplate">
+                <tr class="list-item">
+                  <td><input name="label" type="text" class="label-input" placeholder="Enter label" spellcheck="false" value="{{label}}"></td>
+                  <td><textarea name="calc" class="calculation-input" rows="3" cols="100" placeholder="Enter calculation" spellcheck="false" >{{calc}}</textarea></td>
+                  <td><button class="settings-button" onclick="removeListItem(this)">X</button></td>
+                </tr>
+              </template>
+            </table>
+            <button class="settings-button" onclick="addListItem('editableList','listItemTemplate')">Add Custom Field</button>
+            <button class="settings-button" onclick="$('customFields').dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))">Save Custom Field Changes</button>
+            <textarea id="customFields" class="settings-field" style="display: none;" rows="12" spellcheck="false" data-editable-list="editableList"></textarea>      
+          </div>
+          <div id="tab5" class="tabcontent">
+            <div><span class="section-header">Resource Lookup</span></div>
+            <div>
+              <div>
+                <label for="primaryLookup"><span>Primary Lookup</span></label>
+                <select id="primaryLookup" class="settings-field" data-select-toggle>
+                  <option>Disabled</option>
+                  <option value="civ">CivitAI</option>
+                  <option value="aec">Arc En Ciel</option>
+                </select>
+                </select>
+                <label for="secondaryLookup"><span>Secondary Lookup</span></label>
+                <select id="secondaryLookup" class="settings-field" data-select-toggle>
+                  <option>Disabled</option>
+                  <option value="civ">CivitAI</option>
+                  <option value="aec">Arc En Ciel</option>
+                </select>
+              </div>
+            </div>
+            <hr>
+            <div><span class="section-header">HTTP Proxy</span></div>
+            <div><input type="checkbox" id="enableProxy" class="settings-field" checked><label for="enableProxy">Use HTTP Proxy for Arc En Ciel resource lookup</label></div>
+            <div class="notes">Required for Arc En Ciel resource lookup due to site security restrictions. If enabled, requests to Arc En Ciel will be routed through the proxy URL.</div>
+            <br>
+            <div>
+              <label for="proxyUrl"><span>Proxy URL</span></label>
+              <input type="text" id="proxyUrl" class="settings-field" style="width: -webkit-fill-available;">
+            </div>
+            <br>
+            <div>
+              <div class="collapsible" data-target="local-proxy-panel">Local HTTP Proxy (Optional)</div>
+              <div id="local-proxy-panel">
+                <div class="notes">Alternatively, a proxy web server may be hosted locally with the following minimal python script. To run the proxy locally, download/copy the following 'proxy.py' python script, place the file in the same folder as this application's .html file, and execute the script with the following command <u class="key copyable-item">python proxy.py --port 8008</u> . Running the command will launch the app at <u class="key copyable-item">http://localhost:8008</u>. Replace the "Proxy URL" setting above with <u class="key copyable-item">http://localhost:8008/?url=</u> to use the local instance.</div>
+                <br>
+                <div class="section-header">proxy.py - <a href="#" onclick="downloadProxyScript()">Download</a></div>
+                <div id="proxy-script-panel">
+                  <button class="copy-btn" onclick="copyToClipboard('proxyScript',event)">Copy to clipboard</button>
+                  <pre id="proxyScript" class="json-data">
+import http.server
+import socketserver
+import webbrowser
+import argparse
+from urllib.parse import urlparse, parse_qs, unquote
+import urllib.request
+import urllib.error
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--port', type=int, default=8008)
+parser.add_argument('--html_file', type=str, default="index.html")
+args = parser.parse_args()
+
+PORT = args.port
+HTML_FILE = args.html_file
+
+if not os.path.exists(HTML_FILE):
+    raise FileNotFoundError(f"{HTML_FILE} not found")
+
+class CORSRequestHandler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type')
+        super().end_headers()
+
+    def do_GET(self):
+        parsed = urlparse(self.path)
+        query = parse_qs(parsed.query)
+        target = query.get('url', [None])[0]
+        if target:
+            try:
+                print(f'Fetching: {target}')
+                req = urllib.request.Request(
+                    unquote(target),
+                    headers={ 'User-Agent': 'Mozilla/5.0', 'Accept': '*/*' }
+                )
+                with urllib.request.urlopen(req) as resp:
+                    self.send_response(resp.status)
+                    for k, v in resp.getheaders():
+                        self.send_header(k, v)
+                    self.end_headers()
+                    self.wfile.write(resp.read())
+            except urllib.error.HTTPError as e:
+                self.send_response(e.code)
+                for k, v in e.headers.items():
+                    self.send_header(k, v)
+                self.end_headers()
+                self.wfile.write(e.read())
+            except Exception as e:
+                self.send_response(500)
+                self.end_headers()
+                self.wfile.write(str(e).encode())
+        else:
+            super().do_GET()
+
+os.chdir(os.path.dirname(os.path.abspath(HTML_FILE)))
+with socketserver.TCPServer(('', PORT), CORSRequestHandler) as httpd:
+    print(f"Serving on http://localhost:{PORT}")
+    webbrowser.open(f"http://localhost:{PORT}/{HTML_FILE}")
+    httpd.serve_forever()
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="dropArea" class="drop-area">
+      <p>Drag and drop your safetensors file here </br>or click to select a safetensors file</p>
+      <div>
+        <svg class="svg-icon svg-icon-lg" viewBox="0 0 20 20">
+          <path fill="none" d="M8.416,3.943l1.12-1.12v9.031c0,0.257,0.208,0.464,0.464,0.464c0.256,0,0.464-0.207,0.464-0.464V2.823l1.12,1.12c0.182,0.182,0.476,0.182,0.656,0c0.182-0.181,0.182-0.475,0-0.656l-1.744-1.745c-0.018-0.081-0.048-0.16-0.112-0.224C10.279,1.214,10.137,1.177,10,1.194c-0.137-0.017-0.279,0.02-0.384,0.125C9.551,1.384,9.518,1.465,9.499,1.548L7.76,3.288c-0.182,0.181-0.182,0.475,0,0.656C7.941,4.125,8.234,4.125,8.416,3.943z M15.569,6.286h-2.32v0.928h2.32c0.512,0,0.928,0.416,0.928,0.928v8.817c0,0.513-0.416,0.929-0.928,0.929H4.432c-0.513,0-0.928-0.416-0.928-0.929V8.142c0-0.513,0.416-0.928,0.928-0.928h2.32V6.286h-2.32c-1.025,0-1.856,0.831-1.856,1.856v8.817c0,1.025,0.832,1.856,1.856,1.856h11.138c1.024,0,1.855-0.831,1.855-1.856V8.142C17.425,7.117,16.594,6.286,15.569,6.286z"></path>
+        </svg>      
+      </div>
+    </div>
+
+    <div id="notificationPanel"></div>
+
+    <div id="summaryPanel">
+      <h3 class="collapsible expanded">Summary</h3>
+      <div class="content">
+        <div class="panel-option">
+          <label class="section-header" for="summaryFormat">Layout: </label>
+          <select id="summaryFormat" class="settings-field" data-select-toggle>
+            <option value="json">JSON</option>
+            <option value="table">Table</option>
+            <!-- <option value="grid">Grid</option> -->
+            <option value="custom" selected>Dashboard</option>
+          </select>
+        </div>
+        <div id="summaryJson" data-toggle-target="summaryFormat" data-toggle-value="json">
+          <button class="copy-btn" onclick="copyToClipboard('summary',event)">Copy to clipboard</button>
+          <pre id="summary" class="json-data"></pre>
+        </div>
+        <div id="summaryTable" data-toggle-target="summaryFormat" data-toggle-value="table" class="summary-table"></div>
+        <div id="summaryGrid" data-toggle-target="summaryFormat" data-toggle-value="grid"></div>
+        <div id="summaryCustom" data-toggle-target="summaryFormat" data-toggle-value="custom"></div>
+        <hr>
+      </div>
+      <template id="summaryGridTemplate">
+        <div>
+          <div>{{key}}</div>
+          <div>{{value}}</div>
+        </div>
+      </template>
+    </div>
+
+    <div id="suggestedPromptPanel">
+      <h3 class="collapsible" data-target="suggested-prompt-content">Suggested Prompt</h3>
+      <div id="suggested-prompt-content" class="content">
+        <div id="tag-filter-btn" class="collapsible" data-target="suggested-prompt-settings">⚙</div>
+        <div id="suggested-prompt-settings" >
+          <table class="summary-table">
+            <tr>
+              <td><label for="suggestedPromptCount"><span >Show top N tags</span></label> <span id="suggestedPromptFilterVld" class="error"></span></td>
+              <td colspan="2"><input type="number" id="suggestedPromptCount" class="settings-field"><span class="note"></span></td>
+            </tr>
+            <tr>
+              <td><label for="suggestedPromptFilter"><span>Include Filter</span></label></td>
+              <td>
+                <input type="text" id="suggestedPromptFilter" class="settings-field">
+              </td>
+              <td>
+                <select id="suggestedPromptFilterMethod" class="settings-field">
+                  <option selected>None/Disable</option>
+                  <option value="partial">Partial Match (comma delimited)</option>
+                  <option value="exact">Exact Match (comma delimited)</option>
+                  <option value="regex">Regular Expression</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="suggestedPromptExcludeFilter"><span >Exclude Filter</span></label> <span id="suggestedPromptExcludeFilterVld" class="error"></span></td>
+              <td>
+                <input type="text" id="suggestedPromptExcludeFilter" class="settings-field">
+              </td>
+              <td>
+                <select id="suggestedPromptExcludeFilterMethod" class="settings-field">
+                  <option>None/Disable</option>
+                  <option value="partial">Partial Match (comma delimited)</option>
+                  <option value="exact" selected>Exact Match (comma delimited)</option>
+                  <option value="regex">Regular Expression</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"><input type="checkbox" id="suggestedPromptByFolder" class="settings-field"><label for="suggestedPromptByFolder">Show prompt by folder</label></td>
+            </tr>
+          </table>
+        </div>
+        <div id="suggestedPromptDetails"></div>
+      </div>
+    </div>
+
+    <div id="tagFrequencyPanel" >
+      <h3 class="collapsible" data-target="tag-frequency-content">Tag Frequency</h3>
+      <div id="tag-frequency-content" class="content">
+        <div id="tag-filter-btn" class="collapsible" data-target="tag-frequency-settings">⚙</div>
+        <div id="tag-frequency-settings" >
+          <table class="summary-table">
+            <tr>
+              <td><label for="tagFrequencyCount"><span >Show top N tags</span></label> <span id="tagFrequencyFilterVld" class="error"></span></td>
+              <td colspan="2"><input type="number" id="tagFrequencyCount" class="settings-field"><span class="note"></span></td>
+            </tr>
+            <tr>
+              <td><label for="tagFrequencyFilter"><span>Include Filter</span></label></td>
+              <td>
+                <input type="text" id="tagFrequencyFilter" class="settings-field">
+              </td>
+              <td>
+                <select id="tagFrequencyFilterMethod" class="settings-field">
+                  <option selected>None/Disable</option>
+                  <option value="partial">Partial Match (comma delimited)</option>
+                  <option value="exact">Exact Match (comma delimited)</option>
+                  <option value="regex">Regular Expression</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="tagExcludeFilter"><span >Exclude Filter</span></label> <span id="tagExcludeFilterVld" class="error"></span></td>
+              <td>
+                <input type="text" id="tagExcludeFilter" class="settings-field">
+              </td>
+              <td>
+                <select id="tagExcludeFilterMethod" class="settings-field">
+                  <option selected>None/Disable</option>
+                  <option value="partial">Partial Match (comma delimited)</option>
+                  <option value="exact">Exact Match (comma delimited)</option>
+                  <option value="regex">Regular Expression</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"><input type="checkbox" id="tagByFolder" class="settings-field"><label for="tagByFolder">Show tags by folder</label></td>
+            </tr>
+          </table>
+        </div>
+        <button class="copy-btn" onclick="copyToClipboard('keywordDetails',event)">Copy to clipboard</button>
+        <pre id="keywordDetails" class="json-data"></pre>
+      </div>
+    </div>
+
+    <div id="onlineLookupPanel">
+      <h3 class="collapsible">Online Lookup</h3>
+      <div class="content summary-table">
+        <table>
+          <tr><td>Model URL:</td><td><a id="modelUrl" target='_blank' href="#"></a></td></tr>
+          <tr><td>Resource Info:</td><td><a id="resourceUrl" target='_blank' href="#"></a></td></tr>
+          <tr><td>Preview:</td><td><span id='previewImage' class="preview-image"></span></td></tr>
+        </table>
+        <div><pre id="onlineLookupData" class="json-data"></div>
+      </div>
+    </div>
+
+    <div id="metadataPanel">
+      <h3 class="collapsible">Metadata</h3>
+      <div class="content">
+        <button class="copy-btn" onclick="copyToClipboard('metadataDisplay',event)">Copy to clipboard</button>
+        <pre id="metadataDisplay" class="json-data"></pre>
+      </div>
+    </div>
+
+    <div id="metadataEditorPanel">
+      <h3 class="collapsible">Metadata Editor</h3>
+      <div class="content">
+        <div class="panel-option" >
+          <label class="section-header" for="editorFormat">Layout: </label>
+          <select id="editorFormat" class="settings-field" data-select-toggle>
+            <option value="manual">Manual</option>
+            <option value="simple">Simple</option>
+          </select>
+        </div>
+        <div id="editorHeader" class="editor-header" style="display: none;">
+          <button onclick="downloadFile()">Update & Download</button>
+          <button onclick="downloadFile(true)">Purge & Download</button>
+        </div>
+        <div id="editorNotificationPanel"></div>
+        <textarea id="metadataEditor" spellcheck="false" rows="100" cols="100" data-toggle-target="editorFormat" data-toggle-value="manual"></textarea>
+        <div class="summary-table" data-toggle-target="editorFormat" data-toggle-value="simple">
+          <table>
+            <tbody id="metadataEditorSimple"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  <div class="footer">
+    LoRA Metadata Viewer <span id="appVersion">v1.7</span> |
+    <a href="https://github.com/Xypher7/lora-metadata-viewer" target='_blank'>GitHub</a> |
+    <a href="https://civitai.com/models/249721" target='_blank'>CivitAI</a>
+  </div>
+
+  <!-- Loading Animation Div -->
+  <div id="loading">
+    <div class="loading-message"></div>
+    <div class="spinner"></div>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+      <div class="progress-text">0%</div>
+    </div>
+    <div><button class="abort settings-button" onclick="abort()">Cancel</button></div>
+  </div>
+
+  <!-- <script src="https://xypher7.github.io/Doro.js/doro.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/hash-wasm@4/dist/sha256.umd.min.js"></script>
+  <script>
+    //#region Gobal Variables
+    const VARIABLES = {
+      safetensorsFile: 'test',
+      fileMetadata: {},
+      civitaiMetadata: {},
+      arcencielMetadata: {},
+      customMetadata: {},
+      basemodelMetadata: {},
+      vaeMetadata: {},
+      abortController: null
+    };
+
+    const DEFAULTS = {
+      summaryFields: "ss_output_name,ss_sd_model_name,ss_network_module,custom.batch_size,ss_gradient_accumulation_steps,custom.resolution,ss_optimizer,ss_lr_scheduler,ss_network_module,ss_clip_skip,ss_network_dim,ss_network_alpha,ss_network_args,ss_epoch,ss_num_epochs,ss_steps,ss_max_train_steps,ss_learning_rate,ss_text_encoder_lr,ss_unet_lr,ss_noise_offset,ss_adaptive_noise_scale,ss_min_snr_gamma,sshs_model_hash,custom.training_time,custom.training_start_time,custom.training_end_time,custom.lora_hash,custom.lora_hash_type,custom.civitai_url,ss_dataset_dirs,civitai.trainedWords",
+      editorFields: "ss_output_name,ss_training_comment",
+      suggestedPromptCount: 10,
+      suggestedPromptExcludeFilter: "1girl,1boy,background,standing,portrait,cowboy shot,upper body,looking at viewer,solo,smile,open mouth,closed mouth,blush,nude,nipples,anime,male focus",
+      suggestedPromptExcludeFilterMethod: 'partial',
+      suggestedPromptByFolder: "true",
+      primaryLookup: 'civ',
+      proxyUrl: "https://corsproxy.io/?url=",
+      customFields: [
+        {"label":"training_start_time","calc":"new Date(fileMetadata.ss_training_started_at * 1000)"},
+        {"label":"training_end_time","calc":"new Date(fileMetadata.ss_training_finished_at * 1000)"},
+        {"label":"training_time_ms","calc":"Math.abs(customMetadata.training_end_time.getTime() - customMetadata.training_start_time.getTime())"},
+        {"label":"training_h","calc":"Math.floor(customMetadata.training_time_ms / (1000 * 60 * 60))"},
+        {"label":"training_m","calc":"Math.floor((customMetadata.training_time_ms % (1000 * 60 * 60)) / (1000 * 60))"},
+        {"label":"training_s","calc":"Math.floor((customMetadata.training_time_ms % (1000 * 60)) / 1000)"},
+        {"label":"training_time","calc":"customMetadata.training_time_ms ? `${customMetadata.training_h}h ${customMetadata.training_m}m ${customMetadata.training_s}s` : undefined"},
+        {"label":"batch_size","calc":"fileMetadata.ss_total_batch_size || (fileMetadata.ss_datasets && fileMetadata.ss_datasets[0].batch_size_per_device)"},
+        {"label":"resolution","calc":"fileMetadata['modelspec.resolution'] || fileMetadata.ss_resolution || fileMetadata.ss_datasets[0].resolution.toString()"},
+        {"label":"optimizer","calc":"fileMetadata.ss_optimizer && fileMetadata.ss_optimizer.match(/\\b(\\w+)\\b(?=\\s*\\()|\\b(\\w+)\\b$/)?.[0]"},
+        {"label":"base_model_hash","calc":"(fileMetadata.ss_new_sd_model_hash || fileMetadata.ss_sd_model_hash).substring(0,10)"},
+        {"label":"conv_dim","calc":"parseInt(fileMetadata.ss_network_args.conv_dim) || undefined"},
+        {"label":"conv_alpha","calc":"parseFloat(fileMetadata.ss_network_args.conv_alpha) || undefined"},
+        {"label":"algo","calc":"fileMetadata.ss_network_args.algo"},
+        {"label":"optional_args","calc":"fileMetadata.ss_optimizer.indexOf('(') > 0 ? fileMetadata.ss_optimizer.slice(fileMetadata.ss_optimizer.indexOf('(')+1,-1) : undefined"},
+        {"label":"optimizer_args","calc":"Object.fromEntries(customMetadata.optional_args.replace('[','(').replace(']',')').match(/(\\w+=[^,()]+|\\w+=\\([^()]*\\))/g).map(item => item.split('=')))"},
+        {"label":"weight_decay","calc":"customMetadata.optimizer_args.weight_decay"},
+        {"label":"betas","calc":"customMetadata.optimizer_args.betas"},
+        {"label":"d_coef","calc":"customMetadata.optimizer_args.d_coef"},
+        {"label":"dora","calc":"fileMetadata.ss_network_args.dora_wd.toLowerCase() === 'true'"},
+        {"label":"algo_dora","calc":"customMetadata.algo && customMetadata.dora ? `${customMetadata.algo} (${customMetadata.dora && 'DoRA'})` : customMetadata.algo || customMetadata.dora"},
+        {"label":"training_images","calc":"Object.values(fileMetadata.ss_dataset_dirs).reduce((sum, obj) => sum + obj.img_count, 0)"},
+        {"label":"training_date","calc":"fileMetadata.ss_training_started_at ? customMetadata.training_start_time.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : undefined"},
+        {"label":"gradient_accumulation","calc":"fileMetadata.ss_gradient_checkpointing === 'True' ? fileMetadata.ss_gradient_accumulation_steps : undefined"},
+        {"label":"civitai_url","calc":"civitaiMetadata?.modelId ? `https://civitai.com/models/${civitaiMetadata.modelId}?modelVersionId=${civitaiMetadata.id}` : null"},
+        {"label":"civitai_link","calc":"customMetadata.civitai_url ? `<a target='_blank' href='${customMetadata.civitai_url}'>${fileMetadata.ss_output_name || safetensorsFile.name}</a>` : fileMetadata.ss_output_name || safetensorsFile.name"},
+        {"label":"civitai_preview","calc":"(civitaiMetadata?.images && customMetadata.civitai_url) ? (() => { const mediaUrl = civitaiMetadata.images[0]?.url || ''; const isVideo = /\\.(mp4|webm)$/i.test(mediaUrl); const tag = isVideo ? `<video src='${mediaUrl}' style='max-width: 100%;' controls autoplay muted loop></video>` : `<img src='${mediaUrl}' style='max-width: 100%;'>`; return `<a target='_blank' href='${customMetadata.civitai_url}'>${tag}</a>`; })() : ``"},
+        {"label":"civitai_creator","calc":"civitaiMetadata?.model ? `<a href='https://civitai.com/user/${civitaiMetadata?.model?.creator.username}' target='_blank'><span>${civitaiMetadata?.model?.creator.username}</span><img alt='' src='${civitaiMetadata?.model?.creator.image}' style='border-radius: 50%; float:right; width:80px; margin-top:-20px;'></img></a>`: undefined"},
+        {"label":"civitai_name","calc":"customMetadata.civitai_url ? `<a target='_blank' href='${customMetadata.civitai_url}'>${civitaiMetadata?.model?.name}</a>` : undefined"},
+        {"label":"base_model_url","calc":"basemodelMetadata?.modelId ? `<a target='_blank' href='https://civitai.com/models/${basemodelMetadata.modelId}?modelVersionId=${basemodelMetadata.id}'>${fileMetadata.ss_sd_model_name} (${basemodelMetadata.baseModel || civitaiMetadata.baseModel})</a>` : (fileMetadata.ss_sd_model_name.indexOf('/')>0 ? `<a target='_blank' href='https://huggingface.co/${fileMetadata.ss_sd_model_name}'>${fileMetadata.ss_sd_model_name}</a>` : fileMetadata.ss_sd_model_name)"},
+        {"label":"vae_url","calc":"vaeMetadata?.modelId ? `<a target='_blank' href='https://civitai.com/models/${vaeMetadata.modelId}?modelVersionId=${vaeMetadata.id}'>${fileMetadata.ss_vae_name}</a>` : (fileMetadata.ss_vae_name.indexOf('/')>0 ? `<a target='_blank' href='https://huggingface.co/${fileMetadata.ss_vae_name}'>${fileMetadata.ss_vae_name}</a>` : fileMetadata.ss_vae_name)"},    
+        {"label":"arcenciel_url","calc":"arcencielMetadata?.id ? `https://arcenciel.io/models/${arcencielMetadata.id}` : null"},
+        {"label":"arcenciel_link","calc":"customMetadata.arcenciel_url ? `<a target='_blank' href='${customMetadata.arcenciel_url}'>${fileMetadata.ss_output_name || safetensorsFile.name}</a>` : fileMetadata.ss_output_name || safetensorsFile.name"},
+        {"label":"arcenciel_version_index","calc":"(() => { if (Number.isInteger(arcencielMetadata?.selectedVersionIndex)) return arcencielMetadata.selectedVersionIndex; const versions = arcencielMetadata?.versions || []; if (versions.length <= 1) return 0; const sha256 = customMetadata.sha256 || VARIABLES?.customMetadata?.sha256; const sha256Auto = customMetadata.sha256_autov3 || VARIABLES?.customMetadata?.sha256_autov3; const idx = versions.findIndex(version => (sha256 && version?.sha256 === sha256) || (sha256Auto && version?.sha256webui === sha256Auto)); return idx !== -1 ? idx : 0; })()"},
+        {"label":"arcenciel_selected_version","calc":"arcencielMetadata?.selectedVersion ?? arcencielMetadata?.versions?.[customMetadata.arcenciel_version_index || 0]"},
+        {"label":"arcenciel_preview","calc":"(customMetadata.arcenciel_selected_version && customMetadata.arcenciel_url) ? (() => { const version = customMetadata.arcenciel_selected_version; const filePath = version?.images?.[0]?.filePath || version?.videos?.[0]?.filePath || ''; if (!filePath) return ''; const mediaUrl = `https://arcenciel.io/uploads/${filePath}`; const isVideo = /\\.(mp4|webm)$/i.test(filePath); const tag = isVideo ? `<video src='${mediaUrl}' style='max-width: 100%;' controls autoplay muted loop></video>` : `<img src='${mediaUrl}' style='max-width: 100%;'>`; return `<a target='_blank' href='${customMetadata.arcenciel_url}'>${tag}</a>`; })() : ``"},
+        {"label":"arcenciel_creator","calc":"arcencielMetadata?.uploader ? `<a href='https://arcenciel.io/users/${arcencielMetadata?.uploader?.id}' target='_blank'><span>${arcencielMetadata?.uploader?.username}</span><img alt='' src='https://arcenciel.io/uploads/${arcencielMetadata?.uploader?.profilePicture}' style='border-radius: 50%; float:right; width:80px; margin-top:-20px;'></img></a>`: undefined"},
+        {"label":"arcenciel_name","calc":"customMetadata.arcenciel_url ? `<a target='_blank' href='${customMetadata.arcenciel_url}'>${arcencielMetadata?.title}</a>` : undefined"},
+        {"label":"title","calc":"customMetadata?.civitai_name || customMetadata?.arcenciel_name"},
+        {"label":"link","calc":"customMetadata?.civitai_link || customMetadata?.arcenciel_link"},
+        {"label":"preview","calc":"customMetadata?.civitai_preview || customMetadata?.arcenciel_preview"},
+        {"label":"creator","calc":"customMetadata?.civitai_creator || customMetadata?.arcenciel_creator"},
+        {"label":"trigger_words","calc":"civitaiMetadata?.trainedWords || customMetadata.arcenciel_selected_version?.activationTags"},
+        {"label":"lookup_source","calc":"civitaiMetadata?.modelId ? 'CivitAI' : (arcencielMetadata?.id ? 'Arc en Ciel' : '')"},
+      ],
+    };
+    
+    const UI = {
+      appVersion: $('appVersion'),
+      favicon: $('favicon'),
+      dropArea: $('dropArea'),
+      metadataDisplay: $('metadataDisplay'),
+      metadataEditor: $('metadataEditor'),
+      metadataEditorSimple: $('metadataEditorSimple'),
+      summary: $('summary'),
+      summaryTable: $('summaryTable'),
+      summaryGrid: $('summaryGrid'),
+      summaryGridTemplate: $('summaryGridTemplate'),
+      summaryCustom: $('summaryCustom'),
+      modelUrl: $('modelUrl'),
+      resourceUrl: $('resourceUrl'),
+      onlineLookupData: $('onlineLookupData'),
+      previewImage: $('previewImage'),
+      keywordDetails: $('keywordDetails'),
+      suggestedPromptDetails: $('suggestedPromptDetails'),
+      notificationPanel: $('notificationPanel'),
+      editorNotificationPanel: $('editorNotificationPanel'),
+      editorHeader: $('editorHeader'),
+
+      summaryFields: $('summaryFields'),
+      editorFields: $('editorFields'),
+      editorFormat: $('editorFormat'),
+      showUndefinedSummaryValues: $('showUndefinedSummaryValues'),
+      customFields: $('customFields'),
+      customTemplate: $('customTemplate'),
+      enableSummary: $('enableSummary'),
+      enableOnlineLookup: $('enableOnlineLookup'),
+      primaryLookup: $('primaryLookup'),
+      secondaryLookup: $('secondaryLookup'),
+      enableTagFrequency: $('enableTagFrequency'),
+      enableSuggestedPrompt: $('enableSuggestedPrompt'),
+      tagFrequencyCount: $('tagFrequencyCount'),
+      tagFrequencyFilter: $('tagFrequencyFilter'),
+      tagFrequencyFilterVld: $('tagFrequencyFilterVld'),
+      tagFrequencyFilterMethod: $('tagFrequencyFilterMethod'),
+      tagByFolder: $('tagByFolder'),
+      tagExcludeFilter: $('tagExcludeFilter'),
+      tagExcludeFilterMethod: $('tagExcludeFilterMethod'),
+      tagExcludeFilterVld: $('tagExcludeFilterVld'),
+      suggestedPromptCount: $('suggestedPromptCount'),
+      suggestedPromptFilter: $('suggestedPromptFilter'),
+      suggestedPromptFilterVld: $('suggestedPromptFilterVld'),
+      suggestedPromptFilterMethod: $('suggestedPromptFilterMethod'),
+      suggestedPromptByFolder: $('suggestedPromptByFolder'),
+      suggestedPromptExcludeFilter: $('suggestedPromptExcludeFilter'),
+      suggestedPromptExcludeFilterMethod: $('suggestedPromptExcludeFilterMethod'),
+      suggestedPromptExcludeFilterVld: $('suggestedPromptExcludeFilterVld'),
+
+      enableMetadata: $('enableMetadata'),
+      enableMetadataEditor: $('enableMetadataEditor'),
+      enableUpdateCheck: $('enableUpdateCheck'),
+      themeSelect: $('themeSelect'),
+      themeColorSelect: $('themeColorSelect'),
+      themeColorPicker: $('themeColorPicker'),
+      themeBgColorSelect: $('themeBgColorSelect'),
+      themeBgColorPicker: $('themeBgColorPicker'),
+      themeInputColorSelect: $('themeInputColorSelect'),
+      themeInputColorPicker: $('themeInputColorPicker'),
+      themeFont: $('themeFont'),
+      themeFontColorSelect: $('themeFontColorSelect'),
+      themeFontColorPicker: $('themeFontColorPicker'),
+      proxyUrl: $('proxyUrl'),
+      proxyScript: $('proxyScript'),
+      clearSettingsBtn: $('clearSettingsBtn'),
+      exportSettingsBtn: $('exportSettingsBtn'),
+      importSettingsBtn: $('importSettingsBtn'),
+      importSettingsFile: $('importSettingsFile'),
+      importSettingsFileName: $('importSettingsFileName'),
+
+      loading: $('loading'),
+      loadingMessage: document.querySelector('.loading-message'),
+      progressBar: document.querySelector('.progress-bar'),
+      progressText: document.querySelector('.progress-text'),
+      abortBtn: document.querySelector('.abort')
+    };
+
+
+    //#endregion Global Variables
+    //#region Initialization 
+    init();
+
+    function init(){   
+      setGlobalVariables(VARIABLES);
+      updateTheme();
+      initDropArea();
+      initSelectToggle();
+      initSettingsStorage();
+      initCollapsible();
+      initTabs();
+      [UI.themeSelect, UI.themeColorSelect, UI.themeBgColorSelect, UI.themeInputColorSelect, UI.themeFont, UI.themeFontColorSelect].forEach(e=>{ e.addEventListener('change', updateTheme); });
+      [UI.themeColorPicker, UI.themeBgColorPicker, UI.themeInputColorPicker, UI.themeFontColorPicker].forEach(e=>{ e.addEventListener('input', updateTheme); });
+      [UI.tagFrequencyCount, UI.tagFrequencyFilter, UI.tagExcludeFilter, UI.tagExcludeFilterMethod, UI.tagFrequencyFilterMethod].forEach(e=>{ e.addEventListener('change', updateTagFrequency); });
+      UI.tagByFolder.addEventListener('click', updateTagFrequency);
+      [UI.suggestedPromptCount, UI.suggestedPromptFilter, UI.suggestedPromptExcludeFilter, UI.suggestedPromptExcludeFilterMethod, UI.suggestedPromptFilterMethod].forEach(e=>{ e.addEventListener('change', ()=>{updateTagFrequency(null,true);}); });
+      UI.suggestedPromptByFolder.addEventListener('click', ()=>{updateTagFrequency(null,true);});
+      UI.editorFormat.addEventListener('change', updateEditorFields);      
+      updateProxyScript();
+      document.head.insertAdjacentHTML('beforeend', `<style>.doro-theme *{cursor:url("${UI.favicon.href}") 4 4,auto;}</style>`);
+      window.addEventListener("load", () => document.body.appendChild(Object.assign(document.createElement("script"), {src:"https://xypher7.github.io/Doro.js/doro.js"})));
+    }
+
+    function initSelectToggle() {
+      document.querySelectorAll('select[data-select-toggle]').forEach(select => {
+          select.addEventListener('change', () => {
+              document.querySelectorAll(`[data-toggle-target="${select.id}"]`).forEach(element => {
+                  element.style.display = select.value === element.getAttribute('data-toggle-value') ? 'block' : 'none';
+              });
+          });
+          select.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));    
+      });
+    }
+
+    function initDropArea(){
+      const highlight = () =>{ dropArea.classList.add('hover'); };
+      const unhighlight = () =>{ dropArea.classList.remove('hover'); };
+      const handleDrop = (event) => {
+        handleFile(event.dataTransfer.files[0]);
+        dropArea.classList.remove('hover');
+      }
+      const preventDefaults = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      // Prevent default drag behaviors
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+      });
+
+      // Highlight drop area when a file is dragged over it
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+      });
+
+      // Remove highlighting when a file is dragged away from the drop area
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+      });
+
+      dropArea.addEventListener('drop', handleDrop, false);
+      dropArea.addEventListener('mouseover', highlight);
+      dropArea.addEventListener('mouseout', unhighlight);
+
+      // File input handling
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.style.display = 'none';
+      fileInput.accept = '.safetensors,.gguf';
+      document.body.appendChild(fileInput);
+
+      dropArea.addEventListener('click', () => {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        handleFile(file);
+      });
+    }
+
+    function initCollapsible(){
+      document.querySelectorAll('.collapsible').forEach((collapsible, i) => {
+        collapsible.addEventListener('click', function () {
+          this.classList.toggle('active');
+          const targetSelector = this.getAttribute('data-target');
+          const content = !targetSelector ? this.nextElementSibling : $(targetSelector);
+          if (content.style.display === 'block') {
+            content.style.display = 'none';
+          } else {
+            content.style.display = 'block';
+          }
+        });
+        const targetSelector = collapsible.getAttribute('data-target');
+        if(!!targetSelector) {
+          const content = $(targetSelector);
+          content.classList.add('content');
+        }
+        if (collapsible.classList.contains('expanded')) collapsible.click();
+      });
+
+      const toggleDisplay = e => {      
+        const targetId = e.getAttribute('data-display');
+        const targetElement = $(targetId);
+        if (targetElement) {
+          targetElement.style.display = e.checked ? 'block' : 'none';
+        }
+      };
+
+      // Panel display toggle
+      document.querySelectorAll('input[type="checkbox"][data-display]').forEach(function(checkbox) {
+        checkbox.addEventListener('click', function() { toggleDisplay(this); });
+        window.addEventListener('load', ()=>{ toggleDisplay(checkbox); });
+      });
+    }
+
+    function initTabs(){
+      document.querySelectorAll(".tab-container").forEach(container => {
+          const tablinks = container.querySelectorAll("[data-target-tab]");
+          tablinks.forEach(button => { // Loop through each tab button and add a click event listener
+              button.addEventListener("click", () => {
+                  container.querySelectorAll(".tabcontent").forEach(tab => { tab.style.display = "none"; }); // Hide all tab content within this tab container
+                  tablinks.forEach(tab => { tab.classList.remove("active"); }); // Remove "active" class from all tab buttons within this tab container
+                  const targetTabId = button.getAttribute("data-target-tab");
+                  container.querySelector("#"+targetTabId).style.display = "block"; // Show the selected tab content within this tab container
+                  button.classList.add("active"); // Add "active" class to the clicked tab button within this tab container
+              });
+          });
+          // Set the default tab to be opened within this tab container
+          container.querySelector(".tabcontent").style.display = "block";
+          container.querySelector("[data-target-tab]").classList.add("active");
+      });
+    }
+
+    async function handleFile(file) {
+      clearAll();
+      VARIABLES.safetensorsFile = file;
+      if(file.name.endsWith('.gguf')) {
+        calculateFileHashes(file);
+        updateOnlineLookupInfo();
+        setCustomMetadata();
+        return;
+      }
+      if (!file.name.endsWith('.safetensors')) {
+        showToast('Please drop a valid .safetensors file.', null, 'error');
+        return;
+      }
+      try {
+        const arrayBuffer = await file.slice(0, 8).arrayBuffer(); // Read first 8 bytes
+        const metadataSize = new DataView(arrayBuffer).getUint32(0, true); // Extract metadata size
+        const metadataArrayBuffer = await file.slice(8, 8 + metadataSize).arrayBuffer(); // Read metadata chunk
+        const header = JSON.parse(new TextDecoder('utf-8').decode(new Uint8Array(metadataArrayBuffer))); // Decode and parse metadata
+
+        let formattedMetadata = header['__metadata__'] || ''; 
+        let metadata = {};
+        if (!formattedMetadata) {
+          showToast('No metadata found', null, 'warning');
+        } else {
+          for (const key in formattedMetadata) {
+            if (typeof formattedMetadata[key] === 'string') {
+              try {
+                metadata[key] = JSON.parse(formattedMetadata[key]);
+              } catch (error) {
+                metadata[key] = formattedMetadata[key];
+              }
+            } else {
+              metadata[key] = formattedMetadata[key];
+            }
+          }
+        }
+        VARIABLES.fileMetadata = metadata;
+        updateMetadataEditor(formattedMetadata);
+        setCustomMetadata();
+        updateMetadata(metadata);
+        updateTagFrequency(metadata);
+        updateTagFrequency(metadata,true);
+        updateSummary(metadata);
+        await calculateFileHashes(file);
+        updateOnlineLookupInfo();
+      } catch (error) {
+        showToast(`Error parsing metadata:<br>${error}`, null, 'error');
+        console.error('Error reading file:', error);
+      }
+    }
+
+    function initSettingsStorage(){
+      // Unique prefix for the app
+      const appPrefix = `lmv.r2.`;
+
+      // Retrieve values from local storage and set default values if not present
+      const loadSettings = () => {
+          document.querySelectorAll('.settings-field').forEach(function (element) {
+              const id = element.id ? appPrefix + element.id : null;
+              if (id) {
+                  let value = localStorage.getItem(id);
+                  if (value === null && DEFAULTS[element.id] !== undefined) {
+                      value = typeof DEFAULTS[element.id] === 'object' ? JSON.stringify(DEFAULTS[element.id]) : DEFAULTS[element.id];
+                      localStorage.setItem(id, value); // Store default value in local storage
+                  }
+                  if (value !== null) {
+                      if (element.type === 'checkbox') {
+                          element.checked = value === 'true';
+                      } else {
+                          element.value = value;
+                          if(element.getAttribute('data-editable-list') !== null){
+                              const listElem = $(element.getAttribute('data-editable-list'));
+                              JSON.parse(value).forEach(obj => {
+                                  addListItem(element.getAttribute('data-editable-list'), listElem.getAttribute('data-list-template'), obj);
+                              })
+                          }
+                          if (element.tagName.toLowerCase() === 'select')
+                              element.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));                       
+                      }
+                      element.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+                  }
+              }
+          });
+          updateTheme();
+          UI.enableUpdateCheck.checked && checkForUpdates();
+          if(location.protocol === 'http:') UI.proxyUrl.value = `${location.protocol}//${location.hostname}${location.port ? `:${location.port}` : ''}/?url=`;
+      };
+
+      // Save values to local storage
+      const saveSettings = () => {
+          document.querySelectorAll('.settings-field').forEach(function (element) {
+              const id = element.id ? appPrefix + element.id : null;
+              if (id) {
+                  let value = element.type === 'checkbox' ? element.checked : element.value;
+                  if(element.getAttribute('data-editable-list') !== null){
+                      const objectArray = [];
+                      const listElem = $(element.getAttribute('data-editable-list'));
+                      listElem.querySelectorAll('.list-item').forEach(listItem => {
+                          const itemObject = {};
+                          listItem.querySelectorAll('[name]').forEach(inputField => {
+                              itemObject[inputField.getAttribute('name')] = inputField.value;
+                          });
+                          objectArray.push(itemObject);
+                      });
+                      value = element.value = JSON.stringify(objectArray);
+                  }
+                  localStorage.setItem(id, value.toString());
+              }
+          });
+      }
+
+      const exportLocalStorage = () => {
+          const storageData = JSON.stringify(localStorage); // Convert localStorage to JSON string
+          const blob = new Blob([storageData], { type: 'application/json' }); // Create a blob
+          const url = URL.createObjectURL(blob); // Create a URL for the blob
+          const a = document.createElement('a'); // Create an anchor element
+          a.href = url;
+          a.download = 'localStorage.json'; // Set the download filename
+          document.body.appendChild(a);
+          a.click(); // Trigger the download
+          document.body.removeChild(a); // Clean up the DOM
+      }
+
+      const importLocalStorage = (file) => {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+              const storageData = JSON.parse(event.target.result);
+              for (let key in storageData) {
+                  if (storageData.hasOwnProperty(key)) localStorage.setItem(key, storageData[key]);
+              }
+          };
+          reader.readAsText(file);
+      }
+
+      // Load settings when the page is opened
+      window.addEventListener('load', function () {
+          loadSettings();
+          // Save settings when the user changes any input
+          document.querySelectorAll('.settings-field').forEach(function (element) {
+              element.addEventListener('input', saveSettings);
+          });
+      });
+
+      UI.exportSettingsBtn.addEventListener('click', exportLocalStorage);
+
+      UI.importSettingsBtn.addEventListener('click', () => {
+        if (UI.importSettingsFile.files.length > 0) {
+          importLocalStorage(UI.importSettingsFile.files[0]);
+          location.reload();
+        }else alert('Please select a file to import.');
+      });
+
+      UI.importSettingsFile.addEventListener('change', function() {
+          if (UI.importSettingsFile.files.length > 0) UI.importSettingsFileName.textContent = UI.importSettingsFile.files[0].name;
+          else UI.importSettingsFileName.textContent = 'No file chosen';
+      });
+
+      // Clear local storage and reset defaults
+      UI.clearSettingsBtn.addEventListener('click', () => {
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+          const key = localStorage.key(i);
+          if (key.startsWith(appPrefix)) 
+            localStorage.removeItem(key);
+        }
+        location.reload();
+      });
+    }
+
+    function abort(){
+      if (VARIABLES.abortController) VARIABLES.abortController.abort();
+    }
+
+    function setGlobalVariables(variable){
+      for (const key in variable) {
+        Object.defineProperty(window, key, {
+          get() { return variable[key]; },
+          set(value) { variable[key] = value; },
+          configurable: true
+        });
+      }
+    }
+    //#endregion Initialization 
+    //#region UI Rendering
+    function clearAll(){
+      UI.notificationPanel.innerHTML = '';
+      UI.editorNotificationPanel.innerHTML = '';
+      UI.summary.innerHTML = '';
+      UI.summaryTable.innerHTML = '';
+      UI.summaryGrid.innerHTML = '';
+      UI.summaryCustom.innerHTML = '';
+      UI.modelUrl.href = '#';
+      UI.modelUrl.innerHTML = '';
+      UI.resourceUrl.href = '#';
+      UI.resourceUrl.innerHTML = '';
+      UI.previewImage.innerHTML = '';
+      UI.onlineLookupData.innerHTML = '';
+      UI.keywordDetails.innerHTML = '';
+      UI.metadataDisplay.innerHTML = '';
+      UI.metadataEditor.value = '';
+      UI.editorHeader.style.display = "none";
+
+      VARIABLES.fileMetadata = {};
+      VARIABLES.civitaiMetadata = {};
+      VARIABLES.arcencielMetadata = {};
+      VARIABLES.customMetadata = {};
+      VARIABLES.basemodelMetadata = {};
+      VARIABLES.vaeMetadata = {};
+      VARIABLES.safetensorsFile = null;
+    }
+
+    function showLoading(message = null, allowCancel = false) {
+      if(allowCancel) {
+        VARIABLES.abortController = new AbortController();
+        UI.abortBtn.style.display = 'inline';
+      }
+      UI.loading.style.display = 'block';
+      updateLoading(message, 0);
+    }
+
+    // Function to hide the loading animation
+    function hideLoading() {
+      UI.loading.style.display = 'none';
+      UI.abortBtn.style.display = 'none';
+    }
+
+    function updateLoading(message, progress){
+      updateLoadingMessage(message);
+      updateProgress(progress);
+    }
+
+    function updateLoadingMessage(message){
+      if(message !== null) UI.loadingMessage.innerHTML = message;
+    }
+
+    function updateProgress(progress){
+      if(progress || progress === 0){
+        UI.progressBar.style.width = `${progress}%`;
+        UI.progressText.textContent = `${progress}%`;
+      }
+    }
+
+    function updateMetadata(metadata) {
+      if(UI.enableMetadata.checked) formatAndColorizeJSON(metadata, UI.metadataDisplay);    
+    }
+
+    function updateMetadataEditor(metadata) {
+      if(UI.enableMetadataEditor.checked) {
+        UI.metadataEditor.value = metadata? JSON.stringify(metadata, null, 2): '';
+        UI.editorHeader.style.display = "";
+        updateEditorFields();
+      }
+    }
+
+    function updateSummary(metadata) {     
+      if(UI.enableSummary.checked){
+        const summaryJson = fetchMetadataValues(UI.summaryFields.value);
+        renderSummary(summaryJson);
+        const spContainer = $('dashboardSuggestedPrompt');
+        if(spContainer && VARIABLES.customMetadata.suggested_prompt) renderSuggestedPrompt(VARIABLES.customMetadata.suggested_prompt, spContainer);
+        const twContainer = $('triggerWordsPrompt');
+        if(twContainer && VARIABLES.civitaiMetadata?.trainedWords) renderSuggestedPrompt(VARIABLES.civitaiMetadata.trainedWords, twContainer);
+        else if(twContainer && VARIABLES.arcencielMetadata?.versions?.[0].activationTags) renderSuggestedPrompt(VARIABLES.arcencielMetadata.versions[0].activationTags, twContainer);
+      }
+    }
+
+    async function updateOnlineLookupInfo(){
+      if(!UI.primaryLookup.value) return;
+      let data;  
+      updateLoading("Model lookup...", 75);
+      switch (UI.primaryLookup.value) {
+        case 'civ':
+          data = await setCivitAIData();
+          break;
+        case 'aec':
+          data = await setArcEnCielData();
+          break;
+      }
+      if(!data?.data && UI.secondaryLookup.value && UI.primaryLookup.value !== UI.secondaryLookup.value){ 
+        switch (UI.secondaryLookup.value) {
+          case 'civ':
+            data = await setCivitAIData();
+            break;
+          case 'aec':
+            data = await setArcEnCielData();
+            break;
+        }
+      }
+      const baseModelHash = VARIABLES.fileMetadata.ss_new_sd_model_hash || VARIABLES.fileMetadata.ss_sd_model_hash;
+      if(baseModelHash){
+        updateLoading("Base model lookup...", 80);
+        let baseModelInfo = await getModelDataByHash(baseModelHash);
+        if(baseModelInfo && baseModelInfo.data) VARIABLES.basemodelMetadata = baseModelInfo.data;
+      }
+      const vaeHash = VARIABLES.fileMetadata.ss_new_vae_hash || VARIABLES.fileMetadata.ss_vae_hash;
+      if(vaeHash){
+        updateLoading("VAE lookup...", 90);
+        let vaeInfo = await getModelDataByHash(vaeHash);
+        if(vaeInfo && vaeInfo.data) VARIABLES.vaeMetadata = vaeInfo.data;
+      }
+      if (data?.data) {
+        UI.modelUrl.href = data.modelUrl;
+        UI.modelUrl.innerHTML = data.modelUrl;
+        UI.resourceUrl.href = data.resourceUrl;
+        UI.resourceUrl.innerHTML = data.resourceUrl;
+        formatAndColorizeJSON(data.data, UI.onlineLookupData);
+      }
+      if (data?.data || VARIABLES.basemodelMetadata || VARIABLES.vaeMetadata) setCustomMetadata();
+      if(UI.primaryLookup.value) updateSummary(VARIABLES.fileMetadata);
+      hideLoading();
+    }
+
+    async function getModelDataByHash(hash){
+      let data;
+      switch (UI.primaryLookup.value) {
+        case 'civ':
+          data = await getCivitAiData(hash);
+          break;
+        case 'aec':
+          data = await getArcEnCielData(hash);
+          break;
+      }
+      if(!data?.data && UI.secondaryLookup.value && UI.primaryLookup.value !== UI.secondaryLookup.value){ 
+        switch (UI.secondaryLookup.value) {
+          case 'civ':
+            data = await getCivitAiData(hash);
+            break;
+          case 'aec':
+            data = await getArcEnCielData(hash);
+            break;
+        }
+      }
+      return data;
+    }
+
+    const tagTools = {
+        aggregateAndSort: (originalObject) => {
+          return Object.fromEntries(
+              Object.entries(
+                  Object.values(originalObject).reduce((acc, subObject) => {
+                      for (const [key, value] of Object.entries(subObject)) {
+                          acc[key] = (acc[key] || 0) + value;
+                      }
+                      return acc;
+                  }, {})
+              ).sort(([, a], [, b]) => b - a));
+        },
+        sortSubproperties: (originalObject) => {
+            return Object.fromEntries(
+                Object.entries(originalObject).map(([key, subObject]) => [
+                    key,
+                    Object.fromEntries(
+                        Object.entries(subObject).sort(([, a], [, b]) => b - a)
+                    ),
+                ])
+            );
+        },
+        convertNumericKeysToString: (originalObject) => {
+            const convertedObject = {};
+            for (const [key, value] of Object.entries(originalObject)) {
+                if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+                    const nestedObject = {};
+                    for (const [subKey, subValue] of Object.entries(value)) {
+                        const newSubKey = !isNaN(subKey) ? `(${subKey})` : subKey;
+                        nestedObject[newSubKey] = subValue;
+                    }
+                    convertedObject[key] = nestedObject;
+                } else {
+                    convertedObject[key] = value;
+                }
+            }
+            return convertedObject;
+        },
+        filterTopN: (obj, n) => {
+            const topNEntries = Object.entries(obj).slice(0, n);
+            return Object.fromEntries(topNEntries);
+        },
+        filterByTag: (obj, regex) => {
+            const filteredObj = {};
+            const pattern = typeof regex === 'string' ? new RegExp(regex) : regex;
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) 
+                    if (pattern.test(key) || (typeof obj[key] === 'string' && pattern.test(obj[key]))) 
+                        filteredObj[key] = obj[key];
+            }
+            return filteredObj;
+        },
+        removeTags: (obj, regex) => {
+            const pattern = typeof regex === 'string' ? new RegExp(regex) : regex;
+            Object.keys(obj).forEach(property => {
+                if (pattern.test(property)) delete obj[property];
+            });
+            return obj;
+        },
+        isValidRegex: (regexString) => {
+            try {
+                new RegExp(regexString);
+                return true; 
+            } catch (e) {
+                return false; 
+            }
+        },
+        applyFiltersToSubproperties: (obj, filterFunction, ...args) => {
+            const filteredObject = {};
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) filteredObject[key] = filterFunction(obj[key], ...args);
+            }
+            return filteredObject;
+        },
+        listToRegex: (listString, exactMatch = false) => {
+            const valuesArray = listString.split(',').map(value => value.trim());
+            const escapedValues = valuesArray.map(value => value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')); // Escape special regex characters in each value
+            const pattern = exactMatch
+                ? `^(${escapedValues.join('|')})$`  // Exact match: ^value1$|^value2$|...
+                : `(${escapedValues.join('|')})`;   // Partial match: value1|value2|...
+            return new RegExp(pattern);
+        },
+        getSuggestedPrompt: (tags) => {
+          if(!tags) return;
+          const keys = Object.keys(tags);
+          const prompts = {};
+          if(typeof tags[keys[0]] !== 'object')
+            prompts.Prompt = Object.keys(tags).join(', ');
+          else 
+            for (let property in tags)
+              if (tags.hasOwnProperty(property))
+                prompts[property] = Object.keys(tags[property]).join(', ');
+          return prompts;
+        }
+    }
+
+    function updateTagFrequency(data, suggestedPrompt=false){
+      try {  
+        if((!UI.enableTagFrequency.checked && !UI.enableSuggestedPrompt.checked) || (!data?.['ss_tag_frequency'] && !VARIABLES.customMetadata.tags)) return;
+        if(data?.['ss_tag_frequency']){
+          const tags = tagTools.convertNumericKeysToString(data['ss_tag_frequency']);
+          VARIABLES.customMetadata.tags = tagTools.aggregateAndSort(tags);
+          VARIABLES.customMetadata.tagsByFolder = tagTools.sortSubproperties(tags);
+        }
+        const filterMethod = !suggestedPrompt ? UI.tagFrequencyFilterMethod : UI.suggestedPromptFilterMethod;
+        const filter = !suggestedPrompt ? UI.tagFrequencyFilter : UI.suggestedPromptFilter;
+        const excludeFilterMethod = !suggestedPrompt ? UI.tagExcludeFilterMethod : UI.suggestedPromptExcludeFilterMethod;
+        const excludeFilter = !suggestedPrompt ? UI.tagExcludeFilter : UI.suggestedPromptExcludeFilter;
+        const filterVld = !suggestedPrompt ? UI.tagFrequencyFilterVld : UI.suggestedPromptFilterVld;
+        const excludeFilterVld = !suggestedPrompt ? UI.tagExcludeFilterVld : UI.suggestedPromptExcludeFilterVld;
+        const tagCount = !suggestedPrompt ? UI.tagFrequencyCount : UI.suggestedPromptCount;
+        const byFolder = !suggestedPrompt ? UI.tagByFolder : UI.suggestedPromptByFolder;
+        let filteredResult;
+        let includeRegex;
+        switch (filterMethod.value) {
+          case 'regex': includeRegex = filter.value; break;
+          case 'exact': includeRegex = tagTools.listToRegex(filter.value, true); break;
+          case 'partial': includeRegex = tagTools.listToRegex(filter.value); break;
+        }
+        let excludeRegex;
+        switch (excludeFilterMethod.value) {
+          case 'regex': excludeRegex = excludeFilter.value; break;
+          case 'exact': excludeRegex = tagTools.listToRegex(excludeFilter.value, true); break;
+          case 'partial': excludeRegex = tagTools.listToRegex(excludeFilter.value); break;
+        }
+        filterVld.innerHTML = !tagTools.isValidRegex(includeRegex) ? 'Invalid regex!' : '';
+        excludeFilterVld.innerHTML = !tagTools.isValidRegex(excludeRegex) ? 'Invalid regex!' : '';
+        if(!tagTools.isValidRegex(includeRegex)) includeRegex = '';
+        if(!tagTools.isValidRegex(excludeRegex)) excludeRegex = '';
+        if(byFolder.checked) {
+          filteredResult = JSON.parse(JSON.stringify(VARIABLES.customMetadata.tagsByFolder));
+          if(includeRegex) filteredResult = tagTools.applyFiltersToSubproperties(filteredResult, tagTools.filterByTag, includeRegex);
+          if(excludeRegex) filteredResult = tagTools.applyFiltersToSubproperties(filteredResult, tagTools.removeTags, excludeRegex);
+          if(tagCount.value && parseInt(tagCount.value)>0) filteredResult = tagTools.applyFiltersToSubproperties(filteredResult, tagTools.filterTopN, tagCount.value);
+        }else{
+          filteredResult = JSON.parse(JSON.stringify(VARIABLES.customMetadata.tags));
+          if(includeRegex) filteredResult = tagTools.filterByTag(filteredResult, includeRegex);
+          if(excludeRegex) filteredResult = tagTools.removeTags(filteredResult, excludeRegex);
+          if(tagCount.value && parseInt(tagCount.value)>0) filteredResult = tagTools.filterTopN(filteredResult, tagCount.value);
+        }
+        if(!suggestedPrompt) formatAndColorizeJSON(filteredResult, UI.keywordDetails);
+        else {
+          let prompt = tagTools.getSuggestedPrompt(filteredResult);
+          if(!byFolder.checked) prompt = [prompt.Prompt];
+          renderSuggestedPrompt(prompt, UI.suggestedPromptDetails);
+          VARIABLES.customMetadata.suggested_prompt = prompt;
+          const spContainer = $('dashboardSuggestedPrompt');
+          if(spContainer && VARIABLES.customMetadata.suggested_prompt) renderSuggestedPrompt(VARIABLES.customMetadata.suggested_prompt, spContainer);
+        }
+      } catch (error) { console.error(error); }
+    }
+
+    function renderSuggestedPrompt(prompt, targetElem) {
+        const addRow = (table, key, value) => {
+            const row = document.createElement('tr');
+            if (key !== null) {
+                const keyCell = document.createElement('td');
+                keyCell.textContent = key;
+                row.appendChild(keyCell);
+            }
+            const valueCell = document.createElement('td');
+            valueCell.appendChild(createCopyableTextElem(value));
+            row.appendChild(valueCell);
+            table.appendChild(row);
+        }
+        targetElem.innerHTML = '';
+        const table = document.createElement('table');
+        table.className = 'summary-table';
+        if (Array.isArray(prompt)) prompt.forEach(value => addRow(table, null, value));
+        else Object.entries(prompt).forEach(([key, value]) => addRow(table, key, value));
+        targetElem.appendChild(table);
+    }
+
+    function updateTheme() {
+      const _getColorCss = (selectElem, colorPickerElem, cssVar) => {
+        colorPickerElem.style.setProperty('display','none');
+        if(selectElem.value && selectElem.value === 'custom-theme') { 
+          colorPickerElem.style.removeProperty('display');
+          return `--${cssVar}: ${colorPickerElem.value};`;
+        } 
+        else if(selectElem.value) return `--${cssVar}: ${selectElem.value};`;
+        return '';
+      };
+
+      document.body.className = UI.themeSelect.value === 'default'
+        ? (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark-theme' : 'light-theme')
+        : UI.themeSelect.value;
+      let css = '';
+
+      UI.themeColorPicker.style.setProperty('display','none');
+      if(UI.themeColorSelect.value && UI.themeColorSelect.value === 'default') { 
+        document.body.classList.add('default-' + document.body.className);
+      } else if(UI.themeColorSelect.value && UI.themeColorSelect.value === 'custom-theme') { 
+        UI.themeColorPicker.style.removeProperty('display');
+        css += `--primary: ${UI.themeColorPicker.value};`;
+      } 
+      else document.body.classList.add(UI.themeColorSelect.value);
+
+      if(UI.themeFont.value ) css += `--font: ${UI.themeFont.value};`;
+
+      css += _getColorCss(UI.themeBgColorSelect, UI.themeBgColorPicker, 'bg');
+      css += _getColorCss(UI.themeInputColorSelect, UI.themeInputColorPicker, 'inputbg');
+      css += _getColorCss(UI.themeFontColorSelect, UI.themeFontColorPicker, 'text');
+
+      const styleId = "custom-theme-id";
+      let style = document.getElementById(styleId);
+      if (!style) {
+        style = document.createElement("style");
+        style.id = styleId;
+        document.head.appendChild(style);
+      }
+      style.innerHTML = `.custom-theme { ${css} }`;
+      if(css) document.body.classList.add('custom-theme');
+    }
+
+    // Format a JSON object into colorized HTML
+    function colorizeJSON(json, removeSurroundingQuotes) {
+      const formattedJSON = JSON.stringify(json, null, 2);
+      const coloredJSON = formattedJSON && formattedJSON.replace(
+          /"(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null|"undefined")\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+          function(match) {
+              let cls = 'number';
+              if (/^(null|"?undefined"?)$/.test(match)) 
+                cls = 'null';
+              else if (/^(true|false)$/.test(match)) 
+                cls = 'boolean';
+              else if (/^"/.test(match)) {
+                cls = /:$/.test(match) ? 'key' : 'string';
+                if (cls === 'string' && /^("https?:\/\/)/.test(match)) { // Check if the string is a url
+                    match = `<a target='_blank' href=${match}>${removeSurroundingQuotes ? match.replaceAll('"','') :match}</a>`; 
+                    cls = 'url'; 
+                }
+                else if (cls === 'string' && /<(lora|lyco):/.test(match)) { // HTML encode prompt values
+                    const tempElement = document.createElement('div');
+                    tempElement.textContent = match;
+                    match = tempElement.innerHTML;
+                }
+                else if (cls === 'string' && /\<[^\>]+\>/.test(match)) { // Check if the string contains HTML tags
+                    match = match.replace(/\\"/g, '"').replace(/\\n/g,''); // Replace escaped characters
+                    cls = 'html'; 
+                }
+              }
+              if(removeSurroundingQuotes) match = match.replace(/^"(.*)"$/, '$1');
+              return `<span class="${cls}">${match}</span>`;
+          }
+      );
+      return coloredJSON;
+    }
+
+    function formatAndColorizeJSON(json, targetElement) {
+        targetElement.innerHTML = colorizeJSON(json);
+    }
+
+    function replacePlaceholders(text, data=null, colorize=true, undefinedText=null) {
+      const replacedContent = text.replace(/{{([^}]+)}}/g, (match, placeholder) => {
+        placeholder = placeholder.replace(" ", "");
+        let remove = false;
+        if (placeholder.endsWith('?')) { 
+          remove = true;
+          placeholder = placeholder.slice(0, -1); 
+        }
+        const value = data !== null ? data[placeholder] : fetchMetadataValue(placeholder);
+        if (typeof value === 'object') return (colorize?`<pre>${colorizeJSON(value)}</pre>`:value);
+        else if(value !== undefined && value !== "undefined") return colorize ? colorizeJSON(value, true) : value;
+        else if(remove) return '';
+        else if(undefinedText) return undefinedText;
+        else '<span class="null">undefined<span>';
+      });
+      return replacedContent;
+    }
+
+    function showTooltip(message, event, timeout = 1500) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = message;
+        tooltip.style.left = `${event.pageX - 35}px`;
+        tooltip.style.top = `${event.pageY - 30}px`;
+        document.body.appendChild(tooltip);
+        setTimeout(() => { tooltip.remove(); }, timeout);
+    }
+
+    function showToast(message, timeout = null, type = 'info') {
+      const container = $('toast-container');
+
+      const toast = document.createElement('div');
+      toast.classList.add('toast', type);
+
+      const messageText = document.createElement('span');
+      messageText.innerHTML = message;
+      toast.appendChild(messageText);
+
+      const closeBtn = document.createElement('button');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.onclick = () => container.removeChild(toast);
+      toast.appendChild(closeBtn);
+
+      container.appendChild(toast);
+
+      if (timeout && typeof timeout === 'number') {
+        setTimeout(() => {
+          if (toast.parentElement) {
+            container.removeChild(toast);
+          }
+        }, timeout);
+      }
+    }
+
+    function createCopyableTextElem(string) {
+      const elem = document.createElement('span');
+      elem.textContent = string;
+      elem.className = 'copyable-item';
+      elem.addEventListener('click', function(event) {
+          navigator.clipboard.writeText(string).then(() => {
+              showTooltip('Copied!', event); 
+          }).catch(err => {
+              console.error('Failed to copy text: ', err);
+          });
+      });
+      return elem;
+    }
+
+    function renderSummary(summaryJson){
+      //Render JSON
+      formatAndColorizeJSON(summaryJson, UI.summary); //Render JSON Summary
+      //Render Table 
+      const rows = Object.entries(summaryJson).map(([key, value]) => {
+        const dataType = value === null || value === undefined || value === "undefined" ? "null" : typeof value;
+        const formattedValue = dataType === 'object' ? `<pre>${colorizeJSON(value)}</pre>` : colorizeJSON(value, true);
+        return `<tr><td>${key}</td><td>${formattedValue}</td></tr>`;
+      });
+      UI.summaryTable.innerHTML = `<table>${rows.join('')}</table>`;
+      //Render Grid
+      const grid = Object.entries(summaryJson).map(([key, value]) => {
+        return replacePlaceholders(UI.summaryGridTemplate.innerHTML, { key, value });
+      }).join('');
+      UI.summaryGrid.innerHTML = `<div class="summary-grid">${grid}</div>`
+      //Render Custom
+      UI.summaryCustom.innerHTML = replacePlaceholders(UI.customTemplate.value, null, true, "<span class='null'>-</span>");
+    }
+
+    function addListItem(listId, itemTemplateId, data=null) {
+      const template = $(itemTemplateId).innerHTML;
+      const html = data===null ? template.replace(/\{\{.*?\}\}/g, '') : replacePlaceholders(template, data, false);
+      $(listId).insertAdjacentHTML('beforeend', html);
+    }
+
+    function removeListItem(button) {
+      let currentElement = button;
+      while (currentElement) {
+          if (currentElement.classList.contains('list-item')) 
+              currentElement.remove();
+          currentElement = currentElement.parentNode;
+      }
+    }
+
+    function updateEditorFields() {
+      if(UI.editorFormat.value!=='simple') return;
+      const container = UI.metadataEditorSimple; 
+      container.innerHTML = '';
+      if(!UI.editorFields.value || !UI.metadataEditor.value) return;
+      const fieldNames = UI.editorFields.value.split(',').map(field => field.trim());
+      let metadata = JSON.parse(UI.metadataEditor.value) || {};
+      let htmlContent = '';
+      const idPrefix = 'editor_';
+      fieldNames.forEach(fieldName => {
+          const value = metadata[fieldName] || '';
+          htmlContent += `<tr>
+              <td><label for="${idPrefix}${fieldName}">${fieldName}: </label></td>
+              <td><input type="text" id="${idPrefix}${fieldName}" name="${fieldName}" value="${value}"></td>
+              </tr>`;
+      });
+      container.innerHTML = htmlContent;
+      fieldNames.forEach(fieldName => {
+          $(idPrefix+fieldName).addEventListener('change', function(event) {
+            let metadata = JSON.parse(UI.metadataEditor.value) || {};
+            metadata[fieldName] = event.target.value;
+            UI.metadataEditor.value = JSON.stringify(metadata, null, 2);
+          });
+      });
+    }
+
+    async function checkForUpdates() {
+      const normalizeVersion = (v) => { return v.replace(/^v/, '').split('.').map(Number).concat([0, 0, 0]).slice(0, 3); };
+
+      const compareVersions = (a, b) => {
+        const [a1, a2, a3] = normalizeVersion(a);
+        const [b1, b2, b3] = normalizeVersion(b);
+        if (a1 !== b1) return a1 - b1;
+        if (a2 !== b2) return a2 - b2;
+        return a3 - b3;
+      }
+
+      const response = await fetch('https://api.github.com/repos/Xypher7/lora-metadata-viewer/tags');
+      const tags = await response.json();
+      const versions = tags.map(tag => tag.name).sort((a, b) => compareVersions(b, a));
+      const isLatest = compareVersions(UI.appVersion.innerHTML, versions[0]) >= 0;
+      const latest = versions[0];
+      if(!isLatest) showToast(`New version available: <a href="https://github.com/Xypher7/lora-metadata-viewer" target='_blank'>${latest}</a>`, null, 'none');
+    }
+
+    function $(id) { return document.getElementById(id); }
+    //#endregion UI Rendering
+    //#region UI Actions
+    function copyToClipboard(elementId, event) {
+      const textToCopy = $(elementId);
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy.innerText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      showTooltip('Copied!', event);
+    }
+
+    async function downloadFile(purge) {
+      UI.editorNotificationPanel.innerHTML = '';
+      let newMetadata;
+      try {
+        newMetadata = UI.metadataEditor.value && !purge ? JSON.parse(UI.metadataEditor.value) : {};
+        const validateJsonString = (obj, name) => {
+          try{
+            obj && typeof obj === 'string' && JSON.parse(obj);
+          }catch(e){
+            showToast(`Error parsing edited metadata field '${name}'. Ensure the field value is a valid JSON string and try again.`, null, 'error');
+            throw e;
+          }     
+        };
+        !purge && ['ss_dataset_dirs', 'ss_bucket_info', 'ss_tag_frequency'].forEach((f) => { validateJsonString(newMetadata[f], f); });
+      } catch (e) {
+        showToast('Error parsing edited metadata. Ensure the metadata is in valid JSON format and try again.', null, 'error');
+        return;
+      }
+      try{
+        const METADATA_SIZE_OFFSET = 0;
+        const METADATA_CONTENT_OFFSET = 8;
+        const PADDING_BYTES = new Uint8Array([0, 0, 0, 0]); // Four NUL bytes for padding
+        // Step 1: Read the initial 8 bytes to get the metadata size
+        const metadataSizeBlob = VARIABLES.safetensorsFile.slice(METADATA_SIZE_OFFSET, METADATA_CONTENT_OFFSET);
+        const metadataSizeArrayBuffer = await metadataSizeBlob.arrayBuffer();
+        const metadataSize = new DataView(metadataSizeArrayBuffer).getUint32(0, true);
+        // Step 2: Read the current metadata based on the retrieved size
+        const metadataBlob = VARIABLES.safetensorsFile.slice(METADATA_CONTENT_OFFSET, METADATA_CONTENT_OFFSET + metadataSize);
+        const metadataArrayBuffer = await metadataBlob.arrayBuffer();
+        const currentMetadata = JSON.parse(new TextDecoder().decode(metadataArrayBuffer));
+        // Update metadata
+        currentMetadata['__metadata__'] = newMetadata;
+        const newMetadataBytes = new TextEncoder().encode(JSON.stringify(currentMetadata));
+        // Step 3: Ensure new metadata size and add padding
+        const newMetadataSizeArray = new Uint32Array([newMetadataBytes.length]);
+        // Step 4: Construct the new Blob with updated metadata and padding
+        const headerBlob = new Blob([newMetadataSizeArray.buffer, PADDING_BYTES, newMetadataBytes]);
+        const remainingFileBlob = VARIABLES.safetensorsFile.slice(METADATA_CONTENT_OFFSET + metadataSize); // Slice remaining file data
+        // Concatenate updated header with remaining file content
+        const newFileBlob = new Blob([headerBlob, remainingFileBlob], { type: "application/octet-stream" });
+        // Step 5: Trigger download of updated file
+        const url = URL.createObjectURL(newFileBlob);
+        const downloadLink = document.createElement("a");
+        downloadLink.href = url;
+        downloadLink.download = VARIABLES.safetensorsFile.name.replace(/(\.[^.]+)$/, `_${purge ? "purged" : "edited"}$1`);
+        downloadLink.click();
+        URL.revokeObjectURL(url);
+        showToast(`Metadata ${purge ? "purged" : "updated"} successfully!`, null, 'success');
+      } catch (error) {
+        showToast(`An error occured while updating the file:<br>${error}`, null, 'error');
+        console.error(error);
+      }
+    }
+
+    function updateProxyScript() {
+      const path = decodeURIComponent(window.location.pathname);
+      const file = path.substring(path.lastIndexOf('/') + 1);
+      if(file) UI.proxyScript.innerText = UI.proxyScript.innerText.replace('index.html', file);
+    }
+
+    function downloadProxyScript() {
+      const blob = new Blob([UI.proxyScript.innerText], { type: 'text/x-python' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'proxy.py';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    //#endregion UI Events
+    //#region Lora/Safetensors Utilities
+    function setCustomMetadata(){
+      try {
+          const objArray = JSON.parse(UI.customFields.value);
+          if (Array.isArray(objArray) && objArray.length > 0) {
+              const evaluatedObj = objArray.reduce((acc, obj) => {
+                  if (typeof obj === 'object' && 'label' in obj && 'calc' in obj && typeof obj.calc === 'string') {
+                      try{
+                        acc[obj.label] = eval(obj.calc);
+                      }
+                      catch(e) {
+                        if(obj.showError){
+                          console.warn(`Error evaluating expression for custom field "${obj.label}".`, obj, e);
+                          showToast(`Error evaluating expression for custom field "${obj.label}":<br>${error}`, null, 'error');
+                        }
+                      }
+                      VARIABLES.customMetadata[obj.label] = acc[obj.label];
+                  } else {
+                      console.error('Invalid object format or missing fields:', obj);
+                  }
+                  return acc;
+              }, {});
+              return evaluatedObj;
+          } else {
+              throw new Error('Invalid JSON format or empty array.');
+          }
+      } catch (error) {
+          console.error('Error evaluating expressions:', error.message);
+          return null;
+      }
+    }
+
+    function fetchMetadataValues(fields) {
+      const fieldList = fields.split(',').map(value => value.trim());
+      return Object.fromEntries( fieldList.map(item => [item, fetchMetadataValue(item)]) );
+    }
+
+    function fetchMetadataValue(field) {
+      if(field.startsWith('civitai.') && VARIABLES.civitaiMetadata && field.substring(8) in VARIABLES.civitaiMetadata)
+        return VARIABLES.civitaiMetadata[field.substring(8)];
+      else if(field.startsWith('arcenciel.') && VARIABLES.arcencielMetadata && field.substring(10) in VARIABLES.arcencielMetadata)
+        return VARIABLES.arcencielMetadata[field.substring(10)];
+      else if(field.startsWith('custom.') && VARIABLES.customMetadata && field.substring(7) in VARIABLES.customMetadata)
+        return VARIABLES.customMetadata[field.substring(7)];
+      else if(field in VARIABLES.fileMetadata)
+        return VARIABLES.fileMetadata[field];
+      else if(UI.showUndefinedSummaryValues.checked)
+        return "undefined";
+      else 
+        return undefined;
+    }
+
+    async function setCivitAIData() {
+      let data = await getCivitAiData(VARIABLES.customMetadata.autov2);
+      if (!data?.data) data = await getCivitAiData(VARIABLES.customMetadata.autov3);
+      if(data?.hash) VARIABLES.customMetadata.lora_hash = data.hash;
+      if (data?.data) { 
+        const url = data.data?.images?.[0].url;
+        const isVideo = /\.(mp4|webm)$/i.test(url); 
+        UI.previewImage.innerHTML = isVideo ? `<video src='${url}' controls loop></video>` : `<img src='${url}'>`;
+        VARIABLES.civitaiMetadata = data.data;
+        showToast('Matching resource found in CivitAI', 8000, 'success');
+      } else { showToast('No matching resource found in CivitAI', 8000, 'warning'); }
+      return data;
+    }
+
+    async function getCivitAiData(hash) {    
+      const baseApiUrl = "https://civitai.com/api/v1/model-versions/by-hash/";
+      const modelApiUrl = "https://civitai.com/api/v1/models/";
+      const baseModelUrl = "https://civitai.com/models/";
+      const versionParam = "?modelVersionId=";
+      try {      
+          if(!hash) return null;
+          let data = await onlineLookup(baseApiUrl + hash);
+          if (!data || !data.modelId) return null;
+          data.model = await onlineLookup(modelApiUrl + data.modelId);
+          if (!data.model) return null;
+          return { data, hash, modelUrl: baseModelUrl + data.modelId + versionParam + data.id, resourceUrl: baseApiUrl + hash, source: "CivitAI" };
+      } catch (error) {
+          if (error instanceof TypeError) showToast('CivitAI lookup failed, possibly due to a CORS restriction or network error...', null, 'error');
+          console.error("Error fetching CivitAI data:", error);
+          return null;
+      } 
+    }
+
+    async function setArcEnCielData() {
+        let data = await getArcEnCielData(VARIABLES.customMetadata.sha256);
+        if (!data?.data) data = await getArcEnCielData(VARIABLES.customMetadata.sha256_autov3);
+        if (data?.data) { 
+          const versions = data.data?.versions ?? [];
+          let versionIndex = 0;
+          if (versions.length > 1) {
+            const matchIdx = versions.findIndex(version => version?.sha256 === VARIABLES.customMetadata.sha256 || version?.sha256webui === VARIABLES.customMetadata.sha256_autov3);
+            if (matchIdx !== -1) versionIndex = matchIdx;
+          }
+          const selectedVersion = versions[versionIndex];
+          let mediaType = selectedVersion?.images?.length ? 'images' : (selectedVersion?.videos?.length ? 'videos' : undefined);
+          if (mediaType) {
+            const filePath = selectedVersion?.[mediaType]?.[0]?.filePath;
+            if (filePath) {
+              const url = 'https://arcenciel.io/uploads/' + filePath;
+              UI.previewImage.innerHTML = mediaType === 'images' ? `<img src='${url}'>` : `<video src='${url}' controls loop></video>`;
+            }
+          }
+          VARIABLES.arcencielMetadata = data.data;
+          showToast('Matching resource found in Arc En Ciel', 8000, 'success');
+        } else { showToast('No matching resource found in Arc En Ciel', 8000, 'warning'); }
+        return data;
+    }
+
+    async function getArcEnCielData(hash) {       
+        const baseApiUrl = "https://arcenciel.io/api/models/search?search=";
+        const baseModelUrl = "https://arcenciel.io/models/";
+        try {
+            if(!hash) return null;
+            let data = await onlineLookup(baseApiUrl + hash, true);
+            if (!data?.data?.[0]) return null; 
+            return { data: data.data[0], hash, hashType: "SHA256", modelUrl: baseModelUrl + data.data[0].id, resourceUrl: baseApiUrl + hash, source: "Arc En Ciel" };
+        } catch (error) {
+            if (error instanceof TypeError) showToast('Arc En Ciel lookup failed, possibly due to a CORS restriction or network error. Make sure the HTTP proxy is enabled in the "Online Lookup" settings tab and a valid proxy URL is specified.', null, 'error');
+            console.error("Error fetching Arc En Ciel data:", error);
+            return null;
+        } 
+    }
+
+    async function calculateFileHashes(file) {
+      let autov2;
+      let autov3;
+      let sha256;
+      let sha256_autov3;
+      showLoading('Processing...', true);
+      if(file){
+        try{
+          const TWO_GB = 2 * 1024 * 1024 * 1024;
+          if (file.size > TWO_GB) {
+            try{
+              updateLoading('Calculating AutoV3 hash...');
+              sha256_autov3 = await calculateAutoV3HashInChunks(file);
+            } catch(error) {
+              updateLoading('Calculating AutoV2 hash...');
+              sha256 = await calculateHashInChunks(file);
+            }
+          }
+          else {
+            updateLoading('Calculating AutoV2 hash...', 25);
+            sha256 = await calculateFileHash(file);
+            updateLoading('Calculating AutoV3 hash...', 50);
+            sha256_autov3 = await calculateAutoV3Hash(file);
+          }
+          if(sha256) {
+            autov2 = sha256.substring(0,10);
+            VARIABLES.customMetadata.sha256 = sha256;
+            VARIABLES.customMetadata.autov2 = autov2;
+          }
+          if(sha256_autov3) {
+            autov3 = sha256_autov3.substring(0,12);
+            VARIABLES.customMetadata.sha256_autov3 = sha256_autov3;
+            VARIABLES.customMetadata.autov3 = autov3;
+          }
+        } catch(error){
+          if (error.message === 'Unable to read the file.') 
+            showToast((Object.keys(VARIABLES.fileMetadata).length ? 'Metadata was found, but t':'T' ) + 'here was a problem calculating the hash. The file size may be too large.', null, 'error');
+        }
+      }
+      return { sha256, autov2, autov3 };
+    }
+
+    async function onlineLookup(url, useProxy = false) {
+        if (enableProxy.checked && useProxy) {
+            const proxyAvailable = await isProxyAvailable(UI.proxyUrl.value);
+            if (proxyAvailable) url = UI.proxyUrl.value + url;
+            else {
+                showToast('Proxy server is not available.', null, 'error');
+                return null;
+            }
+        }
+        const response = await fetch(url);
+        if (!response.ok) return null;
+        return response.json();
+    }
+    //#endregion Lora/Safetensors Utilities
+    //#region Encryption Utilities
+    //Calculate SHA-256 hash of the entire file (AutoV2 hash)
+    function calculateFileHash(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          const buffer = reader.result;
+          try {
+            const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(byte => ('00' + byte.toString(16)).slice(-2)).join('');
+            resolve(hashHex);
+          } catch (err) {
+            reject(err);
+          }
+        };
+        reader.onerror = () => { reject(new Error('Unable to read the file.')); };
+        reader.readAsArrayBuffer(file);
+      });
+    }
+
+    //Calculate SHA-256 hash of a file, without metadata section (AutoV3 hash)
+    function calculateAutoV3Hash(file) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    try {
+                        const fileBuffer = reader.result;
+                        const dataView = new DataView(fileBuffer);
+                        const n = dataView.getUint32(0, true); // Read the first 8 bytes as an integer in little-endian format                     
+                        const offset = n + 8; // Calculate the offset
+                        const fileBytesToHash = new Uint8Array(fileBuffer, offset); // Extract data from  file starting at calculated offset       
+                        crypto.subtle.digest('SHA-256', fileBytesToHash) // Calculate the SHA-256 hash of the extracted data
+                            .then(hashBuffer => {
+                                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                                const hashHex = hashArray.map(byte => ('00' + byte.toString(16)).slice(-2)).join('');
+                                resolve(hashHex);
+                            })
+                            .catch(err => reject(err));
+                    } catch (error) {
+                        console.error('Error processing file:', error);
+                        reject(error);
+                    }
+                };
+                reader.onerror = () => reject(new Error('Unable to read the file.'));
+                reader.readAsArrayBuffer(file);
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    async function calculateAutoV3HashInChunks(file) {
+        const chunkSize = 16 * 1024 * 1024;  // 16 MB chunk size
+        const metadataSizeBlob = file.slice(0, 8);  // Read first 8 bytes to get metadata size
+        const metadataSizeArrayBuffer = await metadataSizeBlob.arrayBuffer();
+        const dataView = new DataView(metadataSizeArrayBuffer);
+        const metadataSize = dataView.getUint32(0, true);
+        const offset = metadataSize + 8;  // Offset to skip metadata
+
+        const totalChunks = Math.ceil((file.size - offset) / chunkSize);
+        const sha256 = await hashwasm.createSHA256();
+        let chunksProcessed = 0;
+
+        // Process each chunk, starting after the metadata
+        for (let i = 0; i < totalChunks; i++) {
+            if (VARIABLES.abortController.signal.aborted) {
+                console.log('Hash calculation cancelled');
+                return null;  // Exit early if aborted
+            }
+            const start = offset + i * chunkSize;
+            const end = Math.min(start + chunkSize, file.size);
+            const chunk = file.slice(start, end);
+            const chunkArrayBuffer = await chunk.arrayBuffer();
+
+            // Update the hash with the current chunk data
+            sha256.update(new Uint8Array(chunkArrayBuffer));
+
+            // Update progress
+            chunksProcessed++;
+            const progress = Math.round((chunksProcessed / totalChunks) * 100);
+            updateProgress(progress);
+        }
+
+        // Finalize and get the hash as a hex string
+        const finalHashHex = sha256.digest('hex');
+        return finalHashHex;  // Return the final hash as a hex string
+    }
+
+    async function calculateHashInChunks(file) {
+        const chunkSize = 16 * 1024 * 1024;  // 16 MB chunk size
+        const totalChunks = Math.ceil(file.size / chunkSize);
+        updateProgress(0);
+        const sha256 = await hashwasm.createSHA256();
+        let chunksProcessed = 0;
+        // Read and process each chunk
+        for (let i = 0; i < totalChunks; i++) {
+            if (VARIABLES.abortController.signal.aborted) {
+                console.log('Hash calculation cancelled');
+                return null;  // Exit early if aborted
+            }
+            const chunk = file.slice(i * chunkSize, (i + 1) * chunkSize);
+            const chunkArrayBuffer = await chunk.arrayBuffer();
+            // Update the hash with the current chunk data
+            sha256.update(new Uint8Array(chunkArrayBuffer));
+            // Update and display the progress
+            chunksProcessed++;
+            const progress = Math.round((chunksProcessed / totalChunks) * 100);
+            updateProgress(progress);
+        }
+        // Finalize and get the hash as a hex string
+        const finalHashHex = sha256.digest('hex');
+        return finalHashHex;  // Return the final hash as a hex string
+    }
+    //#endregion Encryption Utilities
+    //#region Proxy Utilities
+    async function isProxyAvailable(proxyUrl) {
+        try {
+            const response = await fetch(proxyUrl + 'https://www.civitai.com');
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+    //#endregion Proxy Utilities
+  </script>
+</body>
+</html>

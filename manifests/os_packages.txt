@@ -1,0 +1,6 @@
+ssox
+# for trellies
+libQt5Xml5
+# Qwen3-tts语音克隆依赖于ffmpeg,而ffmpeg 7依赖以下库
+libavfilter10
+libavutil-devel

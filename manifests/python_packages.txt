@@ -1,0 +1,16 @@
+modelscope
+
+
+# needed by index tts2
+protobuf>=3.20.2
+librosa
+munch
+
+# need by qwen3-tts2
+## 用于edgeTTS的语音s识别。不大行这个版本依赖太麻烦
+torchcodec
+ffmpeg
+
+# need by HeartMula
+##  pip install torchao --index-url https://download.pytorch.org/whl/cu128
+torchao-0.15.0+cu128

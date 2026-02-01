@@ -1,0 +1,196 @@
+version: 2
+
+defaults:
+  download_root: /data/comfyui/
+  timeout: 600
+  retries: 3
+  verify_sha256: true
+
+models:
+  # ============================================================
+  # 单文件模型（多 provider fallback）
+  # ============================================================
+  - name: flux_klein_2
+    category: checkpoints
+    target: models/checkpoints/FLUX
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: black-forest-labs/FLUX.1-dev
+        file: flux1-dev-fp16.safetensors
+        revision: main
+
+      - provider: modelscope
+        repo: AI-ModelScope/FLUX.1-dev
+        file: flux1-dev-fp16.safetensors
+        revision: master
+
+      - provider: direct
+        url: https://mirror.example.com/flux/flux1-dev-fp16.safetensors
+
+    sha256: optional
+
+  # ============================================================
+  # LoRA 示例（单文件）
+  # ============================================================
+  - name: anime_skin_lora
+    category: loras
+    target: loras/skin
+    enabled: true
+
+    sources:
+      - provider: modelscope
+        repo: AI-ModelScope/anime-skin
+        file: anime_skin.safetensors
+
+      - provider: huggingface
+        repo: someuser/anime-skin
+        file: anime_skin.safetensors
+
+  # ============================================================
+  # 整仓库 / 项目模型（如 indextt2）
+  # ============================================================
+  - name: indextt2
+    category: tts
+    target: models/IndexTTS-2
+    enabled: true
+    type: repository # ⭐ 关键
+
+    sources:
+      - provider: huggingface
+        repo: indextts/indextt2
+        revision: v1.1.0
+        include:
+          - "*.py"
+          - "models/**"
+          - "configs/**"
+
+      - provider: modelscope
+        repo: AI-ModelScope/indextt2
+        revision: master
+
+    post_install:
+      - python setup.py install
+
+  # ============================================================
+  # 整仓库 / 项目模型（如 qwen3-tts）
+  # ============================================================
+  - name: Qwen3-TTS-12Hz-1.7B-Base
+    category: qwen3-tts
+    target: models/qwen-tts/Qwen3-TTS-12Hz-1.7B-Base
+    enabled: true
+    type: repository # ⭐ 关键
+
+    sources:
+      - provider: huggingface
+        repo: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+        revision: main
+
+  - name: Qwen3-TTS-12Hz-1.7B-CustomVoice
+    category: qwen3-tts
+    target: models/qwen-tts/Qwen3-TTS-12Hz-1.7B-CustomVoice
+    enabled: true
+    type: repository # ⭐ 关键
+
+    sources:
+      - provider: huggingface
+        repo: Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+        revision: main
+
+  - name: Qwen3-TTS-12Hz-1.7B-VoiceDesign
+    category: qwen3-tts
+    target: models/qwen-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+    enabled: true
+    type: repository # ⭐ 关键
+
+    sources:
+      - provider: huggingface
+        repo: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+        revision: main
+
+  - name: Qwen3-TTS-Tokenizer-12Hz
+    category: qwen3-tts
+    target: models/qwen-tts/Qwen3-TTS-Tokenizer-12Hz
+    enabled: true
+    type: repository # ⭐ 关键
+
+    sources:
+      - provider: huggingface
+        repo: Qwen/Qwen3-TTS-Qwen3-TTS-Tokenizer-12Hz
+        revision: main
+
+  # ============================================================
+  # controlnet
+  # ============================================================
+  - name: dw-ll_ucoco_384_bs5.torchscript.pt
+    category: controlnet
+    target: custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: black-forest-labs/FLUX.1-dev
+        file: flux1-dev-fp16.safetensors
+        revision: main
+    sha256: optional
+  # ============================================================
+  # 整仓库 / 项目模型（如 ltx2）
+  # ============================================================
+  - name: ltx-2-19b-dev-fp8.safetensors
+    category: ltx2
+    target: models/checkpoints/t2v/
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: Lightricks/LTX-2
+        file: ltx-2-19b-dev-fp8.safetensors
+        revision: main
+
+    sha256: optional
+
+  # ============================================================
+  # 整仓库 / 项目模型（如 HeartMula）
+  # ============================================================
+  - name: ltx-2-19b-dev-fp8.safetensors
+    category: ltx2
+    target: models/checkpoints/t2v/
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: Lightricks/LTX-2
+        file: ltx-2-19b-dev-fp8.safetensors
+        revision: main
+
+    sha256: optional
+
+    # ============================================================
+  # 整仓库 / 项目模型（如 Scail依赖）
+  # ============================================================
+  - name: vitpose-l-wholebody.onnx
+    category: Scail
+    target: models/detection
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: JunkyByte/easy_ViTPose
+        file: onnx/wholebody/vitpose-l-wholebody.onnx
+        revision: main
+
+    sha256: optional
+
+  - name: yolov10m.onnx
+    category: Scail
+    target: models/detection
+    enabled: true
+
+    sources:
+      - provider: huggingface
+        repo: Wan-AI/Wan2.2-Animate-14B
+        file: process_checkpoint/det/yolov10m.onnx
+        revision: main
+
+    sha256: optional
