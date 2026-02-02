@@ -4,3 +4,11 @@ libQt5Xml5
 # Qwen3-tts语音克隆依赖于ffmpeg,而ffmpeg 7依赖以下库
 libavfilter10
 libavutil-devel
+
+## cuda 128,python 312可以直接安装轮子 2.2.0版本 pip install sageattention
+## cuda 130, 则没有
+sageattention
+
+
+## Scail依赖
+taichi
