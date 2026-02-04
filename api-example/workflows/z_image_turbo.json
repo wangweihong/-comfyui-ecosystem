@@ -1,0 +1,200 @@
+{
+  "6": {
+    "inputs": {
+      "text": "\n  \"subject\": \"一群奔腾的马匹，毛色以深棕、黑色和栗色为主，鬃毛飞扬，四蹄腾空，姿态充满力量与野性，部分马匹头部转向镜头，眼神锐利，展现出自由与速度的美感。\",\n  \"foreground\": \"前景是随风摇曳的高草与紫色野花，草叶上沾有薄雾或晨露，部分草叶被马蹄踏过，形成自然的动态痕迹，地面略显湿润，增强画面的沉浸感。\",\n  \"midground\": \"主体位于一片广袤的草原上，草场延伸至远方，地势平坦开阔，马群密集地从画面中景向远景奔涌，形成视觉上的纵深感和动感。\",\n  \"background\": \"远景是朦胧的山峦轮廓与灰白色的天空，天空中弥漫着薄雾或尘土，营造出苍茫辽远的西部草原氛围，隐约可见远处的稀疏树木或围栏。\",\n  \"composition\": \"采用水平广角构图，主体马群横跨画面中轴线，形成强烈的横向动感；前景草丛与背景山峦形成自然的前景-中景-背景三层结构，增强画面空间感；镜头略微俯拍，使马群显得更具规模与气势。\",\n  \"visual_guidance\": \"观众视线首先被前景的野花与草叶吸引，随后自然引导至奔腾的马群主体，马群中部分马匹头部朝向镜头，形成视觉焦点；马群的运动轨迹形成引导线，将视线从左向右或从右向左延伸，强化动态张力。\",\n  \"color_tone\": \"柔和的大地色系为主，以棕褐、灰绿、淡紫为主色调，整体色调略显朦胧，带有黄昏或晨雾的柔和感，点缀少量马匹鬃毛的亮白色与野花的紫色，增强视觉层次。\",\n  \"lighting_mood\": \"柔和的自然散射光，光线来自天际线方向，略带逆光效果，马匹边缘形成微妙的轮廓光，增强立体感；整体氛围宁静而壮美，带有一种史诗般的西部草原诗意。\",\n  \"caption\": \"在新疆昭苏广袤的草原上，一群深棕与黑色的野马正以磅礴之势奔腾而过，鬃毛在微风中飞扬，四蹄踏过湿润的草地与紫色野花，前景的草叶与背景朦胧的山峦形成层次分明的景深，柔和的晨雾散射光勾勒出马匹的轮廓，整个画面充满野性、自由与史诗般的西部诗意。\"\n",
+      "clip": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "blurry ugly bad,人体畸形",
+      "clip": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "34",
+        0
+      ],
+      "vae": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "11": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "采样算法（AuraFlow）"
+    }
+  },
+  "13": {
+    "inputs": {
+      "width": 1536,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "空Latent图像（SD3）"
+    }
+  },
+  "16": {
+    "inputs": {
+      "unet_name": "text2image/z_image_turbo/z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "17": {
+    "inputs": {
+      "vae_name": "FLUX1/ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "18": {
+    "inputs": {
+      "clip_name": "text2image/qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "30": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 286955709532207,
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 5,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "11",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "34": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 286955709532207,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "start_at_step": 5,
+      "end_at_step": 20,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "36",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "K采样器（高级）"
+    }
+  },
+  "35": {
+    "inputs": {
+      "unet_name": "text2image/split_files/diffusion_models/z_image_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "36": {
+    "inputs": {
+      "shift": 3,
+      "model": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "采样算法（AuraFlow）"
+    }
+  }
+}

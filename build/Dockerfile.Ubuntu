@@ -1,0 +1,181 @@
+################################################################################
+# Dockerfile based on Ubuntu 24.04
+# A runtime environment for https://github.com/comfyanonymous/ComfyUI
+################################################################################
+
+FROM ubuntu:24.04
+
+LABEL maintainer="YAN Wenkun <code@yanwk.fun>"
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN set -eu
+
+ARG USING_GITHUB_ACTIONS=false
+
+################################################################################
+# NVIDIA CUDA devel (Ubuntu 24.04)
+# Ref: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/
+
+RUN --mount=type=cache,target=/var/lib/apt/lists \
+    apt-get update && apt-get install -y --no-install-recommends \
+    gnupg2 curl ca-certificates
+
+RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub | apt-key add - \
+    && echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /" > /etc/apt/sources.list.d/cuda.list
+
+RUN --mount=type=cache,target=/var/lib/apt/lists \
+    apt-get update && apt-get install -y --no-install-recommends \
+    cuda-cccl-12-8 \
+    cuda-command-line-tools-12-8 \
+    cuda-compat-12-8 \
+    cuda-cudart-12-8 \
+    cuda-minimal-build-12-8 \
+    cuda-nvcc-12-8 \
+    cuda-nvprof-12-8 \
+    cuda-nvtx-12-8 \
+    libcublas-12-8 \
+    libnpp-12-8 \
+    cuda-cudart-dev-12-8 \
+    cuda-nvml-dev-12-8 \
+    cuda-nvrtc-dev-12-8 \
+    libcublas-dev-12-8 \
+    libnpp-dev-12-8 \
+    cuda-libraries-12-8 \
+    cuda-libraries-dev-12-8 \
+    libcudnn9-cuda-12
+
+ENV PATH="${PATH}:/usr/local/cuda-12.8/bin" \
+    LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu:/usr/local/cuda-12.8/lib64" \
+    LIBRARY_PATH="/usr/local/cuda-12.8/lib64/stubs" \
+    CUDA_HOME="/usr/local/cuda-12.8"
+
+################################################################################
+# Python and tools (Ubuntu 24.04 ships with Python 3.12)
+
+RUN --mount=type=cache,target=/var/lib/apt/lists \
+    apt-get update && apt-get install -y --no-install-recommends \
+    python3-dev \
+    python3-pip \
+    python3-wheel \
+    python3-setuptools \
+    python3-packaging \
+    python3-full \
+    libgl1-mesa-dev \
+    libegl1-mesa-dev \
+    libglib2.0-0 \
+    libqt5opengl5-dev \
+    make \
+    cmake \
+    ninja-build \
+    git \
+    aria2 \
+    findutils \
+    vim \
+    which \
+    ffmpeg \
+    libx264-dev \
+    libx265-dev \
+    fish \
+    wget
+
+# Remove the need for 'pip install --break-system-packages'
+RUN rm -vf /usr/lib/python3.12/EXTERNALLY-MANAGED \
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 100 \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.12 100
+
+################################################################################
+# GCC 11
+# Ubuntu 24.04 default is GCC 13, installing GCC 11 for compatibility
+
+RUN --mount=type=cache,target=/var/lib/apt/lists \
+    apt-get update && apt-get install -y --no-install-recommends \
+    gcc-11 g++-11 \
+    && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-11 90 \
+    && update-alternatives --install /usr/bin/cc  cc  /usr/bin/gcc-11 90 \
+    && update-alternatives --install /usr/bin/cpp cpp /usr/bin/cpp-11 90 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 90 \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 90
+
+################################################################################
+# PyTorch, xFormers
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --upgrade pip wheel setuptools packaging --break-system-packages
+
+# Optimization hack to reduce image size
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install \
+        xformers==0.0.33.post2 torch==2.9.1 torchvision torchaudio \
+        --index-url https://download.pytorch.org/whl/cu128 \
+    && pip uninstall --yes torch \
+    && find /usr/local/lib/python3.12/dist-packages/nvidia/ -mindepth 1 -maxdepth 1 ! -name 'nccl' ! -name 'nvshmem' -exec rm -rfv {} +
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install \
+        xformers==0.0.33.post2 torch==2.9.1 torchvision torchaudio \
+        --index-url https://download.pytorch.org/whl/cu128
+
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}\
+:/usr/local/lib/python3.12/dist-packages/torch/lib\
+:/usr/local/lib/python3.12/dist-packages/nvidia/nccl/lib\
+:/usr/local/lib/python3.12/dist-packages/nvidia/nvshmem/lib"
+
+################################################################################
+# More Python Packages
+
+COPY builder-scripts/. /builder-scripts/
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -r /builder-scripts/pak3.txt \
+    && pip install -r /builder-scripts/pak5.txt \
+    && pip install -r /builder-scripts/pak7.txt
+
+# SAM-2 & SAM-3
+RUN --mount=type=cache,target=/root/.cache/pip \
+    cd /builder-scripts \
+    && git clone https://github.com/facebookresearch/sam2.git \
+    && cd sam2 && SAM2_BUILD_CUDA=1 pip install -e . --no-deps --no-build-isolation \
+    && cd /builder-scripts \
+    && git clone https://github.com/facebookresearch/sam3.git \
+    && cd sam3 && pip install -e . --no-deps --no-build-isolation \
+    && cd /
+
+# Specialized Wheels
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -U uv \
+    && pip install https://github.com/nunchaku-tech/nunchaku/releases/download/v1.0.2/nunchaku-1.0.2+torch2.9-cp312-cp312-linux_x86_64.whl \
+    && pip install https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.7.0/flash_attn-2.8.3+cu128torch2.9-cp312-cp312-linux_x86_64.whl \
+    && pip install https://github.com/YanWenKun/ComfyUI-Containerfiles/releases/download/sageattn-py312-cu128-pt29/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl \
+    && pip install https://github.com/YanWenKun/ComfyUI-Containerfiles/releases/download/sageattn-py312-cu128-pt29/spas_sage_attn-0.1.0-cp312-cp312-linux_x86_64.whl \
+    && pip install https://github.com/JamePeng/llama-cpp-python/releases/download/v0.3.18-cu128-AVX2-linux-20251220/llama_cpp_python-0.3.18-cp312-cp312-linux_x86_64.whl
+
+################################################################################
+# Bundle ComfyUI
+
+WORKDIR /default-comfyui-bundle
+
+RUN bash /builder-scripts/preload-cache.sh
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install \
+        -r '/default-comfyui-bundle/ComfyUI/requirements.txt' \
+        -r '/default-comfyui-bundle/ComfyUI/custom_nodes/ComfyUI-Manager/requirements.txt'
+
+################################################################################
+# Final Clean up
+
+RUN --mount=type=cache,target=/root/.cache/pip \
+    if [ "${USING_GITHUB_ACTIONS}" = "true" ]; then \
+        rm -rf /root/.cache/pip/* ; \
+    fi
+
+RUN rm -rfv /root/* && rm -rfv /root/.[^.]* /root/.??*
+
+COPY runner-scripts/. /runner-scripts/
+
+USER root
+VOLUME /root
+WORKDIR /root
+EXPOSE 8188
+ENV CLI_ARGS=""
+CMD ["bash","/runner-scripts/entrypoint.sh"]

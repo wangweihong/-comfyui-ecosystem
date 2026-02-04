@@ -14,10 +14,11 @@ docker run -it  \
   -v /home/wwhvw/codespace/comfyui-ecosystem/workflows:/root/ComfyUI/user/default/workflows \
   -v /home/wwhvw/codespace/comfyui-ecosystem/subgraphs:/root/ComfyUI/user/default/subgraphs \
   --entrypoint bash \
-  -e CLI_ARGS="--disable-xformers" \
+  -e CLI_ARGS="--disable-xformers --enable-cors-header" \
   -e HF_TOKEN="https://hf-mirror.com" \
   registry.cn-hangzhou.aliyuncs.com/eazycloud/comfyui-boot:cu128-megapak
 
 
 # cli-args参数： --disable-smart-memory： 这个参数可以让comfyui将显存的数据大量搬运到内存。
 #               --disable-xformers: 不设置某些模型会出现花图
+#               --enable-cors-header: 允许跨域

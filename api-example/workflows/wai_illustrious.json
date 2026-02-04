@@ -1,0 +1,442 @@
+{
+  "10": {
+    "inputs": {
+      "ckpt_name": "text2image/wai-nsfw-illustrious-sdxl/waiIllustriousSDXL_v150.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "33": {
+    "inputs": {
+      "images": [
+        "34:141",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "预览图像"
+    }
+  },
+  "34:156": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:139:121",
+        0
+      ],
+      "on_false": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛 Switch any"
+    }
+  },
+  "34:157": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:138:121",
+        0
+      ],
+      "on_false": [
+        "34:156",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛 Switch any"
+    }
+  },
+  "34:161": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:160:121",
+        0
+      ],
+      "on_false": [
+        "34:157",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛 Switch any"
+    }
+  },
+  "34:141": {
+    "inputs": {
+      "samples": [
+        "34:140",
+        0
+      ],
+      "vae": [
+        "10",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "34:138:121": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:138:119",
+        0
+      ],
+      "on_false": [
+        "34:156",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora模型"
+    }
+  },
+  "34:138:122": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:138:123",
+        0
+      ],
+      "on_false": [
+        "34:139:122",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora提示词"
+    }
+  },
+  "34:138:119": {
+    "inputs": {
+      "lora_name": "text2image/wai/Ass Size Slider - Illustrious.safetensors",
+      "strength_model": 1,
+      "model": [
+        "34:156",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "34:138:109": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "处罚词"
+    }
+  },
+  "34:138:128": {
+    "inputs": {
+      "text": "[Ass Size Slide]\n更改强度来改变臀部大小,分别：0.1,1,2,3,4\n\n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "说明"
+    }
+  },
+  "34:138:123": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "34:139:122",
+        0
+      ],
+      "text_b": [
+        "34:138:109",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "34:139:123": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "34:162",
+        0
+      ],
+      "text_b": [
+        "34:139:109",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "34:139:128": {
+    "inputs": {
+      "text": "[Breast Size Slide]\n更改强度来改变胸部大小,分别：0.1,1,2,3,4\n\n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "说明"
+    }
+  },
+  "34:139:119": {
+    "inputs": {
+      "lora_name": "text2image/wai/Breast Size Slider - Illustrious - V2_alpha1.0_rank4_noxattn_last.safetensors",
+      "strength_model": 1,
+      "model": [
+        "34:163",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "34:139:121": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:139:119",
+        0
+      ],
+      "on_false": [
+        "34:163",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora模型"
+    }
+  },
+  "34:139:122": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:139:123",
+        0
+      ],
+      "on_false": [
+        "34:162",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora提示词"
+    }
+  },
+  "34:139:109": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "处罚词"
+    }
+  },
+  "34:163": {
+    "inputs": {
+      "ckpt_name": "text2image/wai-nsfw-illustrious-sdxl/waiIllustriousSDXL_v150.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    }
+  },
+  "34:136": {
+    "inputs": {
+      "text": [
+        "34:160:122",
+        0
+      ],
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "34:160:121": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:160:119",
+        0
+      ],
+      "on_false": [
+        "34:157",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora模型"
+    }
+  },
+  "34:160:119": {
+    "inputs": {
+      "lora_name": "text2image/wai/MoriiMee_Gothic_Niji_Style_Illustrious_r1.safetensors",
+      "strength_model": 1,
+      "model": [
+        "34:157",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRA加载器（仅模型）"
+    }
+  },
+  "34:160:109": {
+    "inputs": {
+      "text": "monochromatic colors,artist:moriimee"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "34:160:122": {
+    "inputs": {
+      "boolean": false,
+      "on_true": [
+        "34:160:123",
+        0
+      ],
+      "on_false": [
+        "34:138:122",
+        0
+      ]
+    },
+    "class_type": "Switch any [Crystools]",
+    "_meta": {
+      "title": "🪛是否加载lora提示词"
+    }
+  },
+  "34:160:128": {
+    "inputs": {
+      "text": "monochromatic colors,artist:moriimee"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "34:160:123": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "34:138:122",
+        0
+      ],
+      "text_b": [
+        "34:160:109",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "34:137": {
+    "inputs": {
+      "text": [
+        "34:159",
+        0
+      ],
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "34:140": {
+    "inputs": {
+      "seed": 147578801705050,
+      "steps": 30,
+      "cfg": 7,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "34:161",
+        0
+      ],
+      "positive": [
+        "34:136",
+        0
+      ],
+      "negative": [
+        "34:137",
+        0
+      ],
+      "latent_image": [
+        "34:164",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "34:164": {
+    "inputs": {
+      "width": 1024,
+      "height": 1536,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "34:162": {
+    "inputs": {
+      "text": "masterpiece, best quality, ultra-detailed, 1 girl, 3d cg, ue5 render\n8k"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "34:159": {
+    "inputs": {
+      "text": "low quality,worst quality,normal quality,signature,jpeg artifacts,bad anatomy,old,early,copyright name,watermark,artist name,signature,bad anatomy, bad hands, bad fingers,extra fingers,body horror, censor, child, loli, symbol-shaped pupils, multiple colors hair,lips,bad quality,worst quality,worst detail,sketch,censor,nsfw，bad hands,lowres, worst quality, bad quality, bad anatomy, simple background, blurry, lowres, cropped, extra limbs, bad anatomy, deformed hands, bad face, sketch, jpeg artifacts, signature, watermark, old, oldest, Mosaic"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  }
+}

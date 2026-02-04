@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio Pro - JSON Config Driven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        body { background-color: #f2f2f7; font-family: 'Inter', system-ui, sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .apple-shadow { box-shadow: 0 8px 32px 0 rgba(0,0,0,0.05); }
+        .loader-spin { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-gray-900 overflow-x-hidden">
+
+<div class="max-w-[1600px] mx-auto px-6 py-8">
+    <header class="flex justify-between items-end mb-10">
+        <div>
+            <h1 class="text-4xl font-bold tracking-tight">AI 创作中心</h1>
+            <p id="connStatus" class="text-gray-500 mt-2 flex items-center text-sm italic">
+                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span> 正在初始化环境...
+            </p>
+        </div>
+        <!-- 不同工作流的切换 -->
+        <select id="wfSelector" class="glass apple-shadow px-6 py-3 rounded-2xl font-semibold text-blue-600 outline-none cursor-pointer border-none">
+            <option value="wai_illustrious">WAI Illustrious</option>
+            <option value="z_image_turbo">Z-Image Turbo</option>
+        </select>
+    </header>
+
+    <div class="grid grid-cols-12 gap-8">
+        <aside class="col-span-12 lg:col-span-3 space-y-6">
+            <div id="managerPanel" class="glass apple-shadow rounded-[2.5rem] p-8 min-h-[500px]">
+                <h2 class="text-xl font-bold mb-6">配置参数</h2>
+                <div id="dynamicInputs" class="space-y-6">
+                    </div>
+                
+                <div id="progressArea" class="hidden mt-8 space-y-2">
+                    <div class="flex justify-between text-[10px] font-bold text-blue-500 uppercase">
+                        <span id="nodeName">计算中...</span>
+                        <span id="percentNum">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-1 rounded-full overflow-hidden">
+                        <div id="progressBar" class="bg-blue-600 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <button id="genBtn" class="w-full mt-10 bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-800 active:scale-95 transition-all shadow-xl disabled:opacity-30">
+                    立即生成
+                </button>
+            </div>
+        </aside>
+
+        <main class="col-span-12 lg:col-span-6">
+            <div id="previewContainer" class="glass apple-shadow rounded-[2.5rem] min-h-[700px] flex items-center justify-center bg-white/40 overflow-hidden relative border border-white">
+                <div id="emptyMsg" class="text-gray-300 flex flex-col items-center">
+                    <svg class="w-12 h-12 mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>等待任务提交</span>
+                </div>
+                <div id="resultBox" class="hidden w-full h-full p-4 animate-in fade-in zoom-in duration-500"></div>
+            </div>
+        </main>
+
+        <aside class="col-span-12 lg:col-span-3">
+            <div class="glass apple-shadow rounded-[2.5rem] p-6 h-[800px] flex flex-col">
+                <div class="flex justify-between items-center mb-6 px-2">
+                    <h3 class="font-bold">生成历史</h3>
+                    <button onclick="clearHistory()" class="text-[10px] text-red-500 font-bold uppercase tracking-widest">Clear</button>
+                </div>
+                <div id="historyList" class="flex-1 overflow-y-auto space-y-4 pr-1"></div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+/**
+ * WORKFLOW MANAGER 配置文件中心
+ * 不需要在这里贴长 JSON 了，只需指定文件路径
+ */
+const CONFIG = {
+    wai_illustrious: {
+        jsonPath: "./workflows/wai_illustrious.json",
+        mapping: [
+            { id: "prompt", label: "正面提示词", type: "textarea", targetTitle: "Text Multiline", targetKey: "text", index: 2, default: "masterpiece, 1girl, best quality" },
+            { id: "seed", label: "种子", type: "number", targetTitle: "K采样器", targetKey: "seed", default: 0 },
+            // 注意这里targetTitle是其所在节点的标题，即~meta.Title
+            { id: "width", label: "宽", type: "number", targetTitle: "空Latent图像", targetKey: "width", default: 1024 },
+            { id: "height", label: "高", type: "number", targetTitle: "空Latent图像", targetKey: "height", default: 1024 },
+            { id: "batch", label: "批次", type: "number", targetTitle: "空Latent图像", targetKey: "batch_size", default: 1 }
+        ],
+        outputTitle: "预览图像"
+    },
+    z_image_turbo: {
+        jsonPath: "./workflows/z_image_turbo.json",
+        mapping: [
+            { id: "prompt", label: "场景描述", type: "textarea", targetTitle: "CLIP Text Encode (Positive Prompt)", targetKey: "text", default: "Landscape of future city" },
+            { id: "seed", label: "种子", type: "number", targetTitle: "K采样器（高级）", targetKey: "noise_seed", default: 0, index: 1 }
+        ],
+        outputTitle: "保存图像"
+    }
+};
+
+const COMFY_SERVER = "127.0.0.1:8188";
+const CLIENT_ID = Math.random().toString(36).substring(7);
+let loadedWorkflows = {}; // 内存缓存已加载的 JSON
+
+// 1. JSON 加载器
+async function loadWorkflowFile(key) {
+    // 如果已经加载到内存中则直接返回
+    if (loadedWorkflows[key]) return loadedWorkflows[key];
+    try {
+        // 从指定路径加载导出的工作流(api)
+        const response = await fetch(CONFIG[key].jsonPath);
+        if (!response.ok) throw new Error(`无法找到文件: ${CONFIG[key].jsonPath}`);
+        const data = await response.json();
+        // 加载到内存中
+        loadedWorkflows[key] = data;
+        return data;
+    } catch (e) {
+        showError(`加载 JSON 失败: ${e.message}`);
+        return null;
+    }
+}
+
+// 2. 动态 UI 渲染
+async function renderUI() {
+    // 获取选择的工作流
+    const key = document.getElementById('wfSelector').value;
+    // 加载工作流数据
+    const wfJson = await loadWorkflowFile(key);
+    if (!wfJson) return;
+
+    const panel = document.getElementById('dynamicInputs');
+    panel.innerHTML = "";
+    
+    // 根据工作流映射mapping的参数，动态渲染页面的菜单菜单项
+    CONFIG[key].mapping.forEach(m => {
+        const div = document.createElement('div');
+        div.className = "animate-in slide-in-from-left-4 duration-300";
+        const input = m.type === 'textarea' 
+            ? `<textarea id="field_${m.id}" rows="4" class="w-full glass rounded-2xl p-4 text-sm outline-none focus:ring-2 focus:ring-blue-400 transition-all">${m.default}</textarea>`
+            : `<input id="field_${m.id}" type="number" value="${m.default}" class="w-full glass rounded-2xl p-4 text-sm outline-none">`;
+        
+        div.innerHTML = `<label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 block ml-2">${m.label}</label>${input}`;
+        panel.appendChild(div);
+    });
+}
+
+// 3. 参数注入与提交
+async function triggerGeneration() {
+    // 获取选择的工作流
+    const key = document.getElementById('wfSelector').value;
+    const wfJson = JSON.parse(JSON.stringify(loadedWorkflows[key]));
+    const config = CONFIG[key];
+    
+    // 建立标题索引
+    // 因为一个节点重新添加，其id会变化。因此这里通过_meta.title来定位节点
+    // 因此要求工作流的节点标题不能同名。最好是设置工作流唯一的标题
+    const titleIndex = {};
+    for (const id in wfJson) {
+        const t = wfJson[id]._meta?.title || "None";
+        if (!titleIndex[t]) titleIndex[t] = [];
+        titleIndex[t].push(id);
+    }
+
+    // 注入
+    const paramsSnapshot = {};
+    config.mapping.forEach(m => {
+        const el = document.getElementById(`field_${m.id}`);
+        let val = m.type === 'number' ? parseInt(el.value) : el.value;
+        console.log("elem id: ,value:",m.id,val)
+        // 如果 ID 是 seed 且用户输入 0，则生成一个随机数
+        if (m.id === 'seed' && val === 0) val = Math.floor(Math.random() * 1e12);
+        
+        paramsSnapshot[m.id] = val;
+        // 获取映射的元素的ID
+        const targetId = titleIndex[m.targetTitle]?.[m.index || 0];
+        console.log("target id", targetId )
+        
+        if (targetId) wfJson[targetId].inputs[m.targetKey] = val;
+    });
+
+    const outputId = titleIndex[config.outputTitle]?.[0];
+    
+    // 锁定 UI
+    document.getElementById('genBtn').disabled = true;
+    document.getElementById('progressArea').classList.remove('hidden');
+    document.getElementById('emptyMsg').classList.add('hidden');
+
+    try {
+        // 在 fetch 之前添加这一行
+        console.log("即将发送的完整工作流：", wfJson);
+
+        const res = await fetch(`http://${COMFY_SERVER}/prompt`, {
+            method: 'POST',
+            body: JSON.stringify({ prompt: wfJson, client_id: CLIENT_ID })
+        });
+        if (!res.ok) throw new Error("ComfyUI 服务器拒绝了请求");
+        handleWS(outputId, key, paramsSnapshot);
+    } catch (e) {
+        showError(e.message);
+        resetUI();
+    }
+}
+
+// 4. 通信与结果显示
+function handleWS(targetNode, wfKey, params) {
+    const ws = new WebSocket(`ws://${COMFY_SERVER}/ws?clientId=${CLIENT_ID}`);
+    ws.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        if (data.type === 'progress') {
+            const p = Math.round((data.data.value / data.data.max) * 100);
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('percentNum').innerText = p + '%';
+        }
+        if (data.type === 'executed' && data.data.node === targetNode) {
+            const img = data.data.output.images[0];
+            const url = `http://${COMFY_SERVER}/view?filename=${img.filename}&type=${img.type}&subfolder=${img.subfolder}`;
+            
+            document.getElementById('resultBox').innerHTML = `<img src="${url}" class="w-full h-full object-contain rounded-3xl shadow-2xl border-4 border-white">`;
+            document.getElementById('resultBox').classList.remove('hidden');
+            
+            addToHistory(url, wfKey, params);
+            resetUI();
+            ws.close();
+        }
+    };
+}
+
+// 5. 辅助功能
+function addToHistory(url, wf, p) {
+    const h = JSON.parse(localStorage.getItem('studio_history') || '[]');
+    h.unshift({ url, wf, p, id: Date.now() });
+    localStorage.setItem('studio_history', JSON.stringify(h.slice(0, 20)));
+    loadHistory();
+}
+
+function loadHistory() {
+    const h = JSON.parse(localStorage.getItem('studio_history') || '[]');
+    document.getElementById('historyList').innerHTML = h.map(i => `
+        <div onclick="restore('${i.id}')" class="group relative bg-white rounded-3xl overflow-hidden apple-shadow cursor-pointer transition-transform hover:scale-95">
+            <img src="${i.url}" class="w-full h-32 object-cover">
+            <div class="p-3 text-[9px] text-gray-400 truncate">${i.p.prompt}</div>
+        </div>
+    `).join('');
+}
+
+function restore(id) {
+    const h = JSON.parse(localStorage.getItem('studio_history') || '[]');
+    const i = h.find(x => x.id == id);
+    if (i && confirm("载入该历史记录参数？")) {
+        document.getElementById('wfSelector').value = i.wf;
+        renderUI().then(() => {
+            Object.keys(i.p).forEach(k => {
+                const el = document.getElementById(`field_${k}`);
+                if (el) el.value = i.p[k];
+            });
+        });
+    }
+}
+
+function resetUI() {
+    document.getElementById('genBtn').disabled = false;
+    document.getElementById('progressArea').classList.add('hidden');
+}
+
+function showError(msg) {
+    alert("⚠ 错误: " + msg);
+}
+
+function clearHistory() {
+    if (confirm("确认清空记录？")) { localStorage.removeItem('studio_history'); loadHistory(); }
+}
+
+// 启动
+document.getElementById('wfSelector').onchange = renderUI;
+document.getElementById('genBtn').onclick = triggerGeneration;
+window.onload = () => {
+    renderUI();
+    loadHistory();
+    fetch(`http://${COMFY_SERVER}/history`).then(() => {
+        document.getElementById('connStatus').innerHTML = '<span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span> 后端在线';
+    }).catch(() => {
+        document.getElementById('connStatus').innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500 mr-2"></span> 无法连接到 ComfyUI';
+    });
+};
+</script>
+</body>
+</html>
