@@ -1,0 +1,4464 @@
+{
+  "timestamp": "2026-04-09T07:09:15.339846",
+  "comfyui_path": "ComfyUI",
+  "server_url": "http://127.0.0.1:8188",
+  "backend": {
+    "comfyui_backend_version": "0.17.2",
+    "comfyui_commit_hash": "040460495c5713b852e4aac29a909aa63b309da7",
+    "python_version": "3.12.12 (main, Nov 19 2025, 20:39:39) [GCC]"
+  },
+  "frontend": {
+    "comfyui_frontend_version": null,
+    "comfyui_frontend_commit": null
+  },
+  "command_line_args": {
+    "argv": [
+      "collect.py",
+      "--pretty",
+      "--output",
+      "comfyui_info.json"
+    ],
+    "arg_count": 4,
+    "parsed_args": {
+      "port": 8188,
+      "host": "127.0.0.1",
+      "listen": false,
+      "output_directory": "comfyui_info.json",
+      "auto_launch": false,
+      "disable_auto_launch": false,
+      "dont_print_server": false,
+      "quick_test_for_ci": false,
+      "windows_standalone_build": false,
+      "highvram": false,
+      "normalvram": false,
+      "lowvram": false,
+      "novram": false,
+      "cpu": false,
+      "disable_smart_memory": false,
+      "force_fp32": false,
+      "force_fp16": false,
+      "bf16_unet": false,
+      "fp16_unet": false,
+      "fp32_unet": false,
+      "fp8_e4m3fn_unet": false,
+      "fp8_e5m2_unet": false,
+      "multi_user": false,
+      "verbose": false
+    },
+    "unknown_args": [
+      "--pretty"
+    ]
+  },
+  "environment_variables": {
+    "CUDA_HOME": "/usr/local/cuda-12.8",
+    "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/cuda-12.8/bin",
+    "LD_LIBRARY_PATH": "/usr/lib64:/usr/local/cuda-12.8/lib64:/usr/local/lib64/python3.12/site-packages/torch/lib:/usr/local/lib/python3.12/site-packages/nvidia/nccl/lib:/usr/local/lib/python3.12/site-packages/nvidia/nvshmem/lib"
+  },
+  "gpu": {
+    "torch_available": true,
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_count": 1,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 5090 D",
+        "capability": [
+          12,
+          0
+        ],
+        "memory_allocated_mb": 0.0,
+        "memory_reserved_mb": 0.0,
+        "memory_total_mb": 32089.0625
+      }
+    ],
+    "nvidia_smi_info": "NVIDIA GeForce RTX 5090 D, 590.48.01, 32607 MiB, 12.0"
+  },
+  "custom_nodes": {
+    "from_files": [
+      {
+        "name": "ComfyUI-BFSNodes",
+        "path": "ComfyUI/custom_nodes/ComfyUI-BFSNodes",
+        "version": "1.1.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/alisson-anjos/ComfyUI-BFSNodes",
+        "git_commit": "37890aa"
+      },
+      {
+        "name": "ComfyUI_FizzNodes",
+        "path": "ComfyUI/custom_nodes/ComfyUI_FizzNodes",
+        "version": "1.0.2",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/FizzleDorf/ComfyUI_FizzNodes.git",
+        "git_commit": "7d6ea60"
+      },
+      {
+        "name": "Comfyui-PainterFluxImageEdit",
+        "path": "ComfyUI/custom_nodes/Comfyui-PainterFluxImageEdit",
+        "version": "1.0.0",
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/princepainter/Comfyui-PainterFluxImageEdit",
+        "git_commit": "8b25957"
+      },
+      {
+        "name": "ComfyUI-WD14-Tagger",
+        "path": "ComfyUI/custom_nodes/ComfyUI-WD14-Tagger",
+        "version": "1.0.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/pythongosssss/ComfyUI-WD14-Tagger.git",
+        "git_commit": "9e0a6e7"
+      },
+      {
+        "name": "ComfyUI_InstantID",
+        "path": "ComfyUI/custom_nodes/ComfyUI_InstantID",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/cubiq/ComfyUI_InstantID.git",
+        "git_commit": "72495e8"
+      },
+      {
+        "name": "ComfyUI-Trellis2",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Trellis2",
+        "version": "1.0.17",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/visualbruno/ComfyUI-Trellis2.git",
+        "git_commit": "06956f4"
+      },
+      {
+        "name": "ComfyLiterals",
+        "path": "ComfyUI/custom_nodes/ComfyLiterals",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/M1kep/ComfyLiterals",
+        "git_commit": "bdddb08"
+      },
+      {
+        "name": "mikey_nodes",
+        "path": "ComfyUI/custom_nodes/mikey_nodes",
+        "version": "1.0.5",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/bash-j/mikey_nodes.git",
+        "git_commit": "a5aa9cf"
+      },
+      {
+        "name": "comfyui-portrait-master",
+        "path": "ComfyUI/custom_nodes/comfyui-portrait-master",
+        "version": "3.3.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/florestefano1975/comfyui-portrait-master.git",
+        "git_commit": "dbf65b8"
+      },
+      {
+        "name": "ComfyUI-FishAudioS2",
+        "path": "ComfyUI/custom_nodes/ComfyUI-FishAudioS2",
+        "version": "0.3.5",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Saganaki22/ComfyUI-FishAudioS2.git",
+        "git_commit": "bf14fd1"
+      },
+      {
+        "name": "Comfyui-PainterVRAM",
+        "path": "ComfyUI/custom_nodes/Comfyui-PainterVRAM",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/princepainter/Comfyui-PainterVRAM",
+        "git_commit": "64f4d69"
+      },
+      {
+        "name": "ComfyUI-Data-Manager",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Data-Manager",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/florestefano1975/ComfyUI-Data-Manager.git",
+        "git_commit": "a1b312f"
+      },
+      {
+        "name": "derfuu_comfyui_moddednodes",
+        "path": "ComfyUI/custom_nodes/derfuu_comfyui_moddednodes",
+        "version": "1.0.1",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI_essentials",
+        "path": "ComfyUI/custom_nodes/ComfyUI_essentials",
+        "version": "1.1.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/cubiq/ComfyUI_essentials.git",
+        "git_commit": "9d9f4be"
+      },
+      {
+        "name": "ComfyUI_FaceAnalysis",
+        "path": "ComfyUI/custom_nodes/ComfyUI_FaceAnalysis",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/cubiq/ComfyUI_FaceAnalysis.git",
+        "git_commit": "8846653"
+      },
+      {
+        "name": "ComfyUI-Crystools",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Crystools",
+        "version": "1.27.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/crystian/ComfyUI-Crystools.git",
+        "git_commit": "2f18256"
+      },
+      {
+        "name": "ComfyUI-Inspire-Pack",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Inspire-Pack",
+        "version": "1.23",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git",
+        "git_commit": "d23db9a"
+      },
+      {
+        "name": "ComfyUI-nunchaku",
+        "path": "ComfyUI/custom_nodes/ComfyUI-nunchaku",
+        "version": "1.2.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/nunchaku-tech/ComfyUI-nunchaku.git",
+        "git_commit": "c71cc25"
+      },
+      {
+        "name": "masquerade-nodes-comfyui",
+        "path": "ComfyUI/custom_nodes/masquerade-nodes-comfyui",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/BadCafeCode/masquerade-nodes-comfyui",
+        "git_commit": "432cb4d"
+      },
+      {
+        "name": "ComfyUI-MelBandRoFormer",
+        "path": "ComfyUI/custom_nodes/ComfyUI-MelBandRoFormer",
+        "version": "1.0.2",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-TeaCache",
+        "path": "ComfyUI/custom_nodes/ComfyUI-TeaCache",
+        "version": "1.9.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/welltop-cn/ComfyUI-TeaCache.git",
+        "git_commit": "91dff8e"
+      },
+      {
+        "name": "ComfyUI-ReActor.disabled",
+        "path": "ComfyUI/custom_nodes/ComfyUI-ReActor.disabled",
+        "version": "0.6.2-b1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Gourieff/ComfyUI-ReActor.git",
+        "git_commit": "a2a61fd"
+      },
+      {
+        "name": "comfyui-seedvr2-tilingupscaler",
+        "path": "ComfyUI/custom_nodes/comfyui-seedvr2-tilingupscaler",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/moonwhaler/comfyui-seedvr2-tilingupscaler",
+        "git_commit": "595df01"
+      },
+      {
+        "name": "PuLID_ComfyUI",
+        "path": "ComfyUI/custom_nodes/PuLID_ComfyUI",
+        "version": "1.0.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/cubiq/PuLID_ComfyUI.git",
+        "git_commit": "93e0c4c"
+      },
+      {
+        "name": "ComfyUI-Image-Selector",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Image-Selector",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/SLAPaper/ComfyUI-Image-Selector.git",
+        "git_commit": "058846b"
+      },
+      {
+        "name": "ComfyUI-ToolBox",
+        "path": "ComfyUI/custom_nodes/ComfyUI-ToolBox",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "git@github.com:wangweihong/ComfyUI-ToolBox.git",
+        "git_commit": "403b92d"
+      },
+      {
+        "name": "ComfyUI-QwenVL",
+        "path": "ComfyUI/custom_nodes/ComfyUI-QwenVL",
+        "version": "2.1.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-GGUF",
+        "path": "ComfyUI/custom_nodes/ComfyUI-GGUF",
+        "version": "2.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/city96/ComfyUI-GGUF.git",
+        "git_commit": "6ea2651"
+      },
+      {
+        "name": "ComfyUI-faster-whisper",
+        "path": "ComfyUI/custom_nodes/ComfyUI-faster-whisper",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/jhj0517/ComfyUI-faster-whisper.git",
+        "git_commit": "a8f39d5"
+      },
+      {
+        "name": "comfyui-various",
+        "path": "ComfyUI/custom_nodes/comfyui-various",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/jamesWalker55/comfyui-various",
+        "git_commit": "5bd85aa"
+      },
+      {
+        "name": "ComfyUI-Frame-Interpolation",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Frame-Interpolation",
+        "version": "1.0.9",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation.git",
+        "git_commit": "1b1c990"
+      },
+      {
+        "name": "z-image-turbo",
+        "path": "ComfyUI/custom_nodes/z-image-turbo",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "comfyui-rmbg",
+        "path": "ComfyUI/custom_nodes/comfyui-rmbg",
+        "version": "3.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "rgthree-comfy",
+        "path": "ComfyUI/custom_nodes/rgthree-comfy",
+        "version": "1.0.2512112053",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/rgthree/rgthree-comfy.git",
+        "git_commit": "8ff50e4"
+      },
+      {
+        "name": "comfyui_memory_cleanup",
+        "path": "ComfyUI/custom_nodes/comfyui_memory_cleanup",
+        "version": "1.1.3",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "comfyui-edgetts",
+        "path": "ComfyUI/custom_nodes/comfyui-edgetts",
+        "version": "1.2.2",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI_Qwen3-VL-Instruct",
+        "path": "ComfyUI/custom_nodes/ComfyUI_Qwen3-VL-Instruct",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/IuvenisSapiens/ComfyUI_Qwen3-VL-Instruct",
+        "git_commit": "70cc35e"
+      },
+      {
+        "name": "ComfyUI-Florence2",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Florence2",
+        "version": "1.0.8",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/kijai/ComfyUI-Florence2.git",
+        "git_commit": "2752591"
+      },
+      {
+        "name": "ComfyUI-KJNodes",
+        "path": "ComfyUI/custom_nodes/ComfyUI-KJNodes",
+        "version": "1.3.5",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/kijai/ComfyUI-KJNodes.git",
+        "git_commit": "297a245"
+      },
+      {
+        "name": "ComfyUI-Whisper",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Whisper",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/yuvraj108c/ComfyUI-Whisper",
+        "git_commit": "74aa5a2"
+      },
+      {
+        "name": "comfyui-vrgamedevgirl",
+        "path": "ComfyUI/custom_nodes/comfyui-vrgamedevgirl",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/vrgamegirl19/comfyui-vrgamedevgirl",
+        "git_commit": "5822fca"
+      },
+      {
+        "name": ".disabled",
+        "path": "ComfyUI/custom_nodes/.disabled",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "comfyui-xishen",
+        "path": "ComfyUI/custom_nodes/comfyui-xishen",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/xtanqn/comfyui-xishen.git",
+        "git_commit": "eaee20a"
+      },
+      {
+        "name": "Jovi_Help",
+        "path": "ComfyUI/custom_nodes/Jovi_Help",
+        "version": "1.0.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Amorano/Jovi_Help.git",
+        "git_commit": "96582ea"
+      },
+      {
+        "name": "Jovi_Measure",
+        "path": "ComfyUI/custom_nodes/Jovi_Measure",
+        "version": "1.1.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Amorano/Jovi_Measure.git",
+        "git_commit": "f853698"
+      },
+      {
+        "name": "ComfyUI-Easy-Sam3",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Easy-Sam3",
+        "version": "1.0.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/yolain/ComfyUI-Easy-Sam3.git",
+        "git_commit": "88fe578"
+      },
+      {
+        "name": "ComfyUI-ZImageTurbo-FlowSampler",
+        "path": "ComfyUI/custom_nodes/ComfyUI-ZImageTurbo-FlowSampler",
+        "version": "1.0.2",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "qwen3-tts-comfyui",
+        "path": "ComfyUI/custom_nodes/qwen3-tts-comfyui",
+        "version": "1.0.6",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI_IPAdapter_plus",
+        "path": "ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus",
+        "version": "2.0.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git",
+        "git_commit": "a0f451a"
+      },
+      {
+        "name": "Jovi_Colorizer",
+        "path": "ComfyUI/custom_nodes/Jovi_Colorizer",
+        "version": "1.0.3",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Amorano/Jovi_Colorizer.git",
+        "git_commit": "674fdfc"
+      },
+      {
+        "name": "sd-dynamic-thresholding",
+        "path": "ComfyUI/custom_nodes/sd-dynamic-thresholding",
+        "version": "1.0.1",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/mcmonkeyprojects/sd-dynamic-thresholding.git",
+        "git_commit": "73e4e04"
+      },
+      {
+        "name": "was-node-suite-comfyui",
+        "path": "ComfyUI/custom_nodes/was-node-suite-comfyui",
+        "version": "3.0.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/ltdrdata/was-node-suite-comfyui.git",
+        "git_commit": "afeee09"
+      },
+      {
+        "name": "ComfyUI-WanVideoWrapper",
+        "path": "ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper",
+        "version": "1.4.7",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI_DSS_Wrapper",
+        "path": "ComfyUI/custom_nodes/ComfyUI_DSS_Wrapper",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/quinteroac/ComfyUI_DSS_Wrapper.git",
+        "git_commit": "e126955"
+      },
+      {
+        "name": "comfyui-inpaint-cropandstitch",
+        "path": "ComfyUI/custom_nodes/comfyui-inpaint-cropandstitch",
+        "version": "3.0.9",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "comfyui_controlnet_aux",
+        "path": "ComfyUI/custom_nodes/comfyui_controlnet_aux",
+        "version": "1.1.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Fannovel16/comfyui_controlnet_aux.git",
+        "git_commit": "95a13e2"
+      },
+      {
+        "name": "ComfyUI-Advanced-ControlNet",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Advanced-ControlNet",
+        "version": "1.5.6",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git",
+        "git_commit": "2bde95a"
+      },
+      {
+        "name": "cg-use-everywhere",
+        "path": "ComfyUI/custom_nodes/cg-use-everywhere",
+        "version": "7.7",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/chrisgoringe/cg-use-everywhere.git",
+        "git_commit": "c01c3ce"
+      },
+      {
+        "name": "ComfyUI_Novel_Director",
+        "path": "ComfyUI/custom_nodes/ComfyUI_Novel_Director",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-VideoChatWrapper",
+        "path": "ComfyUI/custom_nodes/ComfyUI-VideoChatWrapper",
+        "version": "1.0.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI_LayerStyle",
+        "path": "ComfyUI/custom_nodes/ComfyUI_LayerStyle",
+        "version": "2.0.38",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
+        "git_commit": "d94bef1"
+      },
+      {
+        "name": "ComfyUI-Manager",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Manager",
+        "version": "3.39.2",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Comfy-Org/ComfyUI-Manager.git",
+        "git_commit": "c94236a"
+      },
+      {
+        "name": "ComfyUI-Impact-Pack",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Impact-Pack",
+        "version": "8.28.2",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+        "git_commit": "6a517eb"
+      },
+      {
+        "name": "ComfyUI_SeedVR2_Tiler",
+        "path": "ComfyUI/custom_nodes/ComfyUI_SeedVR2_Tiler",
+        "version": "1.2.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "sdxl_prompt_styler",
+        "path": "ComfyUI/custom_nodes/sdxl_prompt_styler",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/twri/sdxl_prompt_styler.git",
+        "git_commit": "5106817"
+      },
+      {
+        "name": "comfyui-inpaint-nodes",
+        "path": "ComfyUI/custom_nodes/comfyui-inpaint-nodes",
+        "version": "1.4.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyMath",
+        "path": "ComfyUI/custom_nodes/ComfyMath",
+        "version": "0.1.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/evanspearman/ComfyMath",
+        "git_commit": "c011772"
+      },
+      {
+        "name": "RES4LYF",
+        "path": "ComfyUI/custom_nodes/RES4LYF",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/ClownsharkBatwing/RES4LYF",
+        "git_commit": "0dc91c0"
+      },
+      {
+        "name": "ComfyUI-LTXVideo",
+        "path": "ComfyUI/custom_nodes/ComfyUI-LTXVideo",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Lightricks/ComfyUI-LTXVideo",
+        "git_commit": "531512f"
+      },
+      {
+        "name": "seedvr2_videoupscaler",
+        "path": "ComfyUI/custom_nodes/seedvr2_videoupscaler",
+        "version": "2.5.24",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "scale-image-to-total-pixels-advanced",
+        "path": "ComfyUI/custom_nodes/scale-image-to-total-pixels-advanced",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "Jovi_Preset",
+        "path": "ComfyUI/custom_nodes/Jovi_Preset",
+        "version": "1.0.5",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Amorano/Jovi_Preset.git",
+        "git_commit": "b6e1baf"
+      },
+      {
+        "name": "efficiency-nodes-comfyui",
+        "path": "ComfyUI/custom_nodes/efficiency-nodes-comfyui",
+        "version": "1.0.8",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/jags111/efficiency-nodes-comfyui.git",
+        "git_commit": "f0971b5"
+      },
+      {
+        "name": "ComfyUI_Comfyroll_CustomNodes",
+        "path": "ComfyUI/custom_nodes/ComfyUI_Comfyroll_CustomNodes",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes",
+        "git_commit": "d78b780"
+      },
+      {
+        "name": "ComfyUI-SDPose-OOD",
+        "path": "ComfyUI/custom_nodes/ComfyUI-SDPose-OOD",
+        "version": "1.0.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/judian17/ComfyUI-SDPose-OOD.git",
+        "git_commit": "123653f"
+      },
+      {
+        "name": "comfyui_llm_party",
+        "path": "ComfyUI/custom_nodes/comfyui_llm_party",
+        "version": "1.2.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-AnimateDiff-Evolved",
+        "path": "ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved",
+        "version": "1.5.6",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git",
+        "git_commit": "90fb133"
+      },
+      {
+        "name": "qweneditutils",
+        "path": "ComfyUI/custom_nodes/qweneditutils",
+        "version": "2.0.7",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-Easy-Use",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Easy-Use",
+        "version": "1.3.6",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/yolain/ComfyUI-Easy-Use.git",
+        "git_commit": "d60b61d"
+      },
+      {
+        "name": "ComfyUI-NAG",
+        "path": "ComfyUI/custom_nodes/ComfyUI-NAG",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/BigStationW/ComfyUI-NAG/",
+        "git_commit": "246f966"
+      },
+      {
+        "name": "whiterabbit",
+        "path": "ComfyUI/custom_nodes/whiterabbit",
+        "version": "1.1.1",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-Custom-Scripts",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Custom-Scripts",
+        "version": "1.2.5",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git",
+        "git_commit": "609f3af"
+      },
+      {
+        "name": "seedvarianceenhancer",
+        "path": "ComfyUI/custom_nodes/seedvarianceenhancer",
+        "version": "2.2.0",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-layerdiffuse",
+        "path": "ComfyUI/custom_nodes/ComfyUI-layerdiffuse",
+        "version": "1.0.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/huchenlei/ComfyUI-layerdiffuse.git",
+        "git_commit": "b4f6a9e"
+      },
+      {
+        "name": "ComfyUI_RH_LLM_API",
+        "path": "ComfyUI/custom_nodes/ComfyUI_RH_LLM_API",
+        "version": null,
+        "has_pyproject": false,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/HM-RunningHub/ComfyUI_RH_LLM_API",
+        "git_commit": "26e18d1"
+      },
+      {
+        "name": "Jovimetrix",
+        "path": "ComfyUI/custom_nodes/Jovimetrix",
+        "version": "2.1.25",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Amorano/Jovimetrix.git",
+        "git_commit": "a28214a"
+      },
+      {
+        "name": "audio-separation-nodes-comfyui",
+        "path": "ComfyUI/custom_nodes/audio-separation-nodes-comfyui",
+        "version": "1.5.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-VideoHelperSuite",
+        "path": "ComfyUI/custom_nodes/ComfyUI-VideoHelperSuite",
+        "version": "1.7.9",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git",
+        "git_commit": "4498399"
+      },
+      {
+        "name": "comfy_mtb",
+        "path": "ComfyUI/custom_nodes/comfy_mtb",
+        "version": "0.5.4",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/melMass/comfy_mtb.git",
+        "git_commit": "00fbad3"
+      },
+      {
+        "name": "comfyui_ttp_toolset",
+        "path": "ComfyUI/custom_nodes/comfyui_ttp_toolset",
+        "version": "1.0.5",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "comfyui-ollama",
+        "path": "ComfyUI/custom_nodes/comfyui-ollama",
+        "version": "2.1.0",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": null,
+        "git_commit": null
+      },
+      {
+        "name": "ComfyUI-llama-cpp_vlm",
+        "path": "ComfyUI/custom_nodes/ComfyUI-llama-cpp_vlm",
+        "version": "1.2.6",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/lihaoyun6/ComfyUI-llama-cpp_vlm.git",
+        "git_commit": "2d28817"
+      },
+      {
+        "name": "ComfyUI-Impact-Subpack",
+        "path": "ComfyUI/custom_nodes/ComfyUI-Impact-Subpack",
+        "version": "1.3.5",
+        "has_pyproject": true,
+        "has_requirements": true,
+        "git_remote_url": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git",
+        "git_commit": "50c7b71"
+      },
+      {
+        "name": "ComfyUI_UltimateSDUpscale",
+        "path": "ComfyUI/custom_nodes/ComfyUI_UltimateSDUpscale",
+        "version": "1.7.1",
+        "has_pyproject": true,
+        "has_requirements": false,
+        "git_remote_url": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git",
+        "git_commit": "34a3c2c"
+      }
+    ],
+    "count": 94,
+    "from_api": []
+  },
+  "python_packages": [
+    {
+      "name": "absl-py",
+      "version": "2.4.0"
+    },
+    {
+      "name": "accelerate",
+      "version": "1.12.0"
+    },
+    {
+      "name": "addict",
+      "version": "2.4.0"
+    },
+    {
+      "name": "aenum",
+      "version": "3.1.15"
+    },
+    {
+      "name": "aiofiles",
+      "version": "24.1.0"
+    },
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.6.1"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.13.2"
+    },
+    {
+      "name": "aiohttp_socks",
+      "version": "0.11.0"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0"
+    },
+    {
+      "name": "aiosqlite",
+      "version": "0.22.1"
+    },
+    {
+      "name": "albucore",
+      "version": "0.0.24"
+    },
+    {
+      "name": "albumentations",
+      "version": "2.0.8"
+    },
+    {
+      "name": "alembic",
+      "version": "1.17.2"
+    },
+    {
+      "name": "altair",
+      "version": "6.0.0"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.4"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.7.0"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3"
+    },
+    {
+      "name": "anyio",
+      "version": "4.12.0"
+    },
+    {
+      "name": "argbind",
+      "version": "0.3.9"
+    },
+    {
+      "name": "argon2-cffi",
+      "version": "25.1.0"
+    },
+    {
+      "name": "argon2-cffi-bindings",
+      "version": "25.1.0"
+    },
+    {
+      "name": "arrow",
+      "version": "1.4.0"
+    },
+    {
+      "name": "arxiv",
+      "version": "2.4.1"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.1"
+    },
+    {
+      "name": "async-lru",
+      "version": "2.0.5"
+    },
+    {
+      "name": "attrs",
+      "version": "25.4.0"
+    },
+    {
+      "name": "audioread",
+      "version": "3.1.0"
+    },
+    {
+      "name": "av",
+      "version": "16.1.0"
+    },
+    {
+      "name": "babel",
+      "version": "2.17.0"
+    },
+    {
+      "name": "banks",
+      "version": "2.4.1"
+    },
+    {
+      "name": "bcrypt",
+      "version": "4.3.0"
+    },
+    {
+      "name": "beautifulsoup4",
+      "version": "4.14.3"
+    },
+    {
+      "name": "bitsandbytes",
+      "version": "0.49.1"
+    },
+    {
+      "name": "black",
+      "version": "25.11.0"
+    },
+    {
+      "name": "blake3",
+      "version": "1.0.8"
+    },
+    {
+      "name": "bleach",
+      "version": "6.3.0"
+    },
+    {
+      "name": "blend_modes",
+      "version": "2.2.0"
+    },
+    {
+      "name": "blendmodes",
+      "version": "2025"
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0"
+    },
+    {
+      "name": "cached-property",
+      "version": "2.0.1"
+    },
+    {
+      "name": "cachetools",
+      "version": "6.2.2"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.2.25"
+    },
+    {
+      "name": "cffi",
+      "version": "2.0.0"
+    },
+    {
+      "name": "cfgv",
+      "version": "3.5.0"
+    },
+    {
+      "name": "chardet",
+      "version": "5.2.0"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.4.4"
+    },
+    {
+      "name": "click",
+      "version": "8.2.1"
+    },
+    {
+      "name": "clip",
+      "version": "1.0"
+    },
+    {
+      "name": "clip-interrogator",
+      "version": "0.6.0"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2"
+    },
+    {
+      "name": "color-matcher",
+      "version": "0.6.0"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "coloredlogs",
+      "version": "15.0.1"
+    },
+    {
+      "name": "colorlog",
+      "version": "6.10.1"
+    },
+    {
+      "name": "colour-science",
+      "version": "0.4.7"
+    },
+    {
+      "name": "comfy-aimdo",
+      "version": "0.2.12"
+    },
+    {
+      "name": "comfy-env",
+      "version": "0.2.12"
+    },
+    {
+      "name": "comfy-kitchen",
+      "version": "0.2.8"
+    },
+    {
+      "name": "comfyui-embedded-docs",
+      "version": "0.4.3"
+    },
+    {
+      "name": "comfyui_frontend_package",
+      "version": "1.41.20"
+    },
+    {
+      "name": "comfyui_workflow_templates",
+      "version": "0.9.21"
+    },
+    {
+      "name": "comfyui-workflow-templates-core",
+      "version": "0.3.168"
+    },
+    {
+      "name": "comfyui-workflow-templates-media-api",
+      "version": "0.3.64"
+    },
+    {
+      "name": "comfyui-workflow-templates-media-image",
+      "version": "0.3.104"
+    },
+    {
+      "name": "comfyui-workflow-templates-media-other",
+      "version": "0.3.141"
+    },
+    {
+      "name": "comfyui-workflow-templates-media-video",
+      "version": "0.3.60"
+    },
+    {
+      "name": "comm",
+      "version": "0.2.3"
+    },
+    {
+      "name": "compel",
+      "version": "2.3.1"
+    },
+    {
+      "name": "ConfigArgParse",
+      "version": "1.7.3"
+    },
+    {
+      "name": "configs",
+      "version": "3.0.3"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.3"
+    },
+    {
+      "name": "cozy_comfy",
+      "version": "0.0.3"
+    },
+    {
+      "name": "cozy_comfyui",
+      "version": "0.0.44"
+    },
+    {
+      "name": "cpm-kernels",
+      "version": "1.0.11"
+    },
+    {
+      "name": "cryptography",
+      "version": "46.0.2"
+    },
+    {
+      "name": "cssselect",
+      "version": "1.3.0"
+    },
+    {
+      "name": "cssselect2",
+      "version": "0.8.0"
+    },
+    {
+      "name": "cstr",
+      "version": "0.1.0"
+    },
+    {
+      "name": "ctranslate2",
+      "version": "4.7.1"
+    },
+    {
+      "name": "cupy-cuda12x",
+      "version": "13.6.0"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1"
+    },
+    {
+      "name": "Cython",
+      "version": "3.1.4"
+    },
+    {
+      "name": "daltonlens",
+      "version": "0.1.5"
+    },
+    {
+      "name": "dash",
+      "version": "4.0.0"
+    },
+    {
+      "name": "dataclasses-json",
+      "version": "0.6.7"
+    },
+    {
+      "name": "ddt",
+      "version": "1.7.2"
+    },
+    {
+      "name": "debugpy",
+      "version": "1.8.18"
+    },
+    {
+      "name": "decorator",
+      "version": "5.2.1"
+    },
+    {
+      "name": "decord",
+      "version": "0.6.0"
+    },
+    {
+      "name": "deep-translator",
+      "version": "1.11.4"
+    },
+    {
+      "name": "deepdiff",
+      "version": "8.6.1"
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1"
+    },
+    {
+      "name": "demucs",
+      "version": "4.0.1"
+    },
+    {
+      "name": "Deprecated",
+      "version": "1.3.1"
+    },
+    {
+      "name": "descript-audio-codec",
+      "version": "1.0.0"
+    },
+    {
+      "name": "descript-audiotools",
+      "version": "0.7.2"
+    },
+    {
+      "name": "diffusers",
+      "version": "0.36.0"
+    },
+    {
+      "name": "dill",
+      "version": "0.4.0"
+    },
+    {
+      "name": "dirtyjson",
+      "version": "1.0.8"
+    },
+    {
+      "name": "diskcache",
+      "version": "5.6.3"
+    },
+    {
+      "name": "distlib",
+      "version": "0.4.0"
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0"
+    },
+    {
+      "name": "dlib",
+      "version": "20.0.0"
+    },
+    {
+      "name": "docstring_parser",
+      "version": "0.17.0"
+    },
+    {
+      "name": "docutils",
+      "version": "0.22.3"
+    },
+    {
+      "name": "docx2txt",
+      "version": "0.9"
+    },
+    {
+      "name": "dora_search",
+      "version": "0.1.12"
+    },
+    {
+      "name": "dotenv",
+      "version": "0.9.9"
+    },
+    {
+      "name": "easydict",
+      "version": "1.13"
+    },
+    {
+      "name": "easyocr",
+      "version": "1.7.2"
+    },
+    {
+      "name": "edge-tts",
+      "version": "7.2.7"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.1"
+    },
+    {
+      "name": "einx",
+      "version": "0.2.2"
+    },
+    {
+      "name": "embreex",
+      "version": "2.17.7.post7"
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0"
+    },
+    {
+      "name": "executing",
+      "version": "2.2.1"
+    },
+    {
+      "name": "facexlib",
+      "version": "0.3.0"
+    },
+    {
+      "name": "fairscale",
+      "version": "0.4.13"
+    },
+    {
+      "name": "faiss-cpu",
+      "version": "1.13.2"
+    },
+    {
+      "name": "fal_client",
+      "version": "0.13.1"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.135.2"
+    },
+    {
+      "name": "faster-whisper",
+      "version": "1.2.1"
+    },
+    {
+      "name": "fastjsonschema",
+      "version": "2.21.2"
+    },
+    {
+      "name": "fastrlock",
+      "version": "0.8.3"
+    },
+    {
+      "name": "feedparser",
+      "version": "6.0.12"
+    },
+    {
+      "name": "ffmpeg-python",
+      "version": "0.2.0"
+    },
+    {
+      "name": "ffmpy",
+      "version": "0.3.0"
+    },
+    {
+      "name": "filelock",
+      "version": "3.24.3"
+    },
+    {
+      "name": "filetype",
+      "version": "1.2.0"
+    },
+    {
+      "name": "filterpy",
+      "version": "1.4.5"
+    },
+    {
+      "name": "fire",
+      "version": "0.7.1"
+    },
+    {
+      "name": "flash_attn",
+      "version": "2.8.3+cu128torch2.9"
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.9.23"
+    },
+    {
+      "name": "flatten-dict",
+      "version": "0.4.2"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.59.1"
+    },
+    {
+      "name": "fqdn",
+      "version": "1.5.1"
+    },
+    {
+      "name": "freetype-py",
+      "version": "2.5.1"
+    },
+    {
+      "name": "frozendict",
+      "version": "2.4.7"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0"
+    },
+    {
+      "name": "fsspec",
+      "version": "2024.3.1"
+    },
+    {
+      "name": "ftfy",
+      "version": "6.3.1"
+    },
+    {
+      "name": "fvcore",
+      "version": "0.1.5.post20221221"
+    },
+    {
+      "name": "gdown",
+      "version": "5.2.0"
+    },
+    {
+      "name": "gguf",
+      "version": "0.17.1"
+    },
+    {
+      "name": "gitdb",
+      "version": "4.0.12"
+    },
+    {
+      "name": "GitPython",
+      "version": "3.1.44"
+    },
+    {
+      "name": "glfw",
+      "version": "2.10.0"
+    },
+    {
+      "name": "gmpy2",
+      "version": "2.1.5"
+    },
+    {
+      "name": "google-ai-generativelanguage",
+      "version": "0.6.15"
+    },
+    {
+      "name": "google-api-core",
+      "version": "2.30.0"
+    },
+    {
+      "name": "google-api-python-client",
+      "version": "2.193.0"
+    },
+    {
+      "name": "google-auth",
+      "version": "2.49.1"
+    },
+    {
+      "name": "google-auth-httplib2",
+      "version": "0.3.0"
+    },
+    {
+      "name": "google-generativeai",
+      "version": "0.8.6"
+    },
+    {
+      "name": "googleapis-common-protos",
+      "version": "1.73.0"
+    },
+    {
+      "name": "googletrans-py",
+      "version": "4.0.0"
+    },
+    {
+      "name": "greenlet",
+      "version": "3.3.0"
+    },
+    {
+      "name": "griffe",
+      "version": "2.0.2"
+    },
+    {
+      "name": "griffecli",
+      "version": "2.0.2"
+    },
+    {
+      "name": "griffelib",
+      "version": "2.0.2"
+    },
+    {
+      "name": "groundingdino-py",
+      "version": "0.4.0"
+    },
+    {
+      "name": "grpcio",
+      "version": "1.78.0"
+    },
+    {
+      "name": "grpcio-status",
+      "version": "1.71.2"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0"
+    },
+    {
+      "name": "h2",
+      "version": "4.3.0"
+    },
+    {
+      "name": "hf_transfer",
+      "version": "0.1.9"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.4.1"
+    },
+    {
+      "name": "hpack",
+      "version": "4.1.0"
+    },
+    {
+      "name": "html2image",
+      "version": "2.0.7"
+    },
+    {
+      "name": "html5lib",
+      "version": "1.1"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httplib2",
+      "version": "0.31.2"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "name": "httpx-sse",
+      "version": "0.4.3"
+    },
+    {
+      "name": "huggingface_hub",
+      "version": "1.6.0"
+    },
+    {
+      "name": "humanfriendly",
+      "version": "10.0"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.2"
+    },
+    {
+      "name": "hyperframe",
+      "version": "6.1.0"
+    },
+    {
+      "name": "identify",
+      "version": "2.6.16"
+    },
+    {
+      "name": "idna",
+      "version": "3.11"
+    },
+    {
+      "name": "imageio",
+      "version": "2.36.1"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0"
+    },
+    {
+      "name": "img2texture",
+      "version": "1.0.6"
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "8.7.0"
+    },
+    {
+      "name": "importlib_resources",
+      "version": "6.5.2"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "insightface",
+      "version": "0.7.3"
+    },
+    {
+      "name": "instructor",
+      "version": "1.14.5"
+    },
+    {
+      "name": "iopath",
+      "version": "0.1.10"
+    },
+    {
+      "name": "ipykernel",
+      "version": "7.1.0"
+    },
+    {
+      "name": "ipython",
+      "version": "9.8.0"
+    },
+    {
+      "name": "ipython_pygments_lexers",
+      "version": "1.1.1"
+    },
+    {
+      "name": "ipywidgets",
+      "version": "8.1.8"
+    },
+    {
+      "name": "isoduration",
+      "version": "20.11.0"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0"
+    },
+    {
+      "name": "jedi",
+      "version": "0.19.2"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "jiter",
+      "version": "0.11.1"
+    },
+    {
+      "name": "joblib",
+      "version": "1.5.2"
+    },
+    {
+      "name": "json_repair",
+      "version": "0.58.5"
+    },
+    {
+      "name": "json5",
+      "version": "0.12.1"
+    },
+    {
+      "name": "jsonpatch",
+      "version": "1.33"
+    },
+    {
+      "name": "jsonpointer",
+      "version": "3.0.0"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.25.1"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "julius",
+      "version": "0.2.7"
+    },
+    {
+      "name": "jupyter_client",
+      "version": "8.7.0"
+    },
+    {
+      "name": "jupyter_core",
+      "version": "5.9.1"
+    },
+    {
+      "name": "jupyter-events",
+      "version": "0.12.0"
+    },
+    {
+      "name": "jupyter-lsp",
+      "version": "2.3.0"
+    },
+    {
+      "name": "jupyter_server",
+      "version": "2.17.0"
+    },
+    {
+      "name": "jupyter_server_terminals",
+      "version": "0.5.3"
+    },
+    {
+      "name": "jupyterlab",
+      "version": "4.5.0"
+    },
+    {
+      "name": "jupyterlab_pygments",
+      "version": "0.3.0"
+    },
+    {
+      "name": "jupyterlab_server",
+      "version": "2.28.0"
+    },
+    {
+      "name": "jupyterlab_widgets",
+      "version": "3.0.16"
+    },
+    {
+      "name": "kaldi-native-fbank",
+      "version": "1.22.3"
+    },
+    {
+      "name": "keyboard",
+      "version": "0.13.5"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.4.9"
+    },
+    {
+      "name": "kornia",
+      "version": "0.8.2"
+    },
+    {
+      "name": "kornia_rs",
+      "version": "0.1.10"
+    },
+    {
+      "name": "lameenc",
+      "version": "1.8.2"
+    },
+    {
+      "name": "langchain",
+      "version": "1.2.13"
+    },
+    {
+      "name": "langchain-classic",
+      "version": "1.0.3"
+    },
+    {
+      "name": "langchain-community",
+      "version": "0.4.1"
+    },
+    {
+      "name": "langchain-core",
+      "version": "1.2.23"
+    },
+    {
+      "name": "langchain-openai",
+      "version": "1.1.12"
+    },
+    {
+      "name": "langchain-text-splitters",
+      "version": "1.1.1"
+    },
+    {
+      "name": "langgraph",
+      "version": "1.1.3"
+    },
+    {
+      "name": "langgraph-checkpoint",
+      "version": "4.0.1"
+    },
+    {
+      "name": "langgraph-prebuilt",
+      "version": "1.0.8"
+    },
+    {
+      "name": "langgraph-sdk",
+      "version": "0.3.12"
+    },
+    {
+      "name": "langsmith",
+      "version": "0.7.22"
+    },
+    {
+      "name": "lark",
+      "version": "1.3.1"
+    },
+    {
+      "name": "lark-parser",
+      "version": "0.12.0"
+    },
+    {
+      "name": "latex2mathml",
+      "version": "3.79.0"
+    },
+    {
+      "name": "lazy_loader",
+      "version": "0.4"
+    },
+    {
+      "name": "librosa",
+      "version": "0.10.2"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.2"
+    },
+    {
+      "name": "llama_cpp_python",
+      "version": "0.3.30"
+    },
+    {
+      "name": "llama-index",
+      "version": "0.14.19"
+    },
+    {
+      "name": "llama-index-cli",
+      "version": "0.5.6"
+    },
+    {
+      "name": "llama-index-core",
+      "version": "0.14.19"
+    },
+    {
+      "name": "llama-index-embeddings-openai",
+      "version": "0.6.0"
+    },
+    {
+      "name": "llama-index-instrumentation",
+      "version": "0.5.0"
+    },
+    {
+      "name": "llama-index-llms-openai",
+      "version": "0.7.4"
+    },
+    {
+      "name": "llama-index-workflows",
+      "version": "2.17.1"
+    },
+    {
+      "name": "llvmlite",
+      "version": "0.45.1"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3"
+    },
+    {
+      "name": "loralib",
+      "version": "0.1.2"
+    },
+    {
+      "name": "lpips",
+      "version": "0.1.4"
+    },
+    {
+      "name": "lxml",
+      "version": "6.0.2"
+    },
+    {
+      "name": "Mako",
+      "version": "1.3.10"
+    },
+    {
+      "name": "manifold3d",
+      "version": "3.3.2"
+    },
+    {
+      "name": "mapbox_earcut",
+      "version": "2.0.0"
+    },
+    {
+      "name": "Markdown",
+      "version": "3.10.2"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "3.0.0"
+    },
+    {
+      "name": "markdown2",
+      "version": "2.5.5"
+    },
+    {
+      "name": "markdownify",
+      "version": "1.2.2"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3"
+    },
+    {
+      "name": "marshmallow",
+      "version": "3.26.2"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.7"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.1"
+    },
+    {
+      "name": "matrix-nio",
+      "version": "0.25.2"
+    },
+    {
+      "name": "mdtex2html",
+      "version": "1.3.2"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2"
+    },
+    {
+      "name": "mediapipe",
+      "version": "0.10.32"
+    },
+    {
+      "name": "meshlib",
+      "version": "3.1.1.92"
+    },
+    {
+      "name": "mistune",
+      "version": "3.1.4"
+    },
+    {
+      "name": "ml_dtypes",
+      "version": "0.5.4"
+    },
+    {
+      "name": "mmcv",
+      "version": "2.1.0"
+    },
+    {
+      "name": "mmdet",
+      "version": "3.3.0"
+    },
+    {
+      "name": "mmengine",
+      "version": "0.10.7"
+    },
+    {
+      "name": "modelscope",
+      "version": "1.35.1"
+    },
+    {
+      "name": "more-itertools",
+      "version": "10.8.0"
+    },
+    {
+      "name": "moviepy",
+      "version": "2.2.1"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0"
+    },
+    {
+      "name": "msgpack",
+      "version": "1.1.2"
+    },
+    {
+      "name": "mss",
+      "version": "7.0.1"
+    },
+    {
+      "name": "multidict",
+      "version": "6.1.0"
+    },
+    {
+      "name": "munkres",
+      "version": "1.1.4"
+    },
+    {
+      "name": "mypy_extensions",
+      "version": "1.0.0"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.17.0"
+    },
+    {
+      "name": "natsort",
+      "version": "8.4.0"
+    },
+    {
+      "name": "nbclient",
+      "version": "0.10.2"
+    },
+    {
+      "name": "nbconvert",
+      "version": "7.16.6"
+    },
+    {
+      "name": "nbformat",
+      "version": "5.10.4"
+    },
+    {
+      "name": "neo4j",
+      "version": "6.1.0"
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0"
+    },
+    {
+      "name": "networkx",
+      "version": "3.5"
+    },
+    {
+      "name": "ninja",
+      "version": "1.11.1.4"
+    },
+    {
+      "name": "nltk",
+      "version": "3.9.4"
+    },
+    {
+      "name": "nodeenv",
+      "version": "1.10.0"
+    },
+    {
+      "name": "notebook",
+      "version": "7.5.0"
+    },
+    {
+      "name": "notebook_shim",
+      "version": "0.2.4"
+    },
+    {
+      "name": "numba",
+      "version": "0.62.1"
+    },
+    {
+      "name": "numexpr",
+      "version": "2.14.1"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6"
+    },
+    {
+      "name": "nunchaku",
+      "version": "1.0.2+torch2.9"
+    },
+    {
+      "name": "nvidia-cublas-cu12",
+      "version": "12.8.4.1"
+    },
+    {
+      "name": "nvidia-cuda-cupti-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.8.93"
+    },
+    {
+      "name": "nvidia-cuda-runtime-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "nvidia-cudnn-cu12",
+      "version": "9.10.2.21"
+    },
+    {
+      "name": "nvidia-cufft-cu12",
+      "version": "11.3.3.83"
+    },
+    {
+      "name": "nvidia-cufile-cu12",
+      "version": "1.13.1.3"
+    },
+    {
+      "name": "nvidia-curand-cu12",
+      "version": "10.3.9.90"
+    },
+    {
+      "name": "nvidia-cusolver-cu12",
+      "version": "11.7.3.90"
+    },
+    {
+      "name": "nvidia-cusparse-cu12",
+      "version": "12.5.8.93"
+    },
+    {
+      "name": "nvidia-cusparselt-cu12",
+      "version": "0.7.1"
+    },
+    {
+      "name": "nvidia-ml-py",
+      "version": "13.590.44"
+    },
+    {
+      "name": "nvidia-nccl-cu12",
+      "version": "2.27.5"
+    },
+    {
+      "name": "nvidia-nvjitlink-cu12",
+      "version": "12.8.93"
+    },
+    {
+      "name": "nvidia-nvshmem-cu12",
+      "version": "3.3.20"
+    },
+    {
+      "name": "nvidia-nvtx-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "olefile",
+      "version": "0.47"
+    },
+    {
+      "name": "ollama",
+      "version": "0.6.0"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0"
+    },
+    {
+      "name": "onnx",
+      "version": "1.20.1"
+    },
+    {
+      "name": "onnxruntime-gpu",
+      "version": "1.23.2"
+    },
+    {
+      "name": "open_clip_torch",
+      "version": "3.2.0"
+    },
+    {
+      "name": "open3d",
+      "version": "0.19.0"
+    },
+    {
+      "name": "openai",
+      "version": "2.26.0"
+    },
+    {
+      "name": "openai-whisper",
+      "version": "20250625"
+    },
+    {
+      "name": "opencv-contrib-python",
+      "version": "4.12.0.88"
+    },
+    {
+      "name": "opencv-contrib-python-headless",
+      "version": "4.12.0.88"
+    },
+    {
+      "name": "opencv-python",
+      "version": "4.12.0.88"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "4.12.0.88"
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5"
+    },
+    {
+      "name": "openunmix",
+      "version": "1.3.0"
+    },
+    {
+      "name": "optimum",
+      "version": "2.1.0"
+    },
+    {
+      "name": "orderly-set",
+      "version": "5.4.1"
+    },
+    {
+      "name": "orjson",
+      "version": "3.11.7"
+    },
+    {
+      "name": "ormsgpack",
+      "version": "1.12.2"
+    },
+    {
+      "name": "outcome",
+      "version": "1.3.0.post0"
+    },
+    {
+      "name": "packaging",
+      "version": "25.0"
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.2"
+    },
+    {
+      "name": "pandocfilters",
+      "version": "1.5.1"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.5"
+    },
+    {
+      "name": "pathspec",
+      "version": "0.12.1"
+    },
+    {
+      "name": "pdfminer.six",
+      "version": "20251230"
+    },
+    {
+      "name": "pdfplumber",
+      "version": "0.11.9"
+    },
+    {
+      "name": "peft",
+      "version": "0.18.0"
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0"
+    },
+    {
+      "name": "piexif",
+      "version": "1.1.3"
+    },
+    {
+      "name": "pilgram",
+      "version": "2.0.0"
+    },
+    {
+      "name": "pillow",
+      "version": "11.3.0"
+    },
+    {
+      "name": "pip",
+      "version": "25.3"
+    },
+    {
+      "name": "pixeloe",
+      "version": "0.1.4"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.5.0"
+    },
+    {
+      "name": "plotly",
+      "version": "6.6.0"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "plyfile",
+      "version": "1.1.3"
+    },
+    {
+      "name": "polars",
+      "version": "1.36.1"
+    },
+    {
+      "name": "polars-runtime-32",
+      "version": "1.36.1"
+    },
+    {
+      "name": "pooch",
+      "version": "1.8.2"
+    },
+    {
+      "name": "portalocker",
+      "version": "3.2.0"
+    },
+    {
+      "name": "pre_commit",
+      "version": "4.5.1"
+    },
+    {
+      "name": "prettytable",
+      "version": "3.17.0"
+    },
+    {
+      "name": "proglog",
+      "version": "0.1.12"
+    },
+    {
+      "name": "prometheus_client",
+      "version": "0.23.1"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.52"
+    },
+    {
+      "name": "propcache",
+      "version": "0.3.2"
+    },
+    {
+      "name": "proto-plus",
+      "version": "1.27.1"
+    },
+    {
+      "name": "protobuf",
+      "version": "5.29.6"
+    },
+    {
+      "name": "psutil",
+      "version": "7.1.3"
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0"
+    },
+    {
+      "name": "pure_eval",
+      "version": "0.2.3"
+    },
+    {
+      "name": "py-build-cmake",
+      "version": "0.5.0"
+    },
+    {
+      "name": "py-cord",
+      "version": "2.7.1"
+    },
+    {
+      "name": "py-cpuinfo",
+      "version": "9.0.0"
+    },
+    {
+      "name": "pyarrow",
+      "version": "23.0.1"
+    },
+    {
+      "name": "pyasn1",
+      "version": "0.6.3"
+    },
+    {
+      "name": "pyasn1_modules",
+      "version": "0.4.2"
+    },
+    {
+      "name": "pybind11",
+      "version": "3.0.1"
+    },
+    {
+      "name": "pycairo",
+      "version": "1.28.0"
+    },
+    {
+      "name": "pyclipper",
+      "version": "1.4.0"
+    },
+    {
+      "name": "pycocotools",
+      "version": "2.0.10"
+    },
+    {
+      "name": "pycollada",
+      "version": "0.9.2"
+    },
+    {
+      "name": "pycparser",
+      "version": "2.23"
+    },
+    {
+      "name": "pycryptodome",
+      "version": "3.23.0"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.12.5"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.41.5"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.10.1"
+    },
+    {
+      "name": "pydeck",
+      "version": "0.9.1"
+    },
+    {
+      "name": "pydub",
+      "version": "0.25.1"
+    },
+    {
+      "name": "pyee",
+      "version": "13.0.0"
+    },
+    {
+      "name": "pygit2",
+      "version": "1.18.2"
+    },
+    {
+      "name": "PyGithub",
+      "version": "2.6.1"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.19.2"
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.10.1"
+    },
+    {
+      "name": "pyloudnorm",
+      "version": "0.2.0"
+    },
+    {
+      "name": "PyMatting",
+      "version": "1.1.14"
+    },
+    {
+      "name": "pymeshlab",
+      "version": "2025.7.post1"
+    },
+    {
+      "name": "PyNaCl",
+      "version": "1.6.1"
+    },
+    {
+      "name": "pynvml",
+      "version": "13.0.1"
+    },
+    {
+      "name": "PyOpenGL",
+      "version": "3.1.10"
+    },
+    {
+      "name": "pyOpenSSL",
+      "version": "25.3.0"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.2.5"
+    },
+    {
+      "name": "pypdfium2",
+      "version": "5.6.0"
+    },
+    {
+      "name": "pyproject-metadata",
+      "version": "0.9.1"
+    },
+    {
+      "name": "pyquaternion",
+      "version": "0.9.9"
+    },
+    {
+      "name": "pyrootutils",
+      "version": "1.0.4"
+    },
+    {
+      "name": "PySocks",
+      "version": "1.7.1"
+    },
+    {
+      "name": "pystoi",
+      "version": "0.4.1"
+    },
+    {
+      "name": "pytest",
+      "version": "9.0.2"
+    },
+    {
+      "name": "python-bidi",
+      "version": "0.6.7"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.1.1"
+    },
+    {
+      "name": "python-ffmpeg",
+      "version": "2.0.12"
+    },
+    {
+      "name": "python-json-logger",
+      "version": "4.0.0"
+    },
+    {
+      "name": "python-socks",
+      "version": "2.8.0"
+    },
+    {
+      "name": "pytokens",
+      "version": "0.3.0"
+    },
+    {
+      "name": "pytorch-triton",
+      "version": "3.5.1"
+    },
+    {
+      "name": "pytz",
+      "version": "2025.2"
+    },
+    {
+      "name": "PyWavelets",
+      "version": "1.9.0"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "pyzmq",
+      "version": "27.1.0"
+    },
+    {
+      "name": "qrcode",
+      "version": "8.2"
+    },
+    {
+      "name": "qwen-vl-utils",
+      "version": "0.0.14"
+    },
+    {
+      "name": "randomname",
+      "version": "0.2.1"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "regex",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "rembg",
+      "version": "2.0.69"
+    },
+    {
+      "name": "reportlab",
+      "version": "4.4.4"
+    },
+    {
+      "name": "requests",
+      "version": "2.32.5"
+    },
+    {
+      "name": "requests-toolbelt",
+      "version": "1.0.0"
+    },
+    {
+      "name": "requirements-parser",
+      "version": "0.13.0"
+    },
+    {
+      "name": "resampy",
+      "version": "0.4.3"
+    },
+    {
+      "name": "retrying",
+      "version": "1.4.2"
+    },
+    {
+      "name": "rfc3339-validator",
+      "version": "0.1.4"
+    },
+    {
+      "name": "rfc3986-validator",
+      "version": "0.1.1"
+    },
+    {
+      "name": "rfc3987-syntax",
+      "version": "1.1.0"
+    },
+    {
+      "name": "rich",
+      "version": "14.2.0"
+    },
+    {
+      "name": "rich-argparse",
+      "version": "1.7.2"
+    },
+    {
+      "name": "rlPyCairo",
+      "version": "0.4.0"
+    },
+    {
+      "name": "rotary-embedding-torch",
+      "version": "0.8.9"
+    },
+    {
+      "name": "rpds-py",
+      "version": "0.30.0"
+    },
+    {
+      "name": "rtree",
+      "version": "1.4.1"
+    },
+    {
+      "name": "safetensors",
+      "version": "0.4.5"
+    },
+    {
+      "name": "sageattention",
+      "version": "2.2.0"
+    },
+    {
+      "name": "SAM-2",
+      "version": "1.0"
+    },
+    {
+      "name": "sam3",
+      "version": "0.1.0"
+    },
+    {
+      "name": "scenedetect",
+      "version": "0.6.7.1"
+    },
+    {
+      "name": "scikit-build",
+      "version": "0.18.1"
+    },
+    {
+      "name": "scikit_build_core",
+      "version": "0.11.6"
+    },
+    {
+      "name": "scikit-image",
+      "version": "0.25.2"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.7.2"
+    },
+    {
+      "name": "scipy",
+      "version": "1.16.2"
+    },
+    {
+      "name": "segment-anything",
+      "version": "1.0"
+    },
+    {
+      "name": "selenium",
+      "version": "4.41.0"
+    },
+    {
+      "name": "Send2Trash",
+      "version": "1.8.3"
+    },
+    {
+      "name": "sensevoice-onnx",
+      "version": "1.1.0"
+    },
+    {
+      "name": "sentence-transformers",
+      "version": "5.3.0"
+    },
+    {
+      "name": "sentencepiece",
+      "version": "0.2.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "82.0.1"
+    },
+    {
+      "name": "sgmllib3k",
+      "version": "1.0.0"
+    },
+    {
+      "name": "shapely",
+      "version": "2.1.2"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4"
+    },
+    {
+      "name": "simpleeval",
+      "version": "1.0.3"
+    },
+    {
+      "name": "simsimd",
+      "version": "6.5.3"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "smmap",
+      "version": "5.0.2"
+    },
+    {
+      "name": "sniffio",
+      "version": "1.3.1"
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0"
+    },
+    {
+      "name": "sounddevice",
+      "version": "0.5.5"
+    },
+    {
+      "name": "soundfile",
+      "version": "0.12.1"
+    },
+    {
+      "name": "soupsieve",
+      "version": "2.8"
+    },
+    {
+      "name": "sox",
+      "version": "1.5.0"
+    },
+    {
+      "name": "soxr",
+      "version": "1.0.0"
+    },
+    {
+      "name": "spandrel",
+      "version": "0.4.1"
+    },
+    {
+      "name": "spas_sage_attn",
+      "version": "0.1.0"
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.0.44"
+    },
+    {
+      "name": "srt",
+      "version": "3.5.3"
+    },
+    {
+      "name": "stable-ts",
+      "version": "2.19.1"
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3"
+    },
+    {
+      "name": "starlette",
+      "version": "1.0.0"
+    },
+    {
+      "name": "streamlit",
+      "version": "1.55.0"
+    },
+    {
+      "name": "stringzilla",
+      "version": "4.4.0"
+    },
+    {
+      "name": "submitit",
+      "version": "1.5.4"
+    },
+    {
+      "name": "supervision",
+      "version": "0.6.0"
+    },
+    {
+      "name": "svg.path",
+      "version": "7.0"
+    },
+    {
+      "name": "svglib",
+      "version": "1.6.0"
+    },
+    {
+      "name": "swarm",
+      "version": "0.1.0"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.9.0"
+    },
+    {
+      "name": "tenacity",
+      "version": "9.1.4"
+    },
+    {
+      "name": "tensorboard",
+      "version": "2.20.0"
+    },
+    {
+      "name": "tensorboard-data-server",
+      "version": "0.7.2"
+    },
+    {
+      "name": "termcolor",
+      "version": "3.2.0"
+    },
+    {
+      "name": "terminado",
+      "version": "0.18.1"
+    },
+    {
+      "name": "terminaltables",
+      "version": "3.1.10"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.6.0"
+    },
+    {
+      "name": "tifffile",
+      "version": "2025.3.13"
+    },
+    {
+      "name": "tiktoken",
+      "version": "0.12.0"
+    },
+    {
+      "name": "timm",
+      "version": "1.0.25"
+    },
+    {
+      "name": "tinycss2",
+      "version": "1.4.0"
+    },
+    {
+      "name": "tinytag",
+      "version": "2.2.1"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.22.1"
+    },
+    {
+      "name": "toml",
+      "version": "0.10.2"
+    },
+    {
+      "name": "tomli",
+      "version": "2.3.0"
+    },
+    {
+      "name": "tomli_w",
+      "version": "1.2.0"
+    },
+    {
+      "name": "torch",
+      "version": "2.9.1+cu128"
+    },
+    {
+      "name": "torch-stoi",
+      "version": "0.2.3"
+    },
+    {
+      "name": "torchaudio",
+      "version": "2.9.1+cu128"
+    },
+    {
+      "name": "torchcodec",
+      "version": "0.10.0"
+    },
+    {
+      "name": "torchdiffeq",
+      "version": "0.2.5"
+    },
+    {
+      "name": "torchlanc",
+      "version": "1.1.1"
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.8.2"
+    },
+    {
+      "name": "torchsde",
+      "version": "0.2.6"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.24.1+cu128"
+    },
+    {
+      "name": "tornado",
+      "version": "6.5.3"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.67.1"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.14.3"
+    },
+    {
+      "name": "trampoline",
+      "version": "0.1.2"
+    },
+    {
+      "name": "transformers",
+      "version": "5.3.0"
+    },
+    {
+      "name": "transformers-stream-generator",
+      "version": "0.0.5"
+    },
+    {
+      "name": "transparent-background",
+      "version": "1.3.4"
+    },
+    {
+      "name": "treetable",
+      "version": "0.2.6"
+    },
+    {
+      "name": "trimesh",
+      "version": "4.10.1"
+    },
+    {
+      "name": "trio",
+      "version": "0.33.0"
+    },
+    {
+      "name": "trio-websocket",
+      "version": "0.12.2"
+    },
+    {
+      "name": "triton",
+      "version": "3.5.1"
+    },
+    {
+      "name": "typer",
+      "version": "0.20.0"
+    },
+    {
+      "name": "typer-slim",
+      "version": "0.20.0"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.15.0"
+    },
+    {
+      "name": "typing-inspect",
+      "version": "0.9.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.2"
+    },
+    {
+      "name": "tzdata",
+      "version": "2025.2"
+    },
+    {
+      "name": "ultralytics",
+      "version": "8.3.237"
+    },
+    {
+      "name": "ultralytics-thop",
+      "version": "2.0.18"
+    },
+    {
+      "name": "unpaddedbase64",
+      "version": "2.1.0"
+    },
+    {
+      "name": "uri-template",
+      "version": "1.3.0"
+    },
+    {
+      "name": "uritemplate",
+      "version": "4.2.0"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.6.3"
+    },
+    {
+      "name": "uuid",
+      "version": "1.30"
+    },
+    {
+      "name": "uuid_utils",
+      "version": "0.14.1"
+    },
+    {
+      "name": "uv",
+      "version": "0.9.17"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.42.0"
+    },
+    {
+      "name": "verovio",
+      "version": "6.1.0"
+    },
+    {
+      "name": "vhacdx",
+      "version": "0.0.10"
+    },
+    {
+      "name": "virtualenv",
+      "version": "20.38.0"
+    },
+    {
+      "name": "watchdog",
+      "version": "6.0.0"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.2.14"
+    },
+    {
+      "name": "webcolors",
+      "version": "24.8.0"
+    },
+    {
+      "name": "webencodings",
+      "version": "0.5.1"
+    },
+    {
+      "name": "websocket-client",
+      "version": "1.9.0"
+    },
+    {
+      "name": "websockets",
+      "version": "16.0"
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.6"
+    },
+    {
+      "name": "wget",
+      "version": "3.2"
+    },
+    {
+      "name": "wheel",
+      "version": "0.45.1"
+    },
+    {
+      "name": "widgetsnbextension",
+      "version": "4.0.15"
+    },
+    {
+      "name": "wikipedia",
+      "version": "1.4.0"
+    },
+    {
+      "name": "wrapt",
+      "version": "2.0.1"
+    },
+    {
+      "name": "wsproto",
+      "version": "1.3.2"
+    },
+    {
+      "name": "xformers",
+      "version": "0.0.33.post2"
+    },
+    {
+      "name": "xlrd",
+      "version": "2.0.2"
+    },
+    {
+      "name": "xxhash",
+      "version": "3.6.0"
+    },
+    {
+      "name": "yacs",
+      "version": "0.1.8"
+    },
+    {
+      "name": "yapf",
+      "version": "0.43.0"
+    },
+    {
+      "name": "yarl",
+      "version": "1.22.0"
+    },
+    {
+      "name": "zipp",
+      "version": "3.23.0"
+    },
+    {
+      "name": "zstandard",
+      "version": "0.25.0"
+    }
+  ],
+  "models": {
+    "root_path": "ComfyUI",
+    "total_count": 206,
+    "files": [
+      {
+        "path": "models/model_patches/Z-Image-Turbo-Fun-Controlnet-Union-2.1.safetensors",
+        "full_path": "ComfyUI/models/model_patches/Z-Image-Turbo-Fun-Controlnet-Union-2.1.safetensors",
+        "size_mb": 6401.53,
+        "modified_time": "2026-01-12T03:49:59.194475"
+      },
+      {
+        "path": "models/pmrf/model.safetensors",
+        "full_path": "ComfyUI/models/pmrf/model.safetensors",
+        "size_mb": 880.34,
+        "modified_time": "2026-01-17T08:04:21.129698"
+      },
+      {
+        "path": "models/prompt_generator/Qwen3-VL-4B-Instruct-FP8/model-00002-of-00002.safetensors",
+        "full_path": "ComfyUI/models/prompt_generator/Qwen3-VL-4B-Instruct-FP8/model-00002-of-00002.safetensors",
+        "size_mb": 624.06,
+        "modified_time": "2026-03-23T06:56:49.660726"
+      },
+      {
+        "path": "models/prompt_generator/Qwen3-VL-8B-Instruct/model-00001-of-00004.safetensors",
+        "full_path": "ComfyUI/models/prompt_generator/Qwen3-VL-8B-Instruct/model-00001-of-00004.safetensors",
+        "size_mb": 4766.52,
+        "modified_time": "2026-01-12T03:53:29.204605"
+      },
+      {
+        "path": "models/prompt_generator/Qwen3-VL-8B-Instruct/model-00002-of-00004.safetensors",
+        "full_path": "ComfyUI/models/prompt_generator/Qwen3-VL-8B-Instruct/model-00002-of-00004.safetensors",
+        "size_mb": 4688.23,
+        "modified_time": "2026-01-12T03:54:00.648724"
+      },
+      {
+        "path": "models/prompt_generator/Qwen3-VL-8B-Instruct/model-00003-of-00004.safetensors",
+        "full_path": "ComfyUI/models/prompt_generator/Qwen3-VL-8B-Instruct/model-00003-of-00004.safetensors",
+        "size_mb": 4688.23,
+        "modified_time": "2026-01-12T03:53:41.483653"
+      },
+      {
+        "path": "models/prompt_generator/Qwen3-VL-8B-Instruct/model-00004-of-00004.safetensors",
+        "full_path": "ComfyUI/models/prompt_generator/Qwen3-VL-8B-Instruct/model-00004-of-00004.safetensors",
+        "size_mb": 2579.08,
+        "modified_time": "2026-01-12T03:53:48.358679"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-0.6B-Base/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-0.6B-Base/model.safetensors",
+        "size_mb": 1744.6,
+        "modified_time": "2026-01-26T10:53:20.630313"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-0.6B-Base/speech_tokenizer/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-0.6B-Base/speech_tokenizer/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-26T10:52:01.110715"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-0.6B-CustomVoice/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-0.6B-CustomVoice/model.safetensors",
+        "size_mb": 1727.7,
+        "modified_time": "2026-01-26T10:48:53.125741"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-0.6B-CustomVoice/speech_tokenizer/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-0.6B-CustomVoice/speech_tokenizer/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-26T10:47:52.887637"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-Base/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-Base/model.safetensors",
+        "size_mb": 3678.72,
+        "modified_time": "2026-01-23T02:43:51.025430"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-Base/speech_tokenizer/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-Base/speech_tokenizer/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-23T02:41:57.713432"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-CustomVoice/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-CustomVoice/model.safetensors",
+        "size_mb": 3655.82,
+        "modified_time": "2026-01-23T02:54:55.719871"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-CustomVoice/speech_tokenizer/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-CustomVoice/speech_tokenizer/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-23T02:52:03.817324"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/model.safetensors",
+        "size_mb": 3655.82,
+        "modified_time": "2026-01-23T02:48:53.448622"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-23T02:46:56.008875"
+      },
+      {
+        "path": "models/qwen-tts/Qwen3-TTS-Tokenizer-12Hz/model.safetensors",
+        "full_path": "ComfyUI/models/qwen-tts/Qwen3-TTS-Tokenizer-12Hz/model.safetensors",
+        "size_mb": 650.69,
+        "modified_time": "2026-01-23T02:55:39.103779"
+      },
+      {
+        "path": "models/rembg/RMBG-1.4.pth",
+        "full_path": "ComfyUI/models/rembg/RMBG-1.4.pth",
+        "size_mb": 168.53,
+        "modified_time": "2026-03-14T09:26:52.908968"
+      },
+      {
+        "path": "models/sam3/sam3.pt",
+        "full_path": "ComfyUI/models/sam3/sam3.pt",
+        "size_mb": 3290.24,
+        "modified_time": "2026-03-11T03:53:13.388602"
+      },
+      {
+        "path": "models/sams/sam_vit_b_01ec64.pth",
+        "full_path": "ComfyUI/models/sams/sam_vit_b_01ec64.pth",
+        "size_mb": 357.67,
+        "modified_time": "2026-01-12T03:53:16.684554"
+      },
+      {
+        "path": "models/SDPose_OOD/SDPose-Wholebody/yolo11x.pt",
+        "full_path": "ComfyUI/models/SDPose_OOD/SDPose-Wholebody/yolo11x.pt",
+        "size_mb": 109.33,
+        "modified_time": "2026-03-23T03:01:00.624721"
+      },
+      {
+        "path": "models/SDPose_OOD/SDPose-Wholebody/decoder/decoder.safetensors",
+        "full_path": "ComfyUI/models/SDPose_OOD/SDPose-Wholebody/decoder/decoder.safetensors",
+        "size_mb": 26.89,
+        "modified_time": "2026-03-23T03:00:32.489268"
+      },
+      {
+        "path": "models/SDPose_OOD/SDPose-Wholebody/text_encoder/model.safetensors",
+        "full_path": "ComfyUI/models/SDPose_OOD/SDPose-Wholebody/text_encoder/model.safetensors",
+        "size_mb": 1298.52,
+        "modified_time": "2026-03-23T03:07:43.457919"
+      },
+      {
+        "path": "models/SDPose_OOD/SDPose-Wholebody/unet/diffusion_pytorch_model.safetensors",
+        "full_path": "ComfyUI/models/SDPose_OOD/SDPose-Wholebody/unet/diffusion_pytorch_model.safetensors",
+        "size_mb": 3309.55,
+        "modified_time": "2026-03-23T03:23:42.411775"
+      },
+      {
+        "path": "models/SDPose_OOD/SDPose-Wholebody/vae/diffusion_pytorch_model.safetensors",
+        "full_path": "ComfyUI/models/SDPose_OOD/SDPose-Wholebody/vae/diffusion_pytorch_model.safetensors",
+        "size_mb": 319.14,
+        "modified_time": "2026-03-23T03:02:45.036658"
+      },
+      {
+        "path": "models/SEEDVR2/ema_vae_fp16.safetensors",
+        "full_path": "ComfyUI/models/SEEDVR2/ema_vae_fp16.safetensors",
+        "size_mb": 478.1,
+        "modified_time": "2026-01-12T03:54:23.256804"
+      },
+      {
+        "path": "models/SEEDVR2/seedvr2_ema_7b_fp8_e4m3fn_mixed_block35_fp16.safetensors",
+        "full_path": "ComfyUI/models/SEEDVR2/seedvr2_ema_7b_fp8_e4m3fn_mixed_block35_fp16.safetensors",
+        "size_mb": 8074.09,
+        "modified_time": "2026-01-12T03:54:21.971799"
+      },
+      {
+        "path": "models/sharp/sharp_2572gikvuh.pt",
+        "full_path": "ComfyUI/models/sharp/sharp_2572gikvuh.pt",
+        "size_mb": 2679.58,
+        "modified_time": "2025-12-08T22:56:30"
+      },
+      {
+        "path": "models/SongBloom/autoencoder_music_dsp1920.ckpt",
+        "full_path": "ComfyUI/models/SongBloom/autoencoder_music_dsp1920.ckpt",
+        "size_mb": 643.65,
+        "modified_time": "2026-01-12T03:54:55.247907"
+      },
+      {
+        "path": "models/SongBloom/songbloom_full_240s.pt",
+        "full_path": "ComfyUI/models/SongBloom/songbloom_full_240s.pt",
+        "size_mb": 7464.61,
+        "modified_time": "2026-01-12T03:54:53.570902"
+      },
+      {
+        "path": "models/text_encoders/clip_l.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/clip_l.safetensors",
+        "size_mb": 234.74,
+        "modified_time": "2026-01-12T03:49:59.787479"
+      },
+      {
+        "path": "models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "size_mb": 6423.86,
+        "modified_time": "2026-01-12T03:53:08.233518"
+      },
+      {
+        "path": "models/text_encoders/image2image/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/image2image/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "size_mb": 8949.92,
+        "modified_time": "2026-01-12T03:50:22.200631"
+      },
+      {
+        "path": "models/text_encoders/ltx2/gemma_3_12B_it_fp4_mixed.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/ltx2/gemma_3_12B_it_fp4_mixed.safetensors",
+        "size_mb": 9010.03,
+        "modified_time": "2026-01-29T07:47:48.913287"
+      },
+      {
+        "path": "models/text_encoders/ltx2/ltx-2.3_text_projection_bf16.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/ltx2/ltx-2.3_text_projection_bf16.safetensors",
+        "size_mb": 2205.04,
+        "modified_time": "2026-03-11T08:12:44.593340"
+      },
+      {
+        "path": "models/text_encoders/text2image/qwen_3_4b.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/text2image/qwen_3_4b.safetensors",
+        "size_mb": 7672.29,
+        "modified_time": "2026-01-12T03:50:41.861758"
+      },
+      {
+        "path": "models/text_encoders/text2image/FLUX1/t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/text2image/FLUX1/t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "size_mb": 4918.43,
+        "modified_time": "2026-01-12T03:50:54.763837"
+      },
+      {
+        "path": "models/text_encoders/text2image/FLUX2/FLUX2/split_files/text_encoders/mistral_3_small_flux2_bf16.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/text2image/FLUX2/FLUX2/split_files/text_encoders/mistral_3_small_flux2_bf16.safetensors",
+        "size_mb": 33936.4,
+        "modified_time": "2026-01-12T03:52:22.716313"
+      },
+      {
+        "path": "models/text_encoders/text2video/umt5-xxl-enc-bf16.safetensors",
+        "full_path": "ComfyUI/models/text_encoders/text2video/umt5-xxl-enc-bf16.safetensors",
+        "size_mb": 10835.5,
+        "modified_time": "2026-01-12T03:52:51.265445"
+      },
+      {
+        "path": "models/transformers/TencentGameMate/chinese-wav2vec2-base/pytorch_model.bin",
+        "full_path": "ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base/pytorch_model.bin",
+        "size_mb": 362.65,
+        "modified_time": "2026-01-12T03:54:33.900839"
+      },
+      {
+        "path": "models/ultralytics/face_yolov8m.pt",
+        "full_path": "ComfyUI/models/ultralytics/face_yolov8m.pt",
+        "size_mb": 49.59,
+        "modified_time": "2026-03-17T13:35:33.996155"
+      },
+      {
+        "path": "models/upscale_models/realesrganX4plusAnime_v1.pt",
+        "full_path": "ComfyUI/models/upscale_models/realesrganX4plusAnime_v1.pt",
+        "size_mb": 17.11,
+        "modified_time": "2026-01-12T03:53:08.271519"
+      },
+      {
+        "path": "models/upscale_models/RealESRGAN_x2plus.pth",
+        "full_path": "ComfyUI/models/upscale_models/RealESRGAN_x2plus.pth",
+        "size_mb": 63.96,
+        "modified_time": "2026-01-17T08:10:07.954150"
+      },
+      {
+        "path": "models/upscale_models/RealESRGAN_x4plus.pth",
+        "full_path": "ComfyUI/models/upscale_models/RealESRGAN_x4plus.pth",
+        "size_mb": 4.66,
+        "modified_time": "2026-01-17T08:10:19.872450"
+      },
+      {
+        "path": "models/vae/taef1_decoder.pth",
+        "full_path": "ComfyUI/models/vae/taef1_decoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2025-12-13T10:43:56"
+      },
+      {
+        "path": "models/vae/taesd3_decoder.pth",
+        "full_path": "ComfyUI/models/vae/taesd3_decoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2025-12-13T10:43:55"
+      },
+      {
+        "path": "models/vae/taesdxl_decoder.pth",
+        "full_path": "ComfyUI/models/vae/taesdxl_decoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2025-12-13T10:43:53"
+      },
+      {
+        "path": "models/vae/taesd_decoder.pth",
+        "full_path": "ComfyUI/models/vae/taesd_decoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2025-12-13T10:43:54"
+      },
+      {
+        "path": "models/vae/wan_2.1_vae.safetensors",
+        "full_path": "ComfyUI/models/vae/wan_2.1_vae.safetensors",
+        "size_mb": 242.06,
+        "modified_time": "2026-01-12T03:53:10.493528"
+      },
+      {
+        "path": "models/vae/FLUX1/ae.safetensors",
+        "full_path": "ComfyUI/models/vae/FLUX1/ae.safetensors",
+        "size_mb": 319.77,
+        "modified_time": "2026-01-12T03:53:09.822525"
+      },
+      {
+        "path": "models/vae/flux2/flux2-vae.safetensors",
+        "full_path": "ComfyUI/models/vae/flux2/flux2-vae.safetensors",
+        "size_mb": 320.64,
+        "modified_time": "2026-01-12T03:53:15.787550"
+      },
+      {
+        "path": "models/vae/image2image/split_files/vae/qwen_image_vae.safetensors",
+        "full_path": "ComfyUI/models/vae/image2image/split_files/vae/qwen_image_vae.safetensors",
+        "size_mb": 242.05,
+        "modified_time": "2026-01-12T03:53:08.926521"
+      },
+      {
+        "path": "models/vae/split_files/vae/wan2.2_vae.safetensors",
+        "full_path": "ComfyUI/models/vae/split_files/vae/wan2.2_vae.safetensors",
+        "size_mb": 1344.11,
+        "modified_time": "2026-01-12T03:53:14.144543"
+      },
+      {
+        "path": "models/vae/vae/LTX23_video_vae_bf16.safetensors",
+        "full_path": "ComfyUI/models/vae/vae/LTX23_video_vae_bf16.safetensors",
+        "size_mb": 1384.98,
+        "modified_time": "2026-03-14T05:54:38.969583"
+      },
+      {
+        "path": "models/vae/videos/ltx2-3/vae/LTX23_audio_vae_bf16.safetensors",
+        "full_path": "ComfyUI/models/vae/videos/ltx2-3/vae/LTX23_audio_vae_bf16.safetensors",
+        "size_mb": 347.95,
+        "modified_time": "2026-03-14T05:41:56.526516"
+      },
+      {
+        "path": "models/vae/zimage-turbo/split_files/vae/ae.safetensors",
+        "full_path": "ComfyUI/models/vae/zimage-turbo/split_files/vae/ae.safetensors",
+        "size_mb": 319.77,
+        "modified_time": "2026-01-12T03:53:14.981547"
+      },
+      {
+        "path": "models/vae_approx/taef1_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taef1_decoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taef1_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taef1_encoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taef2_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taef2_decoder.pth",
+        "size_mb": 2.58,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taef2_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taef2_encoder.pth",
+        "size_mb": 2.58,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesana_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesana_decoder.pth",
+        "size_mb": 15.87,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesana_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesana_encoder.pth",
+        "size_mb": 2.42,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesd3_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesd3_decoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesd3_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesd3_encoder.pth",
+        "size_mb": 4.71,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesdxl_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesdxl_decoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesdxl_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesdxl_encoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesd_decoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesd_decoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/vae_approx/taesd_encoder.pth",
+        "full_path": "ComfyUI/models/vae_approx/taesd_encoder.pth",
+        "size_mb": 4.69,
+        "modified_time": "2026-01-30T07:50:08"
+      },
+      {
+        "path": "models/checkpoints/ltx2/ltx-2.3-22b-dev.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/ltx2/ltx-2.3-22b-dev.safetensors",
+        "size_mb": 44011.45,
+        "modified_time": "2026-03-10T11:01:48.817989"
+      },
+      {
+        "path": "models/checkpoints/music/dir/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/music/dir/checkpoints/ace_step_1.5_turbo_aio.safetensors",
+        "size_mb": 9561.04,
+        "modified_time": "2026-02-04T15:56:39.723631"
+      },
+      {
+        "path": "models/checkpoints/text2image/illustAsianCoser_v20.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/text2image/illustAsianCoser_v20.safetensors",
+        "size_mb": 6616.66,
+        "modified_time": "2026-01-12T03:37:42.878526"
+      },
+      {
+        "path": "models/checkpoints/text2image/oneObsession_v18.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/text2image/oneObsession_v18.safetensors",
+        "size_mb": 6616.63,
+        "modified_time": "2026-03-14T08:20:16.109975"
+      },
+      {
+        "path": "models/checkpoints/text2image/wai-nsfw-illustrious-sdxl/waiIllustriousSDXL_v150.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/text2image/wai-nsfw-illustrious-sdxl/waiIllustriousSDXL_v150.safetensors",
+        "size_mb": 6616.63,
+        "modified_time": "2026-01-12T03:37:46.217501"
+      },
+      {
+        "path": "models/checkpoints/text2video/ltx-2-19b-dev-fp8.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/text2video/ltx-2-19b-dev-fp8.safetensors",
+        "size_mb": 25824.28,
+        "modified_time": "2026-01-26T09:31:33.212168"
+      },
+      {
+        "path": "models/checkpoints/v18/Qwen-Rapid-AIO-NSFW-v18.safetensors",
+        "full_path": "ComfyUI/models/checkpoints/v18/Qwen-Rapid-AIO-NSFW-v18.safetensors",
+        "size_mb": 27114.72,
+        "modified_time": "2026-01-12T03:38:11.177314"
+      },
+      {
+        "path": "models/clip/qwen_3_8b_fp8mixed.safetensors",
+        "full_path": "ComfyUI/models/clip/qwen_3_8b_fp8mixed.safetensors",
+        "size_mb": 8263.44,
+        "modified_time": "2026-01-21T07:29:50.940295"
+      },
+      {
+        "path": "models/clip_vision/split_files/clip_vision/clip_vision_h.safetensors",
+        "full_path": "ComfyUI/models/clip_vision/split_files/clip_vision/clip_vision_h.safetensors",
+        "size_mb": 1205.65,
+        "modified_time": "2026-01-12T03:38:12.426305"
+      },
+      {
+        "path": "models/controlnet/dw-ll_ucoco_384_bs5.torchscript.pt",
+        "full_path": "ComfyUI/models/controlnet/dw-ll_ucoco_384_bs5.torchscript.pt",
+        "size_mb": 128.8,
+        "modified_time": "2026-01-12T03:38:12.556304"
+      },
+      {
+        "path": "models/controlnet/Wan21_Uni3C_controlnet_fp16.safetensors",
+        "full_path": "ComfyUI/models/controlnet/Wan21_Uni3C_controlnet_fp16.safetensors",
+        "size_mb": 1904.79,
+        "modified_time": "2026-01-31T14:52:35.983540"
+      },
+      {
+        "path": "models/controlnet/yolox_l.onnx",
+        "full_path": "ComfyUI/models/controlnet/yolox_l.onnx",
+        "size_mb": 206.71,
+        "modified_time": "2026-01-12T03:38:12.773302"
+      },
+      {
+        "path": "models/detection/vitpose-l-wholebody.onnx",
+        "full_path": "ComfyUI/models/detection/vitpose-l-wholebody.onnx",
+        "size_mb": 1177.39,
+        "modified_time": "2026-02-01T02:50:39.174714"
+      },
+      {
+        "path": "models/detection/yolov10m.onnx",
+        "full_path": "ComfyUI/models/detection/yolov10m.onnx",
+        "size_mb": 58.8,
+        "modified_time": "2026-02-01T02:53:38.333703"
+      },
+      {
+        "path": "models/diffusers/wai-nsfw-illustrious-sdxl/text_encoder/model.safetensors",
+        "full_path": "ComfyUI/models/diffusers/wai-nsfw-illustrious-sdxl/text_encoder/model.safetensors",
+        "size_mb": 469.46,
+        "modified_time": "2026-01-12T03:38:13.269299"
+      },
+      {
+        "path": "models/diffusers/wai-nsfw-illustrious-sdxl/text_encoder_2/model.safetensors",
+        "full_path": "ComfyUI/models/diffusers/wai-nsfw-illustrious-sdxl/text_encoder_2/model.safetensors",
+        "size_mb": 2649.98,
+        "modified_time": "2026-01-12T03:38:16.039278"
+      },
+      {
+        "path": "models/diffusers/wai-nsfw-illustrious-sdxl/unet/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "full_path": "ComfyUI/models/diffusers/wai-nsfw-illustrious-sdxl/unet/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size_mb": 9525.43,
+        "modified_time": "2026-01-12T03:38:26.558201"
+      },
+      {
+        "path": "models/diffusers/wai-nsfw-illustrious-sdxl/unet/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "full_path": "ComfyUI/models/diffusers/wai-nsfw-illustrious-sdxl/unet/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size_mb": 268.88,
+        "modified_time": "2026-01-12T03:38:27.002198"
+      },
+      {
+        "path": "models/diffusers/wai-nsfw-illustrious-sdxl/vae/diffusion_pytorch_model.safetensors",
+        "full_path": "ComfyUI/models/diffusers/wai-nsfw-illustrious-sdxl/vae/diffusion_pytorch_model.safetensors",
+        "size_mb": 319.14,
+        "modified_time": "2026-01-12T03:38:27.580194"
+      },
+      {
+        "path": "models/diffusion_models/image2image/qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2image/qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+        "size_mb": 19484.17,
+        "modified_time": "2026-01-12T03:39:24.088791"
+      },
+      {
+        "path": "models/diffusion_models/image2image/flux2/darkBeastMar0326Latest_dbkleinv2BFS.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2image/flux2/darkBeastMar0326Latest_dbkleinv2BFS.safetensors",
+        "size_mb": 8658.04,
+        "modified_time": "2026-03-11T09:30:07.959775"
+      },
+      {
+        "path": "models/diffusion_models/image2image/flux2/flux-2-klein-9b.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2image/flux2/flux-2-klein-9b.safetensors",
+        "size_mb": 17316.04,
+        "modified_time": "2026-01-21T05:54:30.167043"
+      },
+      {
+        "path": "models/diffusion_models/image2image/flux2/Flux2-Klein-9B-True-bf16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2image/flux2/Flux2-Klein-9B-True-bf16.safetensors",
+        "size_mb": 17316.04,
+        "modified_time": "2026-03-24T03:09:29.786182"
+      },
+      {
+        "path": "models/diffusion_models/image2image/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2image/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "size_mb": 19582.52,
+        "modified_time": "2026-01-12T03:40:13.190855"
+      },
+      {
+        "path": "models/diffusion_models/image2video/smoothMixWan22I2VT2V_i2vHigh.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2video/smoothMixWan22I2VT2V_i2vHigh.safetensors",
+        "size_mb": 20297.59,
+        "modified_time": "2026-01-12T03:45:36.018921"
+      },
+      {
+        "path": "models/diffusion_models/image2video/smoothMixWan22I2VT2V_i2vLow.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2video/smoothMixWan22I2VT2V_i2vLow.safetensors",
+        "size_mb": 20297.59,
+        "modified_time": "2026-01-12T03:46:29.128569"
+      },
+      {
+        "path": "models/diffusion_models/image2video/SCAIL/Wan21-14B-SCAIL-preview_comfy_bf16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2video/SCAIL/Wan21-14B-SCAIL-preview_comfy_bf16.safetensors",
+        "size_mb": 31271.05,
+        "modified_time": "2026-02-01T02:31:57.411126"
+      },
+      {
+        "path": "models/diffusion_models/image2video/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/image2video/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+        "size_mb": 13632.53,
+        "modified_time": "2026-01-13T04:18:20.656923"
+      },
+      {
+        "path": "models/diffusion_models/ltx2/MelBandRoformer_fp16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/ltx2/MelBandRoformer_fp16.safetensors",
+        "size_mb": 435.33,
+        "modified_time": "2026-01-29T13:36:26.689995"
+      },
+      {
+        "path": "models/diffusion_models/sound2video/infinite_talk/InfiniteTalk/Wan2_1-InfiniTetalk-Single_fp16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/sound2video/infinite_talk/InfiniteTalk/Wan2_1-InfiniTetalk-Single_fp16.safetensors",
+        "size_mb": 4887.83,
+        "modified_time": "2026-01-12T03:41:13.879336"
+      },
+      {
+        "path": "models/diffusion_models/sound2video/wan2.1/I2V/Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/sound2video/wan2.1/I2V/Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors",
+        "size_mb": 15872.33,
+        "modified_time": "2026-01-12T03:41:58.743316"
+      },
+      {
+        "path": "models/diffusion_models/sound2video/wan2.1_multitalk/WanVideo_2_1_Multitalk_14B_fp8_e4m3fn.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/sound2video/wan2.1_multitalk/WanVideo_2_1_Multitalk_14B_fp8_e4m3fn.safetensors",
+        "size_mb": 2587.05,
+        "modified_time": "2026-01-12T03:41:00.341022"
+      },
+      {
+        "path": "models/diffusion_models/text2image/FLUX1/flux1-dev-fp8.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2image/FLUX1/flux1-dev-fp8.safetensors",
+        "size_mb": 16447.57,
+        "modified_time": "2026-01-12T03:42:40.412145"
+      },
+      {
+        "path": "models/diffusion_models/text2image/FLUX2/split_files/diffusion_models/flux2_dev_fp8mixed.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2image/FLUX2/split_files/diffusion_models/flux2_dev_fp8mixed.safetensors",
+        "size_mb": 33813.09,
+        "modified_time": "2026-01-12T03:44:43.615202"
+      },
+      {
+        "path": "models/diffusion_models/text2image/FLUX2/split_files/vae/flux2-vae.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2image/FLUX2/split_files/vae/flux2-vae.safetensors",
+        "size_mb": 320.64,
+        "modified_time": "2026-01-12T03:43:14.991779"
+      },
+      {
+        "path": "models/diffusion_models/text2image/split_files/diffusion_models/z_image_bf16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2image/split_files/diffusion_models/z_image_bf16.safetensors",
+        "size_mb": 11739.6,
+        "modified_time": "2026-02-03T08:41:28.560543"
+      },
+      {
+        "path": "models/diffusion_models/text2image/z_image_turbo/z_image_turbo_bf16.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2image/z_image_turbo/z_image_turbo_bf16.safetensors",
+        "size_mb": 11739.6,
+        "modified_time": "2026-01-12T03:43:09.664684"
+      },
+      {
+        "path": "models/diffusion_models/text2video/NSFW_Wan/nsfw_wan_14b_e15.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2video/NSFW_Wan/nsfw_wan_14b_e15.safetensors",
+        "size_mb": 27253.24,
+        "modified_time": "2026-01-12T03:47:38.539306"
+      },
+      {
+        "path": "models/diffusion_models/text2video/smoothmixwan2.2/smoothMixWan22I2VT2V_t2vHighV20.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2video/smoothmixwan2.2/smoothMixWan22I2VT2V_t2vHighV20.safetensors",
+        "size_mb": 20296.03,
+        "modified_time": "2026-01-12T03:49:23.519215"
+      },
+      {
+        "path": "models/diffusion_models/text2video/smoothmixwan2.2/smoothMixWan22I2VT2V_t2vLowV20.safetensors",
+        "full_path": "ComfyUI/models/diffusion_models/text2video/smoothmixwan2.2/smoothMixWan22I2VT2V_t2vLowV20.safetensors",
+        "size_mb": 20296.03,
+        "modified_time": "2026-01-12T03:48:29.721778"
+      },
+      {
+        "path": "models/faster-whisper/faster-whisper-large-v3/model.bin",
+        "full_path": "ComfyUI/models/faster-whisper/faster-whisper-large-v3/model.bin",
+        "size_mb": 2944.26,
+        "modified_time": "2026-02-02T08:24:53.377885"
+      },
+      {
+        "path": "models/fishaudioS2/s2-pro/codec.pth",
+        "full_path": "ComfyUI/models/fishaudioS2/s2-pro/codec.pth",
+        "size_mb": 1784.42,
+        "modified_time": "2026-03-19T00:55:02.118728"
+      },
+      {
+        "path": "models/fishaudioS2/s2-pro/model-00001-of-00002.safetensors",
+        "full_path": "ComfyUI/models/fishaudioS2/s2-pro/model-00001-of-00002.safetensors",
+        "size_mb": 4755.85,
+        "modified_time": "2026-03-19T00:56:52.341186"
+      },
+      {
+        "path": "models/fishaudioS2/s2-pro/model-00002-of-00002.safetensors",
+        "full_path": "ComfyUI/models/fishaudioS2/s2-pro/model-00002-of-00002.safetensors",
+        "size_mb": 3945.23,
+        "modified_time": "2026-03-19T00:56:34.214349"
+      },
+      {
+        "path": "models/HeartMula/model-00004-of-00004.safetensors",
+        "full_path": "ComfyUI/models/HeartMula/model-00004-of-00004.safetensors",
+        "size_mb": 906.55,
+        "modified_time": "2026-01-26T15:36:21.975343"
+      },
+      {
+        "path": "models/IndexTTS-2/campplus_cn_common.bin",
+        "full_path": "ComfyUI/models/IndexTTS-2/campplus_cn_common.bin",
+        "size_mb": 26.74,
+        "modified_time": "2026-01-25T14:20:32.194211"
+      },
+      {
+        "path": "models/IndexTTS-2/feat1.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/feat1.pt",
+        "size_mb": 0.05,
+        "modified_time": "2026-01-25T14:17:17.660936"
+      },
+      {
+        "path": "models/IndexTTS-2/feat2.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/feat2.pt",
+        "size_mb": 0.36,
+        "modified_time": "2026-01-25T14:17:17.924925"
+      },
+      {
+        "path": "models/IndexTTS-2/gpt.pth",
+        "full_path": "ComfyUI/models/IndexTTS-2/gpt.pth",
+        "size_mb": 3323.23,
+        "modified_time": "2026-01-25T14:20:22.599488"
+      },
+      {
+        "path": "models/IndexTTS-2/s2mel.pth",
+        "full_path": "ComfyUI/models/IndexTTS-2/s2mel.pth",
+        "size_mb": 1146.51,
+        "modified_time": "2026-01-25T14:19:02.246013"
+      },
+      {
+        "path": "models/IndexTTS-2/wav2vec2bert_stats.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/wav2vec2bert_stats.pt",
+        "size_mb": 0.01,
+        "modified_time": "2026-01-25T14:17:16.860969"
+      },
+      {
+        "path": "models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_discriminator_optimizer.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_discriminator_optimizer.pt",
+        "size_mb": 1378.73,
+        "modified_time": "2026-01-25T14:25:30.138698"
+      },
+      {
+        "path": "models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_discriminator_optimizer_3msteps.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_discriminator_optimizer_3msteps.pt",
+        "size_mb": 1378.73,
+        "modified_time": "2026-01-25T14:24:56.506265"
+      },
+      {
+        "path": "models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_generator.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_generator.pt",
+        "size_mb": 428.42,
+        "modified_time": "2026-01-25T14:24:08.480139"
+      },
+      {
+        "path": "models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_generator_3msteps.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/bigvgan/bigvgan_v2_22khz_80band_256x/bigvgan_generator_3msteps.pt",
+        "size_mb": 428.42,
+        "modified_time": "2026-01-25T14:24:06.706172"
+      },
+      {
+        "path": "models/IndexTTS-2/qwen0.6bemo4-merge/model.safetensors",
+        "full_path": "ComfyUI/models/IndexTTS-2/qwen0.6bemo4-merge/model.safetensors",
+        "size_mb": 1136.91,
+        "modified_time": "2026-01-25T14:19:23.745299"
+      },
+      {
+        "path": "models/IndexTTS-2/semantic_codec/model.safetensors",
+        "full_path": "ComfyUI/models/IndexTTS-2/semantic_codec/model.safetensors",
+        "size_mb": 168.98,
+        "modified_time": "2026-01-25T14:20:29.552287"
+      },
+      {
+        "path": "models/IndexTTS-2/w2v-bert-2.0/conformer_shaw.pt",
+        "full_path": "ComfyUI/models/IndexTTS-2/w2v-bert-2.0/conformer_shaw.pt",
+        "size_mb": 2221.23,
+        "modified_time": "2026-01-25T14:23:08.567344"
+      },
+      {
+        "path": "models/IndexTTS-2/w2v-bert-2.0/model.safetensors",
+        "full_path": "ComfyUI/models/IndexTTS-2/w2v-bert-2.0/model.safetensors",
+        "size_mb": 2214.49,
+        "modified_time": "2026-01-25T14:22:40.190964"
+      },
+      {
+        "path": "models/latent_upscale_models/ltx2/ltx-2-spatial-upscaler-x2-1.0.safetensors",
+        "full_path": "ComfyUI/models/latent_upscale_models/ltx2/ltx-2-spatial-upscaler-x2-1.0.safetensors",
+        "size_mb": 949.64,
+        "modified_time": "2026-01-29T08:06:45.727544"
+      },
+      {
+        "path": "models/latent_upscale_models/ltx2/ltx-2.3-spatial-upscaler-x2-1.0.safetensors",
+        "full_path": "ComfyUI/models/latent_upscale_models/ltx2/ltx-2.3-spatial-upscaler-x2-1.0.safetensors",
+        "size_mb": 949.62,
+        "modified_time": "2026-03-10T11:05:39.238063"
+      },
+      {
+        "path": "models/loras/flux2/flux.2-turbo-lora.safetensors",
+        "full_path": "ComfyUI/models/loras/flux2/flux.2-turbo-lora.safetensors",
+        "size_mb": 2632.92,
+        "modified_time": "2026-01-12T03:49:43.158361"
+      },
+      {
+        "path": "models/loras/image2image/Qwen-Image-Lightning-4steps-V1.0.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/Qwen-Image-Lightning-4steps-V1.0.safetensors",
+        "size_mb": 1620.25,
+        "modified_time": "2026-01-12T03:49:27.940248"
+      },
+      {
+        "path": "models/loras/image2image/klein/flux-klein-tryon-comfy.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/klein/flux-klein-tryon-comfy.safetensors",
+        "size_mb": 120.8,
+        "modified_time": "2026-03-24T04:47:53.470844"
+      },
+      {
+        "path": "models/loras/image2image/klein/Klein-consistency.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/klein/Klein-consistency.safetensors",
+        "size_mb": 316.03,
+        "modified_time": "2026-03-11T01:35:08.764674"
+      },
+      {
+        "path": "models/loras/image2image/klein/klein_snofs_v1_3.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/klein/klein_snofs_v1_3.safetensors",
+        "size_mb": 1040.04,
+        "modified_time": "2026-04-07T03:02:08.728446"
+      },
+      {
+        "path": "models/loras/image2image/klein/lenovo_flux_klein9b.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/klein/lenovo_flux_klein9b.safetensors",
+        "size_mb": 161.04,
+        "modified_time": "2026-04-07T03:08:29.909220"
+      },
+      {
+        "path": "models/loras/image2image/qwen-edit-2511/anime2real2511_25.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/qwen-edit-2511/anime2real2511_25.safetensors",
+        "size_mb": 225.18,
+        "modified_time": "2026-01-13T02:36:16.300451"
+      },
+      {
+        "path": "models/loras/image2image/qwen-edit-2511/anything2real_2601.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/qwen-edit-2511/anything2real_2601.safetensors",
+        "size_mb": 585.16,
+        "modified_time": "2026-01-12T03:49:29.502260"
+      },
+      {
+        "path": "models/loras/image2image/qwen-edit-2511/qwen-image-edit-2511-multiple-angles-lora.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/qwen-edit-2511/qwen-image-edit-2511-multiple-angles-lora.safetensors",
+        "size_mb": 281.47,
+        "modified_time": "2026-01-13T02:32:21.892488"
+      },
+      {
+        "path": "models/loras/image2image/qwen-edit-2511/高斯泼溅-Sharp.safetensors",
+        "full_path": "ComfyUI/models/loras/image2image/qwen-edit-2511/高斯泼溅-Sharp.safetensors",
+        "size_mb": 225.18,
+        "modified_time": "2026-01-17T09:25:36.328317"
+      },
+      {
+        "path": "models/loras/image2video/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+        "full_path": "ComfyUI/models/loras/image2video/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+        "size_mb": 703.82,
+        "modified_time": "2026-02-01T05:25:24.841670"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2-19b-distilled-lora-384.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2-19b-distilled-lora-384.safetensors",
+        "size_mb": 7319.03,
+        "modified_time": "2026-01-29T05:33:58.210762"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2-19b-lora-camera-control-dolly-left.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2-19b-lora-camera-control-dolly-left.safetensors",
+        "size_mb": 312.15,
+        "modified_time": "2026-01-29T08:17:35.885342"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2.3-22b-distilled-lora-384.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2.3-22b-distilled-lora-384.safetensors",
+        "size_mb": 7253.18,
+        "modified_time": "2026-03-10T14:02:01.279096"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors",
+        "size_mb": 624.15,
+        "modified_time": "2026-03-14T05:45:33.447716"
+      },
+      {
+        "path": "models/loras/ltx2/ltx2.3-transition.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx2.3-transition.safetensors",
+        "size_mb": 372.15,
+        "modified_time": "2026-03-28T03:39:14.954900"
+      },
+      {
+        "path": "models/loras/ltx2/MelBandRoformer_fp16.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/MelBandRoformer_fp16.safetensors",
+        "size_mb": 435.33,
+        "modified_time": "2026-01-29T05:08:25.810593"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2.3/busansuji_ltx23.comfy.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2.3/busansuji_ltx23.comfy.safetensors",
+        "size_mb": 384.1,
+        "modified_time": "2026-04-07T03:35:03.973895"
+      },
+      {
+        "path": "models/loras/ltx2/ltx-2.3/head_swap_v3_rank_adaptive_fro_098.safetensors",
+        "full_path": "ComfyUI/models/loras/ltx2/ltx-2.3/head_swap_v3_rank_adaptive_fro_098.safetensors",
+        "size_mb": 1295.53,
+        "modified_time": "2026-03-28T03:26:18.932684"
+      },
+      {
+        "path": "models/loras/sound2video/Lightx2v/lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank128_bf16.safetensors",
+        "full_path": "ComfyUI/models/loras/sound2video/Lightx2v/lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank128_bf16.safetensors",
+        "size_mb": 1195.14,
+        "modified_time": "2026-01-12T03:49:32.626284"
+      },
+      {
+        "path": "models/loras/text2image/klein/anime2real-semi.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/klein/anime2real-semi.safetensors",
+        "size_mb": 158.03,
+        "modified_time": "2026-01-27T05:41:49.377048"
+      },
+      {
+        "path": "models/loras/text2image/klein/Flux2 Klein动漫转写实真人 AnythingtoRealCharacters.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/klein/Flux2 Klein动漫转写实真人 AnythingtoRealCharacters.safetensors",
+        "size_mb": 158.03,
+        "modified_time": "2026-01-28T21:43:17.065389"
+      },
+      {
+        "path": "models/loras/text2image/klein/op_aesthetics.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/klein/op_aesthetics.safetensors",
+        "size_mb": 158.03,
+        "modified_time": "2026-01-27T14:45:39.892931"
+      },
+      {
+        "path": "models/loras/text2image/wai/Ass Size Slider - Illustrious.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/wai/Ass Size Slider - Illustrious.safetensors",
+        "size_mb": 8.38,
+        "modified_time": "2026-01-12T03:49:33.193288"
+      },
+      {
+        "path": "models/loras/text2image/wai/Breast Size Slider - Illustrious - V2_alpha1.0_rank4_noxattn_last.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/wai/Breast Size Slider - Illustrious - V2_alpha1.0_rank4_noxattn_last.safetensors",
+        "size_mb": 8.38,
+        "modified_time": "2026-01-12T03:49:34.317296"
+      },
+      {
+        "path": "models/loras/text2image/wai/CunnyFunky_style_illu_v2.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/wai/CunnyFunky_style_illu_v2.safetensors",
+        "size_mb": 217.89,
+        "modified_time": "2026-01-12T03:49:34.297296"
+      },
+      {
+        "path": "models/loras/text2image/wai/MoriiMee_Gothic_Niji_Style_Illustrious_r1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/wai/MoriiMee_Gothic_Niji_Style_Illustrious_r1.safetensors",
+        "size_mb": 217.88,
+        "modified_time": "2026-01-12T03:49:33.746292"
+      },
+      {
+        "path": "models/loras/text2image/wai/Sinfully_Stylish_1.0Beta_for_Illustrious.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/wai/Sinfully_Stylish_1.0Beta_for_Illustrious.safetensors",
+        "size_mb": 217.88,
+        "modified_time": "2026-01-12T03:49:33.176288"
+      },
+      {
+        "path": "models/loras/text2image/z_image/abf-丰满的身材.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/abf-丰满的身材.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-01-12T03:49:34.731299"
+      },
+      {
+        "path": "models/loras/text2image/z_image/ai girl 005 v2.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/ai girl 005 v2.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-13T07:22:29.578530"
+      },
+      {
+        "path": "models/loras/text2image/z_image/honghanfu_lora_v1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/honghanfu_lora_v1.safetensors",
+        "size_mb": 81.15,
+        "modified_time": "2026-01-28T07:18:30.660604"
+      },
+      {
+        "path": "models/loras/text2image/z_image/Kook_Zimage_真实幻想_Turbo.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/Kook_Zimage_真实幻想_Turbo.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-13T07:24:39.458637"
+      },
+      {
+        "path": "models/loras/text2image/z_image/NIceAsians_Zimage.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/NIceAsians_Zimage.safetensors",
+        "size_mb": 648.81,
+        "modified_time": "2026-01-21T10:43:51.466168"
+      },
+      {
+        "path": "models/loras/text2image/z_image/qinglong_detailedeye_z-imageV2comfy.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/qinglong_detailedeye_z-imageV2comfy.safetensors",
+        "size_mb": 363.91,
+        "modified_time": "2026-03-13T03:32:19.713340"
+      },
+      {
+        "path": "models/loras/text2image/z_image/Tutu's half-leg aurora black stockings_Zimg_V1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/Tutu's half-leg aurora black stockings_Zimg_V1.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-01-12T03:49:35.174303"
+      },
+      {
+        "path": "models/loras/text2image/z_image/twitter ai girl 07-3.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/twitter ai girl 07-3.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-13T07:18:57.188949"
+      },
+      {
+        "path": "models/loras/text2image/z_image/Z-IMAGE 极致写实_V1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/Z-IMAGE 极致写实_V1.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-20T06:03:56.711996"
+      },
+      {
+        "path": "models/loras/text2image/z_image/ZIT feet.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/ZIT feet.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-13T07:28:34.598341"
+      },
+      {
+        "path": "models/loras/text2image/z_image/古风绝美女子，病娇美人气质_v1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/古风绝美女子，病娇美人气质_v1.safetensors",
+        "size_mb": 175.83,
+        "modified_time": "2026-03-20T06:03:52.329920"
+      },
+      {
+        "path": "models/loras/text2image/z_image/纸片人zimge-lora-xxhDM_v1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/纸片人zimge-lora-xxhDM_v1.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-01-12T03:49:35.629306"
+      },
+      {
+        "path": "models/loras/text2image/z_image/胸部滑块boobsv21.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/胸部滑块boobsv21.safetensors",
+        "size_mb": 24.36,
+        "modified_time": "2026-03-13T13:42:29.778980"
+      },
+      {
+        "path": "models/loras/text2image/z_image/nsfw/op_remake.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/nsfw/op_remake.safetensors",
+        "size_mb": 324.43,
+        "modified_time": "2026-01-27T05:40:23.419749"
+      },
+      {
+        "path": "models/loras/text2image/z_image/nsfw/RedLSP_extracted_lora_full_rank.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image/nsfw/RedLSP_extracted_lora_full_rank.safetensors",
+        "size_mb": 11739.59,
+        "modified_time": "2026-01-19T05:50:21.622115"
+      },
+      {
+        "path": "models/loras/text2image/z_image_base/chenglao_v1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image_base/chenglao_v1.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-30T09:56:55.901222"
+      },
+      {
+        "path": "models/loras/text2image/z_image_base/chenglao_v1_copy_000000500.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image_base/chenglao_v1_copy_000000500.safetensors",
+        "size_mb": 162.25,
+        "modified_time": "2026-03-30T08:30:26.850043"
+      },
+      {
+        "path": "models/loras/text2image/z_image_base/Dynasty_ZiB_1.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image_base/Dynasty_ZiB_1.safetensors",
+        "size_mb": 302.87,
+        "modified_time": "2026-03-16T02:37:59.302998"
+      },
+      {
+        "path": "models/loras/text2image/z_image_base/Kook_Zimage_Base_极致真实.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image_base/Kook_Zimage_Base_极致真实.safetensors",
+        "size_mb": 302.87,
+        "modified_time": "2026-03-15T02:03:05.926638"
+      },
+      {
+        "path": "models/loras/text2image/z_image_base/Z-Image-Fun-Lora-Distill-8-Steps-2603-ComfyUI.safetensors",
+        "full_path": "ComfyUI/models/loras/text2image/z_image_base/Z-Image-Fun-Lora-Distill-8-Steps-2603-ComfyUI.safetensors",
+        "size_mb": 541.95,
+        "modified_time": "2026-03-19T16:56:09.045573"
+      },
+      {
+        "path": "models/loras/text2video/wan2.1/Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank32.safetensors",
+        "full_path": "ComfyUI/models/loras/text2video/wan2.1/Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank32.safetensors",
+        "size_mb": 302.15,
+        "modified_time": "2026-01-12T03:49:36.476312"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_shading.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_shading.safetensors",
+        "size_mb": 6.12,
+        "modified_time": "2025-12-13T10:43:30"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_albedo.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_albedo.safetensors",
+        "size_mb": 6.12,
+        "modified_time": "2025-12-13T10:43:30"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_normal.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_normal.safetensors",
+        "size_mb": 6.12,
+        "modified_time": "2025-12-13T10:43:30"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_depth.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-KJNodes/intrinsic_loras/intrinsic_lora_sd15_depth.safetensors",
+        "size_mb": 6.12,
+        "modified_time": "2025-12-13T10:43:30"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-WanVideoWrapper/fantasyportrait/models/face_landmark.onnx",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/fantasyportrait/models/face_landmark.onnx",
+        "size_mb": 2.73,
+        "modified_time": "2026-02-04T16:44:58.886534"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-WanVideoWrapper/fantasyportrait/models/face_det.onnx",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/fantasyportrait/models/face_det.onnx",
+        "size_mb": 0.35,
+        "modified_time": "2026-02-04T16:44:58.874534"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-WanVideoWrapper/multitalk/encoded_silence.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-WanVideoWrapper/multitalk/encoded_silence.safetensors",
+        "size_mb": 1.58,
+        "modified_time": "2026-02-04T16:44:58.895535"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/ckpts/depth-anything/Depth-Anything-V2-Large/depth_anything_v2_vitl.pth",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/depth-anything/Depth-Anything-V2-Large/depth_anything_v2_vitl.pth",
+        "size_mb": 1279.25,
+        "modified_time": "2026-03-14T08:53:33.032132"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.torchscript.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.torchscript.pt",
+        "size_mb": 207.61,
+        "modified_time": "2026-03-14T09:35:45.546362"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt",
+        "size_mb": 128.8,
+        "modified_time": "2026-03-14T06:02:29.616679"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx",
+        "size_mb": 128.17,
+        "modified_time": "2026-03-23T05:33:33.412634"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/yolox_l.onnx",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/yolox_l.onnx",
+        "size_mb": 206.71,
+        "modified_time": "2026-03-14T05:59:19.415799"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_indices.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_indices.pt",
+        "size_mb": 0.02,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_indices.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_indices.pt",
+        "size_mb": 0.05,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/MANO_RIGHT.pkl",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/MANO_RIGHT.pkl",
+        "size_mb": 3.29,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_size.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_size.pt",
+        "size_mb": 0.0,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/MANO_LEFT.pkl",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/MANO_LEFT.pkl",
+        "size_mb": 3.29,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_values.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_values.pt",
+        "size_mb": 0.01,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_values.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/mano_195_adjmat_values.pt",
+        "size_mb": 0.01,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_size.pt",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_mesh_graphormer/modeling/data/smpl_431_adjmat_size.pt",
+        "size_mb": 0.0,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/comfyui_controlnet_aux/src/custom_controlnet_aux/diffusion_edge/taming/modules/autoencoder/lpips/vgg.pth",
+        "full_path": "ComfyUI/custom_nodes/comfyui_controlnet_aux/src/custom_controlnet_aux/diffusion_edge/taming/modules/autoencoder/lpips/vgg.pth",
+        "size_mb": 0.01,
+        "modified_time": "2025-12-13T10:43:38"
+      },
+      {
+        "path": "custom_nodes/seedvr2_videoupscaler/neg_emb.pt",
+        "full_path": "ComfyUI/custom_nodes/seedvr2_videoupscaler/neg_emb.pt",
+        "size_mb": 0.63,
+        "modified_time": "2026-03-13T02:51:40.617478"
+      },
+      {
+        "path": "custom_nodes/seedvr2_videoupscaler/pos_emb.pt",
+        "full_path": "ComfyUI/custom_nodes/seedvr2_videoupscaler/pos_emb.pt",
+        "size_mb": 0.57,
+        "modified_time": "2026-03-13T02:51:40.620478"
+      },
+      {
+        "path": "custom_nodes/efficiency-nodes-comfyui/py/sdxl_resizer.pt",
+        "full_path": "ComfyUI/custom_nodes/efficiency-nodes-comfyui/py/sdxl_resizer.pt",
+        "size_mb": 12.04,
+        "modified_time": "2025-12-13T10:43:29"
+      },
+      {
+        "path": "custom_nodes/efficiency-nodes-comfyui/py/sd15_resizer.pt",
+        "full_path": "ComfyUI/custom_nodes/efficiency-nodes-comfyui/py/sd15_resizer.pt",
+        "size_mb": 12.04,
+        "modified_time": "2025-12-13T10:43:29"
+      },
+      {
+        "path": "custom_nodes/ComfyUI-SDPose-OOD/empty_text_encoder/empty_embedding.safetensors",
+        "full_path": "ComfyUI/custom_nodes/ComfyUI-SDPose-OOD/empty_text_encoder/empty_embedding.safetensors",
+        "size_mb": 0.01,
+        "modified_time": "2026-03-23T02:43:22.562622"
+      },
+      {
+        "path": "custom_nodes/comfy_mtb/extern/GFPGAN/tests/data/test_eye_mouth_landmarks.pth",
+        "full_path": "ComfyUI/custom_nodes/comfy_mtb/extern/GFPGAN/tests/data/test_eye_mouth_landmarks.pth",
+        "size_mb": 0.0,
+        "modified_time": "2025-12-13T10:43:48"
+      }
+    ]
+  },
+  "system_stats_api": {
+    "system": {
+      "os": "linux",
+      "ram_total": 101099229184,
+      "ram_free": 86364073984,
+      "comfyui_version": "0.17.2",
+      "required_frontend_version": "1.41.20",
+      "installed_templates_version": "0.9.21",
+      "required_templates_version": "0.9.21",
+      "python_version": "3.12.12 (main, Nov 19 2025, 20:39:39) [GCC]",
+      "pytorch_version": "2.9.1+cu128",
+      "embedded_python": false,
+      "argv": [
+        "./ComfyUI/main.py",
+        "--listen",
+        "--port",
+        "8188",
+        "--disable-xformers",
+        "--front-end-version",
+        "Comfy-Org/ComfyUI_frontend@v1.39.19"
+      ]
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5090 D : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 33647820800,
+        "vram_free": 31456559104,
+        "torch_vram_total": 33554432,
+        "torch_vram_free": 25034752
+      }
+    ]
+  },
+  "python_packages_count": 564
+}
